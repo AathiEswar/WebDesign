@@ -13,7 +13,7 @@ h1{
 }
 
 .char{
-    transform: translateY(120px);
+    transform: translateY(0);
     transition: transform .5s;
     
 }
