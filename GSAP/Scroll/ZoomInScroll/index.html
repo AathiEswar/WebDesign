@@ -5,29 +5,29 @@
     <title>Zoom Scroll</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="logo"> </div>
-        <div class="header">
-            <div class="letters">
-                <div>A</div>
-                <div>a</div>
-                <div>t</div>
-                <div>h</div>
-                <div>i</div>
-            </div>
-            <div class="letters">
-                <div>E</div>
-                <div>s</div>
-                <div>w</div>
-                <div>a</div>
-                <div>r</div>
-            </div>
+    <div class="header">
+        <div class="letters">
+            <div>A</div>
+            <div>a</div>
+            <div>t</div>
+            <div>h</div>
+            <div>i</div>
         </div>
-   
+        <div class="letters">
+            <div>E</div>
+            <div>s</div>
+            <div>w</div>
+            <div>a</div>
+            <div>r</div>
+        </div>
+    </div>
+
     <div class="website-content">
         <div class="img-holder">
             <img src="./forest.jpg" alt="">
@@ -59,13 +59,17 @@
 
             <div class="row">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro minus, praesentium enim necessitatibus consequatur nesciunt blanditiis vero fugiat voluptatem id eum, molestiae, temporibus in et aut itaque reprehenderit quas ab.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro minus, praesentium enim
+                    necessitatibus consequatur nesciunt blanditiis vero fugiat voluptatem id eum, molestiae, temporibus
+                    in et aut itaque reprehenderit quas ab.
                 </p>
             </div>
 
             <div class="row">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro minus, praesentium enim necessitatibus consequatur nesciunt blanditiis vero fugiat voluptatem id eum, molestiae, temporibus in et aut itaque reprehenderit quas ab.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro minus, praesentium enim
+                    necessitatibus consequatur nesciunt blanditiis vero fugiat voluptatem id eum, molestiae, temporibus
+                    in et aut itaque reprehenderit quas ab.
                 </p>
             </div>
         </div>
@@ -76,75 +80,90 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
         integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 
 
-        <script>
-            gsap.registerPlugin(ScrollTrigger);
-            document.addEventListener("DOMContentLoaded", function(){
-                const contentHolderHeight = document.getElementsByClassName("content-holder").offsetHeight;
-                const imageHolderHeight = window.innerHeight;
-                const additionalScrollHeight = window.innerHeight;
+    <script>
 
-                const totalBodyHeight = contentHolderHeight + imageHolderHeight + additionalScrollHeight;
-                document.body.style.height = `${totalBodyHeight}px`
-            });
+        gsap.registerPlugin(ScrollTrigger);
+        document.addEventListener("DOMContentLoaded", function () {
+            const contentHolderHeight = document.getElementsByClassName("content-holder").offsetHeight;
+            const imageHolderHeight = window.innerHeight;
+            const additionalScrollHeight = window.innerHeight;
 
-            ScrollTrigger.create({
-                trigger : ".website-content",
-                start : "-0.1% top",
-                end : "bottom bottom",
-                onEnter : () => {
-                    gsap.set(".website-content" , {position : "absolute" ,top : "300%" });
+            const totalBodyHeight = contentHolderHeight + imageHolderHeight + additionalScrollHeight;
+            document.body.style.height = `${totalBodyHeight}px`
+        });
 
-                },
-                onLeaveBack:()=>{
-                    gsap.set(".wesite-content" , {position : "relative" , top : "0"});
-                }
-            })
+        ScrollTrigger.create({
+            trigger: ".website-content",
+            start: "-0.1% top",
+            end: "bottom bottom",
+            onEnter: () => {
+                gsap.set(".website-content", { position: "absolute", top: "300%" });
 
-            gsap.to(".header .letters:first-child",{
-                x : () => -innerWidth * 3,
-                scale : 10,
-                ease : "power2.inOut",
-                scrollTrigger : {
-                    start : "top top",
-                    end : `+=200%`,
-                    scrub : 1,
-                }
-            })
+            },
+            onLeaveBack: () => {
+                gsap.set(".wesite-content", { position: "relative", top: "0" });
+            }
+        })
 
-            gsap.to(".header .letters:last-child",{
-                x : () => innerWidth * 3,
-                scale : 10,
-                ease : "power2.inOut",
-                scrollTrigger : {
-                    start : "top top",
-                    end : `+=200%`,
-                    scrub : 1,
-                }
-            })
+        gsap.to(".header .letters:first-child", {
+            x: () => -innerWidth * 3,
+            scale: 10,
+            ease: "power2.inOut",
+            scrollTrigger: {
+                start: "top top",
+                end: `+=200%`,
+                scrub: 1,
+            }
+        })
 
-            gsap.to(".img-holder" , {
-                rotation : 0,
-                clipPath : "polygon(0% 0%, 100% 0%,100% 100% , 0% 100%)",
-                ease : "power2.inOut",
-                scrollTrigger : {
-                    start : "top top",
-                    end : `+=200%`,
-                    scrub : 1
-                }
-            })
+        gsap.to(".header .letters:last-child", {
+            x: () => innerWidth * 3,
+            scale: 10,
+            ease: "power2.inOut",
+            scrollTrigger: {
+                start: "top top",
+                end: `+=200%`,
+                scrub: 1,
+            }
+        })
 
-            gsap.to(".img-holder img" , {
-                scale : 1,
-                ease: "power2.inOut",
-                scrollTrigger : {
-                    start : "top top",
-                    end : `+=200%`,
-                    scrub : 1
-                }
-            })
-        </script>
+        gsap.to(".img-holder", {
+            rotation: 0,
+            clipPath: "polygon(0% 0%, 100% 0%,100% 100% , 0% 100%)",
+            ease: "power2.inOut",
+            scrollTrigger: {
+                start: "top top",
+                end: `+=200%`,
+                scrub: 1
+            }
+        })
+
+        gsap.to(".img-holder img", {
+            scale: 1,
+            ease: "power2.inOut",
+            scrollTrigger: {
+                start: "top top",
+                end: `+=200%`,
+                scrub: 1
+            }
+        })
+
+        const lenis = new Lenis()
+
+        lenis.on('scroll', (e) => {
+            console.log(e)
+        })
+
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf);
+    </script>
 </body>
 
 </html>
