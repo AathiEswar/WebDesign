@@ -31,3 +31,22 @@ Sept-8 2024
 - Branding
 - UI Visual Elements and Patterns
 - UI Necessary Behaviours
+
+  <br/>
+**Sept-11 2024** 
+
+## Concepts 
+{Just a general Theory )
+- Usability
+- Information Architecture
+- Qualitative and Quantitative Research
+- User Flows
+- Sketch
+- WireFrame
+
+  ## Resources
+
+- [Wireframe Tutorial - YouTube](https://youtu.be/x3Yno9VUYBY?si=DxobzZSBhGu85yWu)
+- [A UX Wireframe Tutorial ](https://youtu.be/pN92rnO_n5U?si=h1B_DMczqYFtxrO1)
+
+  
