@@ -49,4 +49,10 @@ Sept-8 2024
 - [Wireframe Tutorial - YouTube](https://youtu.be/x3Yno9VUYBY?si=DxobzZSBhGu85yWu)
 - [A UX Wireframe Tutorial ](https://youtu.be/pN92rnO_n5U?si=h1B_DMczqYFtxrO1)
 
+  <br/>
+**Sept-11 2024** 
+
+  ## Resources
+
+- [WhatsApp WireFrame(In Progress)](https://www.figma.com/proto/3OmhaZUXraHeHXaYVAhtqG/Whatsapp-WireFrame?node-id=0-1&t=Rz2dNZldVMumVBom-1)
   
