@@ -57,10 +57,14 @@ Sept-8 2024
 - [WhatsApp WireFrame(In Progress)](https://www.figma.com/proto/3OmhaZUXraHeHXaYVAhtqG/Whatsapp-WireFrame?node-id=0-1&t=Rz2dNZldVMumVBom-1)
 
     <br/>
-**Sept-14 2024** 
+**Sept-14 2024**
+  ## Progress
+- [WhatsApp WireFrame ](https://www.figma.com/proto/3OmhaZUXraHeHXaYVAhtqG/Whatsapp-WireFrame?node-id=0-1&t=Rz2dNZldVMumVBom-1)
+
+
+
 
   ## Resources
-
-- [WhatsApp WireFrame(In Completed)](https://www.figma.com/proto/3OmhaZUXraHeHXaYVAhtqG/Whatsapp-WireFrame?node-id=0-1&t=Rz2dNZldVMumVBom-1)
+- [Tesla Website With Figma ( In Progress - 13:31) (Design System and High Fidelity Prototype)](https://youtu.be/XiqitRY3swo?si=BOP6UqrIZmPD0Vhs)
   
   
