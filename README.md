@@ -55,4 +55,12 @@ Sept-8 2024
   ## Resources
 
 - [WhatsApp WireFrame(In Progress)](https://www.figma.com/proto/3OmhaZUXraHeHXaYVAhtqG/Whatsapp-WireFrame?node-id=0-1&t=Rz2dNZldVMumVBom-1)
+
+    <br/>
+**Sept-14 2024** 
+
+  ## Resources
+
+- [WhatsApp WireFrame(In Completed)](https://www.figma.com/proto/3OmhaZUXraHeHXaYVAhtqG/Whatsapp-WireFrame?node-id=0-1&t=Rz2dNZldVMumVBom-1)
+  
   
