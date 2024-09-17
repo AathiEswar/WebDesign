@@ -44,7 +44,7 @@ Sept-8 2024
 - Sketch
 - WireFrame
 
-  ## Resources
+ ## Resources
 
 - [Wireframe Tutorial - YouTube](https://youtu.be/x3Yno9VUYBY?si=DxobzZSBhGu85yWu)
 - [A UX Wireframe Tutorial ](https://youtu.be/pN92rnO_n5U?si=h1B_DMczqYFtxrO1)
@@ -52,32 +52,32 @@ Sept-8 2024
   <br/>
 **Sept-11 2024** 
 
-  ## Resources
+## Resources
 
 - WhatsApp WireFrame(In Progress)[](https://www.figma.com/proto/3OmhaZUXraHeHXaYVAhtqG/Whatsapp-WireFrame?node-id=0-1&t=Rz2dNZldVMumVBom-1)
 
     <br/>
 **Sept-14 2024**
-  ## Progress
+## Progress
 - [WhatsApp WireFrame ](https://www.figma.com/proto/3OmhaZUXraHeHXaYVAhtqG/Whatsapp-WireFrame?node-id=0-1&t=Rz2dNZldVMumVBom-1)
 
-  ## Resources
+## Resources
 - [Tesla Website With Figma ( In Progress - 13:31) (Design System and High Fidelity Prototype)](https://youtu.be/XiqitRY3swo?si=BOP6UqrIZmPD0Vhs)
   
   
     <br/>
 **Sept-17 2024**
-  
-  ## Concepts
+
+## Concepts
 - Red Route Sketch ( Surface Level )
 - User Flows ( Surface Level )
 - Sketching Principles ( Surface Level Rules )
 - Responsive Design Principles ( An Overview )
 
   
-  ## Progress
+## Progress
 - [Basic Figma Interactions (Page 1 and Page 2)](https://www.figma.com/proto/6wwjGzkJl2DOmyfYulIXzy/Basic-Interactions?node-id=0-1&t=iSyt376ksIEB2ZZO-1) </br>
 
-  ## Resources
+## Resources
 - [Figma UX tutorial for beginners - Prototype - Aliena Cai ](https://youtu.be/v1UKB-0EUhQ?si=NZiXbJVh537i6OVh)
   
