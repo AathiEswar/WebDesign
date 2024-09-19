@@ -97,9 +97,9 @@ Sept-8 2024
 **Sept-19 2024**
 
 ## Concepts
-- WireFraming 
-- WireFlows ( Overview )
-- Prototyping ( High Fidelity Mockups )
+- Interaction Patterns
+- Usability Testing
+- Prototype Iterations
 
 ## Progress
 - [Responsive Design with a Starter Design ](https://www.figma.com/proto/t2i8iYJ4oqGZr5hYL8UKZJ/Responsive-Layout-Practice-File?node-id=0-1&t=pBR4ODfcyY5o909X-1)  
