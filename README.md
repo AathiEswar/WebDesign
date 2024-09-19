@@ -50,7 +50,7 @@ Sept-8 2024
 - [A UX Wireframe Tutorial ](https://youtu.be/pN92rnO_n5U?si=h1B_DMczqYFtxrO1)
 
   <br/>
-**Sept-11 2024** 
+**Sept-12 2024** 
 
 ## Resources
 
@@ -80,4 +80,29 @@ Sept-8 2024
 
 ## Resources
 - [Figma UX tutorial for beginners - Prototype - Aliena Cai ](https://youtu.be/v1UKB-0EUhQ?si=NZiXbJVh537i6OVh)
+
   
+    <br/>
+**Sept-18 2024**
+
+## Concepts
+- WireFraming 
+- WireFlows ( Overview )
+- Prototyping ( High Fidelity Mockups )
+
+## Progress
+- [Basic Figma Interactions (Completed)](https://www.figma.com/proto/6wwjGzkJl2DOmyfYulIXzy/Basic-Interactions?node-id=0-1&t=iSyt376ksIEB2ZZO-1) </br>
+
+    <br/>
+**Sept-19 2024**
+
+## Concepts
+- WireFraming 
+- WireFlows ( Overview )
+- Prototyping ( High Fidelity Mockups )
+
+## Progress
+- [Responsive Design with a Starter Design ](https://www.figma.com/proto/t2i8iYJ4oqGZr5hYL8UKZJ/Responsive-Layout-Practice-File?node-id=0-1&t=pBR4ODfcyY5o909X-1)  
+
+## Resources
+- [Responsive Design In Figma - DesignWithArash ](https://youtu.be/gwiX0oASlEw?si=fJGZzLJH2WSXsBwt) </br>
