@@ -106,3 +106,16 @@ Sept-8 2024
 
 ## Resources
 - [Responsive Design In Figma - DesignWithArash ](https://youtu.be/gwiX0oASlEw?si=fJGZzLJH2WSXsBwt) </br>
+
+    <br/>
+**Sept-21 2024**
+
+## Concepts
+- Break Points
+
+## Progress
+- [Responsive Design with a Starter Design ( With BreakPoints ) ](https://www.figma.com/proto/t2i8iYJ4oqGZr5hYL8UKZJ/Responsive-Layout-Practice-File?node-id=0-1&t=pBR4ODfcyY5o909X-1)  
+
+## Resources
+- [Responsive Design In Figma - DesignWithArash ](https://youtu.be/gwiX0oASlEw?si=fJGZzLJH2WSXsBwt) </br>
+- [BreakPoints - DesignWithArash ](https://youtu.be/c0ZTaDMGb20?si=JcPEuy1CYEaS_lsq)
