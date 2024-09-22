@@ -125,5 +125,10 @@ Sept-8 2024
 
 
 ## Progress
-- [Instagram Post page ( Sketch , WireFrame , Mockup ) ](https://www.figma.com/proto/8BCoCFZiheQlhQ3V4Awqey/Instagram-Post-Design?node-id=0-1&t=nrW9hmW2vLfq53Sv-11)  
+- [Instagram Post page ( Sketch , WireFrame , Mockup ) ](https://www.figma.com/proto/8BCoCFZiheQlhQ3V4Awqey/Instagram-Post-Design?node-id=0-1&t=nrW9hmW2vLfq53Sv-11)
+
+## Resources
+- [UX Tutorial WireFraming - Aliena Cai ](https://youtu.be/D4NyQ5iOMF0?si=Oh2GqyhpHa0gpr7d) </br>
+- [UX Tutorial Prototyping - Aliena Cai ](https://youtu.be/v1UKB-0EUhQ?si=Z0gSj_VWpjRqDGd4) </br>
+- [UX Tutorial Mockup - Aliena Cai ](https://youtu.be/oZAKb_gs2Uo?si=ha4Ct_B2H7ATPlAw) </br>
 
