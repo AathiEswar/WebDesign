@@ -119,3 +119,11 @@ Sept-8 2024
 ## Resources
 - [Responsive Design In Figma - DesignWithArash ](https://youtu.be/gwiX0oASlEw?si=fJGZzLJH2WSXsBwt) </br>
 - [BreakPoints - DesignWithArash ](https://youtu.be/c0ZTaDMGb20?si=JcPEuy1CYEaS_lsq)
+
+    <br/>
+**Sept-22 2024**
+
+
+## Progress
+- [Instagram Post page ( Sketch , WireFrame , Mockup ) ](https://www.figma.com/proto/8BCoCFZiheQlhQ3V4Awqey/Instagram-Post-Design?node-id=0-1&t=nrW9hmW2vLfq53Sv-11)  
+
