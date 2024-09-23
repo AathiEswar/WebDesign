@@ -1,3 +1,12 @@
+Sept-23 2024 
+## Resources
+
+- [Figma Scroll Animation - DesignWithArash - YouTube](https://youtu.be/pIF_zIDaZ94?si=D_hpKX1hYUe7MQ3A)
+- [Figma Splash Screen Animation - Time Gabe - YouTube](https://youtu.be/s19_n6rcXIY?si=SQ6oaC3CpNnu4ZNK)
+- [Figma Full Page Scroll Animation - Pixxelex - YouTube](https://youtu.be/pIF_zIDaZ94?si=D_hpKX1hYUe7MQ3A)
+
+<br/>
+
 Sept-8 2024 
 ## Resources
 
