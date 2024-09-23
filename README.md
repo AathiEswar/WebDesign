@@ -4,43 +4,88 @@ Sept-23 2024
 - [Figma Scroll Animation - DesignWithArash - YouTube](https://youtu.be/pIF_zIDaZ94?si=D_hpKX1hYUe7MQ3A)
 - [Figma Splash Screen Animation - Time Gabe - YouTube](https://youtu.be/s19_n6rcXIY?si=SQ6oaC3CpNnu4ZNK)
 - [Figma Full Page Scroll Animation - Pixxelex - YouTube](https://youtu.be/pIF_zIDaZ94?si=D_hpKX1hYUe7MQ3A)
-
 <br/>
 
-Sept-8 2024 
-## Resources
-
-- [Figma Tutorial - YouTube](https://youtu.be/HZuk6Wkx_Eg?si=MBRfGuU2eRUd7_ds)
-- [Flux Figma Build Tutorial (Community) - Figma Prototype](https://bit.ly/figma_tutorial)
-
+<br/>
+Sept-22 2024
 ## Progress
+- [Instagram Post page ( Sketch , WireFrame , Mockup ) ](https://www.figma.com/proto/8BCoCFZiheQlhQ3V4Awqey/Instagram-Post-Design?node-id=0-1&t=nrW9hmW2vLfq53Sv-11)
 
-- [KRYPTO - Figma Prototype](https://www.figma.com/proto/SNuNfl0n75gse2NNTdM6WP/Flux---Figma-Build-Tutorial-(Starter)-(Community)?node-id=0-1&t=1vB1JbSBYuMlGtQ1-1)
-
-<br/>
-
-**Sept-9 2024** 
-
-## Concepts 
-
-- What is UI ?
-- What is UX ?
-- UI vs UX
-- Design Thinking Principles of UX
-- Convergent and Divergent Thinking 
-- BrainStorming and GameStorming
-- The Why , What , How principle  
+## Resources
+- [UX Tutorial WireFraming - Aliena Cai ](https://youtu.be/D4NyQ5iOMF0?si=Oh2GqyhpHa0gpr7d) </br>
+- [UX Tutorial Prototyping - Aliena Cai ](https://youtu.be/v1UKB-0EUhQ?si=Z0gSj_VWpjRqDGd4) </br>
+- [UX Tutorial Mockup - Aliena Cai ](https://youtu.be/oZAKb_gs2Uo?si=ha4Ct_B2H7ATPlAw) </br>
 
   <br/>
-**Sept-10 2024** 
+**Sept-21 2024**
 
-## Concepts 
+## Concepts
+- Break Points
 
-- UX Process Methodologies
-- Branding
-- UI Visual Elements and Patterns
-- UI Necessary Behaviours
+## Progress
+- [Responsive Design with a Starter Design ( With BreakPoints ) ](https://www.figma.com/proto/t2i8iYJ4oqGZr5hYL8UKZJ/Responsive-Layout-Practice-File?node-id=0-1&t=pBR4ODfcyY5o909X-1)  
 
+## Resources
+- [Responsive Design In Figma - DesignWithArash ](https://youtu.be/gwiX0oASlEw?si=fJGZzLJH2WSXsBwt) </br>
+- [BreakPoints - DesignWithArash ](https://youtu.be/c0ZTaDMGb20?si=JcPEuy1CYEaS_lsq)
+
+    <br/>
+**Sept-19 2024**
+
+## Concepts
+- Interaction Patterns
+- Usability Testing
+- Prototype Iterations
+
+## Progress
+- [Responsive Design with a Starter Design ](https://www.figma.com/proto/t2i8iYJ4oqGZr5hYL8UKZJ/Responsive-Layout-Practice-File?node-id=0-1&t=pBR4ODfcyY5o909X-1)  
+
+## Resources
+- [Responsive Design In Figma - DesignWithArash ](https://youtu.be/gwiX0oASlEw?si=fJGZzLJH2WSXsBwt) </br>
+
+
+    <br/>
+**Sept-18 2024**
+
+## Concepts
+- WireFraming 
+- WireFlows ( Overview )
+- Prototyping ( High Fidelity Mockups )
+
+## Progress
+- [Basic Figma Interactions (Completed)](https://www.figma.com/proto/6wwjGzkJl2DOmyfYulIXzy/Basic-Interactions?node-id=0-1&t=iSyt376ksIEB2ZZO-1) </br>
+
+    <br/>
+**Sept-17 2024**
+
+## Concepts
+- Red Route Sketch ( Surface Level )
+- User Flows ( Surface Level )
+- Sketching Principles ( Surface Level Rules )
+- Responsive Design Principles ( An Overview )
+
+  
+## Progress
+- [Basic Figma Interactions (Page 1 and Page 2)](https://www.figma.com/proto/6wwjGzkJl2DOmyfYulIXzy/Basic-Interactions?node-id=0-1&t=iSyt376ksIEB2ZZO-1) </br>
+
+## Resources
+- [Figma UX tutorial for beginners - Prototype - Aliena Cai ](https://youtu.be/v1UKB-0EUhQ?si=NZiXbJVh537i6OVh)
+
+  <br/>
+**Sept-12 2024** 
+
+## Resources
+
+- WhatsApp WireFrame(In Progress)[](https://www.figma.com/proto/3OmhaZUXraHeHXaYVAhtqG/Whatsapp-WireFrame?node-id=0-1&t=Rz2dNZldVMumVBom-1)
+
+    <br/>
+**Sept-14 2024**
+## Progress
+- [WhatsApp WireFrame ](https://www.figma.com/proto/3OmhaZUXraHeHXaYVAhtqG/Whatsapp-WireFrame?node-id=0-1&t=Rz2dNZldVMumVBom-1)
+
+## Resources
+- [Tesla Website With Figma ( In Progress - 13:31) (Design System and High Fidelity Prototype)](https://youtu.be/XiqitRY3swo?si=BOP6UqrIZmPD0Vhs)
+  
   <br/>
 **Sept-11 2024** 
 
@@ -58,86 +103,47 @@ Sept-8 2024
 - [Wireframe Tutorial - YouTube](https://youtu.be/x3Yno9VUYBY?si=DxobzZSBhGu85yWu)
 - [A UX Wireframe Tutorial ](https://youtu.be/pN92rnO_n5U?si=h1B_DMczqYFtxrO1)
 
+
   <br/>
-**Sept-12 2024** 
+**Sept-10 2024** 
 
-## Resources
+## Concepts 
 
-- WhatsApp WireFrame(In Progress)[](https://www.figma.com/proto/3OmhaZUXraHeHXaYVAhtqG/Whatsapp-WireFrame?node-id=0-1&t=Rz2dNZldVMumVBom-1)
+- UX Process Methodologies
+- Branding
+- UI Visual Elements and Patterns
+- UI Necessary Behaviours
 
-    <br/>
-**Sept-14 2024**
-## Progress
-- [WhatsApp WireFrame ](https://www.figma.com/proto/3OmhaZUXraHeHXaYVAhtqG/Whatsapp-WireFrame?node-id=0-1&t=Rz2dNZldVMumVBom-1)
+<br/>
 
-## Resources
-- [Tesla Website With Figma ( In Progress - 13:31) (Design System and High Fidelity Prototype)](https://youtu.be/XiqitRY3swo?si=BOP6UqrIZmPD0Vhs)
-  
-  
-    <br/>
-**Sept-17 2024**
+**Sept-9 2024** 
 
-## Concepts
-- Red Route Sketch ( Surface Level )
-- User Flows ( Surface Level )
-- Sketching Principles ( Surface Level Rules )
-- Responsive Design Principles ( An Overview )
+## Concepts 
 
-  
-## Progress
-- [Basic Figma Interactions (Page 1 and Page 2)](https://www.figma.com/proto/6wwjGzkJl2DOmyfYulIXzy/Basic-Interactions?node-id=0-1&t=iSyt376ksIEB2ZZO-1) </br>
+- What is UI ?
+- What is UX ?
+- UI vs UX
+- Design Thinking Principles of UX
+- Convergent and Divergent Thinking 
+- BrainStorming and GameStorming
+- The Why , What , How principle  
 
-## Resources
-- [Figma UX tutorial for beginners - Prototype - Aliena Cai ](https://youtu.be/v1UKB-0EUhQ?si=NZiXbJVh537i6OVh)
+
 
   
-    <br/>
-**Sept-18 2024**
 
-## Concepts
-- WireFraming 
-- WireFlows ( Overview )
-- Prototyping ( High Fidelity Mockups )
-
-## Progress
-- [Basic Figma Interactions (Completed)](https://www.figma.com/proto/6wwjGzkJl2DOmyfYulIXzy/Basic-Interactions?node-id=0-1&t=iSyt376ksIEB2ZZO-1) </br>
-
-    <br/>
-**Sept-19 2024**
-
-## Concepts
-- Interaction Patterns
-- Usability Testing
-- Prototype Iterations
-
-## Progress
-- [Responsive Design with a Starter Design ](https://www.figma.com/proto/t2i8iYJ4oqGZr5hYL8UKZJ/Responsive-Layout-Practice-File?node-id=0-1&t=pBR4ODfcyY5o909X-1)  
-
+Sept-8 2024 
 ## Resources
-- [Responsive Design In Figma - DesignWithArash ](https://youtu.be/gwiX0oASlEw?si=fJGZzLJH2WSXsBwt) </br>
 
-    <br/>
-**Sept-21 2024**
-
-## Concepts
-- Break Points
+- [Figma Tutorial - YouTube](https://youtu.be/HZuk6Wkx_Eg?si=MBRfGuU2eRUd7_ds)
+- [Flux Figma Build Tutorial (Community) - Figma Prototype](https://bit.ly/figma_tutorial)
 
 ## Progress
-- [Responsive Design with a Starter Design ( With BreakPoints ) ](https://www.figma.com/proto/t2i8iYJ4oqGZr5hYL8UKZJ/Responsive-Layout-Practice-File?node-id=0-1&t=pBR4ODfcyY5o909X-1)  
 
-## Resources
-- [Responsive Design In Figma - DesignWithArash ](https://youtu.be/gwiX0oASlEw?si=fJGZzLJH2WSXsBwt) </br>
-- [BreakPoints - DesignWithArash ](https://youtu.be/c0ZTaDMGb20?si=JcPEuy1CYEaS_lsq)
-
-    <br/>
-**Sept-22 2024**
+- [KRYPTO - Figma Prototype](https://www.figma.com/proto/SNuNfl0n75gse2NNTdM6WP/Flux---Figma-Build-Tutorial-(Starter)-(Community)?node-id=0-1&t=1vB1JbSBYuMlGtQ1-1)
 
 
-## Progress
-- [Instagram Post page ( Sketch , WireFrame , Mockup ) ](https://www.figma.com/proto/8BCoCFZiheQlhQ3V4Awqey/Instagram-Post-Design?node-id=0-1&t=nrW9hmW2vLfq53Sv-11)
 
-## Resources
-- [UX Tutorial WireFraming - Aliena Cai ](https://youtu.be/D4NyQ5iOMF0?si=Oh2GqyhpHa0gpr7d) </br>
-- [UX Tutorial Prototyping - Aliena Cai ](https://youtu.be/v1UKB-0EUhQ?si=Z0gSj_VWpjRqDGd4) </br>
-- [UX Tutorial Mockup - Aliena Cai ](https://youtu.be/oZAKb_gs2Uo?si=ha4Ct_B2H7ATPlAw) </br>
+
+
 
