@@ -1,3 +1,10 @@
+Sept-24 2024 
+## Resources
+
+- [Menu Animation - Shmelt Studios - YouTube](https://youtu.be/P8O78APM17c?si=tNPSsx4880d4XI0T)
+- [Spring Icon Animation - Figma - YouTube](https://youtu.be/BAIy0brM9r0?si=kLp0FhN1JcHZ5e3o)
+- [Menu Action Animation - Figma - YouTube](https://youtu.be/oHv6vnFXBeo?si=6AVtnn1e3h8heMSO)
+<br/>
 Sept-23 2024 
 ## Resources
 
