@@ -1,4 +1,4 @@
-Sept-24 2024 
+Sept-25 2024 
 ## Resources
 
 - [Parallel Scroll Effect - Ui Adrian - YouTube](https://youtu.be/4r5T4zeQDjM?si=dJJ9THqmwfYVnKsv)
