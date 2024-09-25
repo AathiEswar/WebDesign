@@ -1,6 +1,14 @@
 Sept-24 2024 
 ## Resources
 
+- [Parallel Scroll Effect - Ui Adrian - YouTube](https://youtu.be/4r5T4zeQDjM?si=dJJ9THqmwfYVnKsv)
+- [Carousal - Flux Academy - YouTube](https://youtu.be/4YFRYho3vuM?si=nxdZkc0t17XfgPM_)
+- [Horizontal Scrolling 3D - TheUiChamp - YouTube](https://youtu.be/-INi8V9tSW0?si=h9uY3MnVlk38z4rH)
+<br/>
+
+Sept-24 2024 
+## Resources
+
 - [Menu Animation - Shmelt Studios - YouTube](https://youtu.be/P8O78APM17c?si=tNPSsx4880d4XI0T)
 - [Spring Icon Animation - Figma - YouTube](https://youtu.be/BAIy0brM9r0?si=kLp0FhN1JcHZ5e3o)
 - [Menu Action Animation - Figma - YouTube](https://youtu.be/oHv6vnFXBeo?si=6AVtnn1e3h8heMSO)
