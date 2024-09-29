@@ -1,3 +1,14 @@
+Sept-29 2024 
+## Progress 
+- [Figma Animations](https://www.figma.com/proto/khE8ucRijCg0PGaxwQBpIa/Animations?node-id=1-3&t=YILgxgV4aygZq1WH-1)
+-   Splash Screen
+-   Carousal
+-   Spring Icons
+-   Slider
+-   Action Menu
+-   Sliding Menu 
+<br/>
+
 Sept-25 2024 
 ## Resources
 
