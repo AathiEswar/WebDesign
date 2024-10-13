@@ -1,3 +1,12 @@
+Oct-13 2024 
+## Progress 
+- [Startedgy - Drone Website ](https://aathi28082003.wixstudio.io/startedgy)
+
+## Resources
+- [WIX - Essentials ](https://youtu.be/2pM6ii4c5as?si=8UFHleMKHRzdnYHZ)
+<br/>
+
+
 Sept-29 2024 
 ## Progress 
 - [Figma Animations](https://www.figma.com/proto/khE8ucRijCg0PGaxwQBpIa/Animations?node-id=1-3&t=YILgxgV4aygZq1WH-1)
