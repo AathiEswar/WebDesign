@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../navigation/style.module.scss';
 import Link from './link/index.jsx'
 import CurveSvg from './curve-svg/index.jsx';
-import { menuSlide } from './anim.js';
+import { footerLinkPop, menuSlide } from './anim.js';
 import { motion } from "framer-motion";
 
 
@@ -48,12 +48,21 @@ function index() {
             </div>
           </div>
         </div>
-        <div className={styles.footer}>
-          <a>Instagram</a>
-          <a>Facebook</a>
-          <a>Awwwards</a>
-          <a>Dribble</a>
-        </div>
+        <motion.div
+          className={styles.footer}>
+          {
+            ["Instagram", "Facebook", "Awwards", "Dribble"].map((linkName, index) => {
+              return (<motion.a
+                variants={footerLinkPop}
+                initial="initial"
+                animate="enter"
+                exit="exit"
+                custom={index}>
+                {linkName}
+              </motion.a>)
+            })
+          }
+        </motion.div>
         <CurveSvg />
       </div>
     </motion.div>
