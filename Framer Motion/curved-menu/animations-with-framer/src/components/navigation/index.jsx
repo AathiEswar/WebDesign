@@ -42,7 +42,7 @@ function index() {
             <div>
               {
                 navItems.map((item, index) => {
-                  return <Link data={{ ...item, index }} />
+                  return <Link key={index} data={{ ...item, index }} />
                 })
               }
             </div>
@@ -57,6 +57,7 @@ function index() {
                 initial="initial"
                 animate="enter"
                 exit="exit"
+                key={index}
                 custom={index}>
                 {linkName}
               </motion.a>)
