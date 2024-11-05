@@ -1,10 +1,20 @@
 import React from 'react'
 import Scene from './Scene'
+import styles from './style.module.scss'
+import { useNavigate } from 'react-router-dom';
+import Magnetic from '../../../animation-wrappers/magnetic.jsx'
 
 function DonutMain() {
+  const navigate = useNavigate();
   return (
-    <div className='relative h-screen'>
-     <Scene />
+    <div className={`${styles.body} relative h-screen`}>
+      <button className={`${styles.backButton}`} onClick={() => navigate(-1)} style={{ cursor: 'pointer' }}>
+        GO<br/>BACK
+      </button>
+      <p className={`${styles.heading} absolute text-white z-10`}>
+        THE DONUT
+      </p>
+      <Scene />
     </div>
   )
 }
