@@ -4,6 +4,7 @@ import styles from './assets/css/styles.module.scss'
 import Nav from './components/navigation/index.jsx';
 import { motion, AnimatePresence } from 'framer-motion';
 import Magnetic from './animation-wrappers/magnetic.jsx';
+import { Outlet, Link } from "react-router-dom";
 
 function App() {
   const [isActive, setIsActive] = useState(false);
@@ -18,10 +19,15 @@ function App() {
         {isActive && <Nav />}
       </AnimatePresence>
 
+      <div className={styles.buttonBody}>
+        <Link className={`${styles.navButtons} threejs `} to={`3dmodels`}>3d Animations</Link>
+        <Link className={`${styles.navButtons} scrollAni`} to={`buttons`}>Scroll Animations</Link>
+      </div>
+
       <Magnetic>
         <div className={styles.magnetButton}>
           <p>
-          Hover Me!
+            Hover Me!
           </p>
         </div>
       </Magnetic>
