@@ -3,7 +3,7 @@ import './App.css'
 import styles from './assets/css/styles.module.scss'
 import Nav from './components/navigation/index.jsx';
 import { motion, AnimatePresence } from 'framer-motion';
-import Magnetic from './animation-wrappers/magnetic.jsx';
+import { MagneticContainer} from './animation-wrappers/magnetic.jsx';
 import { Outlet, Link } from "react-router-dom";
 
 function App() {
@@ -11,10 +11,10 @@ function App() {
 
   return (
     <section className={styles.body}>
-      <div onClick={() => setIsActive(!isActive)} className={styles.button}>
-        <div className={`${styles.burger} ${isActive ? styles.burgerActive : ''}`}>
-        </div>
-      </div>
+      <MagneticContainer onClick={() => setIsActive(!isActive)} className={styles.button}>
+          <div className={`${styles.burger} ${isActive ? styles.burgerActive : ''}`}>
+          </div>
+      </MagneticContainer>
       <AnimatePresence node="wait">
         {isActive && <Nav />}
       </AnimatePresence>
@@ -24,13 +24,11 @@ function App() {
         <Link className={`${styles.navButtons} scrollAni`} to={`buttons`}>Scroll Animations</Link>
       </div>
 
-      <Magnetic>
-        <div className={styles.magnetButton}>
+      <MagneticContainer amplitudex={1} periodx={0.3} amplitudey={1} periody={0.3} className={styles.magnetButton}>
           <p>
             Hover Me!
           </p>
-        </div>
-      </Magnetic>
+      </MagneticContainer>
     </section>
   )
 }
