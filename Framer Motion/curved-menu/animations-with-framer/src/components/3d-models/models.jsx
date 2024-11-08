@@ -1,11 +1,32 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
-import styles from './3d-donut/style.module.scss'
+import styles from './styles.module.scss'
 
 function MainModels() {
+  const links = [
+    {
+      to : 'donut',
+      text : 'Donut'
+    },
+    {
+      to : 'drag',
+      text : 'Drag'
+    },
+    {
+      to : 'follow',
+      text : 'Mouse Follow'
+    },{
+      to : 'scroll',
+      text : 'Scroll Gesture'
+    }
+  ]
   return (
     <div className={styles.buttonBody}>
-      <Link className={styles.navButtons} to={"donut"}>DONUT</Link>
+    {
+      links.map(link => {
+        return (<Link className={`${styles.navButtons}`} to={link.to}>{link.text}</Link>)
+      })
+    }
     </div>
   )
 }

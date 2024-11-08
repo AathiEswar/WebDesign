@@ -1,0 +1,18 @@
+@use "../../assets/css/styles.module.scss";
+
+.rockFont {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+	font-size: 25dvh;
+  transform: translate(-50% , 0);
+  color: rgb(127, 79, 12);
+  font-weight: 700;
+  line-height: 70px;
+  @media (max-width: 768px) {
+    font-size: 20dvh;;
+  }
+  @media (max-width: 435px) {
+    font-size: 17dvh;
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import Scene from './Scene'
-import styles from './style.module.scss'
+import styles from './assets/css/style.module.scss'
 import { useNavigate } from 'react-router-dom';
 
 function DonutMain() {
