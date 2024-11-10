@@ -23,7 +23,7 @@ function ScrollGesture() {
 
 function ScrollGeometryMesh({ progress }) {
   const meshRef = useRef();
-  const transformProgress = useTransform(progress , [0,1] , [0,5])
+  const transformProgress = useTransform(progress, [0, 1], [0, 5])
   const rotationProgress = useSpring(transformProgress, { damping: 20 });
 
 
@@ -31,6 +31,8 @@ function ScrollGeometryMesh({ progress }) {
     const rotation = rotationProgress.get()
     meshRef.current.rotation.y = rotation;
     meshRef.current.rotation.x = rotation;
+    const scaleValue = 1 + rotation * 0.1; 
+    meshRef.current.scale.set(scaleValue, scaleValue, scaleValue);
   });
 
   return (

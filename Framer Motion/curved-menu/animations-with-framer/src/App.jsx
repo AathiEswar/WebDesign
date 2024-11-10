@@ -5,6 +5,7 @@ import Nav from './components/navigation/index.jsx';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MagneticContainer} from './animation-wrappers/magnetic.jsx';
 import { Outlet, Link } from "react-router-dom";
+import { Magnet } from 'aventure'
 
 function App() {
   const [isActive, setIsActive] = useState(false);
