@@ -1,8 +1,17 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import styles from './styles.module.scss'
+import styled from 'styled-components'
 
-function index() {
+const StyledSvg = styled.svg`
+  position: absolute;
+  top: 0;
+  left: -99px ;
+  width: 100px;
+  height: 100%;
+  fill: rgb(29, 29, 29);
+  stroke: none;
+`
+function CurveSvg() {
   const initialPath = `M100 0 L100 ${window.innerHeight} Q-100 ${window.innerHeight / 2} 100 0`
   const targetPath = `M100 0 L100 ${window.innerHeight} Q100 ${window.innerHeight / 2} 100 0`
 
@@ -20,9 +29,9 @@ function index() {
       transition: { duration: 1, ease: [0.76, 0, 0.24, 1] }
     }
   }
+
   return (
-    <svg
-      className={styles.svg}>
+    <StyledSvg>
       <motion.path
         variants={pathAnimation}
         initial='initial'
@@ -30,8 +39,8 @@ function index() {
         exit="exit"
         d={initialPath}>
       </motion.path>
-    </svg>
+    </StyledSvg>
   )
 }
 
-export default index
+export default CurveSvg

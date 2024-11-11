@@ -18,12 +18,12 @@ function MouseFollow() {
 function RenderMesh() {
   const squareMesh = useRef(null);
   const options = {
-    damping : 20 ,
+    damping: 20,
   }
 
   const mouse = {
-    x: useSpring(useMotionValue(0) , options),
-    y: useSpring(useMotionValue(0) , options),
+    x: useSpring(useMotionValue(0), options),
+    y: useSpring(useMotionValue(0), options),
   }
   const mouseMoveHandler = (e) => {
     const { clientX, clientY } = e;
