@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Nav from '../navigation/index';
-import { AnimatePresence } from 'framer-motion';
-import styles from '../../assets/css/styles.module.scss'
+import { AnimatePresence , motion } from 'framer-motion';
 import styled from 'styled-components';
+import { slide , menuSlide , footerLinkPop } from './anim';
+import CurveSvg from './curve';
 
 const Button = styled.button`
  		position: fixed;
@@ -57,7 +57,147 @@ const Button = styled.button`
 			}
 		}
 `;
+const StyledMenuContainer = styled.div`
+  position: fixed;
+  width: 40%;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  background-color: rgb(29, 29, 29);
+  color: white;
+  z-index: 1;
 
+  @media (max-width : 768px) {
+    width: 100%;
+  }
+
+  .body{
+    padding : 50px 100px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (max-width : 768px) {
+      padding: 60px;
+    }
+
+    @media (max-width : 425px) {
+      padding: 40px;
+    }
+
+    .nav{
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      gap: 12px;
+      font-size: 56px;
+      .header{
+        p{
+          font-size: large;
+          color: gray;
+          margin-bottom: 40px;
+          border-bottom: 1px solid gray;
+          padding-bottom: 10px;
+        }
+      }
+
+      a{
+        text-decoration: none;
+        color : white;
+        font-weight: 300;
+      }
+    }
+
+    .footer{
+      flex-wrap: wrap;
+      display: flex;
+      gap: 16px;
+      font-size: 16px;
+    }
+  }
+`
+const MotionDiv = motion.create(StyledMenuContainer);
+
+function NavigationBar() {
+
+  const links = [
+    {
+      title: "Home",
+      href: '/',
+    },
+    {
+      title: "Work",
+      href: "/work",
+    },
+    {
+      title: "About",
+      href: "about",
+    },
+    {
+      title: "Contact",
+      href: "/contact",
+    },
+  ]
+
+  const subLinks = ["Instagram", "Facebook", "Awwards", "Dribble"];
+
+  
+  return (
+    <MotionDiv
+      variants={menuSlide}
+      animate="enter"
+      exit="exit"
+      initial="initial"
+      className={`menu`}>
+      <div className={`body`}>
+        <div className={`nav`}>
+          <div className={`header`}>
+            <p>
+              Navigation
+            </p>
+            <div>
+              {
+                links.map((data, index) => {
+                  return (
+                    <motion.div
+                      key={index}
+                      custom={data.index}
+                      variants={slide}
+                      animate="enter"
+                      exit="exit"
+                      initial="initial">
+                      <a href={data.href}>
+                        {data.title}
+                      </a>
+                    </motion.div>
+                  )
+                })
+              }
+            </div>
+          </div>
+        </div>
+        <motion.div
+          className={`footer`}>
+          {
+            subLinks.map((linkName, index) => {
+              return (<motion.a
+                variants={footerLinkPop}
+                initial="initial"
+                animate="enter"
+                exit="exit"
+                key={index}
+                custom={index}>
+                {linkName}
+              </motion.a>)
+            })
+          }
+        </motion.div>
+        <CurveSvg />
+      </div>
+    </MotionDiv>
+  )
+}
 
 function CurveHamMenu({hamStyles}) {
 
@@ -69,7 +209,7 @@ function CurveHamMenu({hamStyles}) {
         <div className={`burger ${isActive ? 'burgerActive' : ''}`}></div>
       </Button>
       <AnimatePresence node="wait">
-        {isActive && <Nav />}
+        {isActive && <NavigationBar />}
       </AnimatePresence>
 
     </div>

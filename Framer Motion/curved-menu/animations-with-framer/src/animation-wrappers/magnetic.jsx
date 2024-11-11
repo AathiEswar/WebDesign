@@ -4,7 +4,7 @@ import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(useGSAP);
 
-export default function index({ children }) {
+export default function MagneticContainer({ children }) {
   const magnetic = useRef(null);
 
   useGSAP(() => {
