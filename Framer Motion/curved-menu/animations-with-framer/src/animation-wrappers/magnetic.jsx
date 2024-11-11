@@ -4,17 +4,12 @@ import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(useGSAP);
 
-export function MagneticContainer({ children , ...props }) {
+export default function index({ children }) {
   const magnetic = useRef(null);
-  const amplitudeX = props.amplitudex;
-  const periodX = props.periodx;
-
-  const amplitudeY = props.amplitudey;
-  const periodY = props.periody;
 
   useGSAP(() => {
-    const xTo = gsap.quickTo(magnetic.current, "x", { duration: 1, ease: `elastic.out(${(amplitudeX ? amplitudeX : 1)}, ${(periodX ? periodX : 0.3)})` })
-    const yTo = gsap.quickTo(magnetic.current, "y", { duration: 1, ease: `elastic.out(${(amplitudeY ? amplitudeY : 1)}, ${(periodY ? periodY : 0.3)})` })
+    const xTo = gsap.quickTo(magnetic.current, "x", { duration: 1, ease: "elastic.out(1, 0.3)" })
+    const yTo = gsap.quickTo(magnetic.current, "y", { duration: 1, ease: "elastic.out(1, 0.3)" })
 
     const mouseEnter = (e) => {
       const { clientX, clientY } = e;
@@ -39,7 +34,7 @@ export function MagneticContainer({ children , ...props }) {
   }, [])
 
   return (
-  <div ref={magnetic} {...props} >
+    <div ref={magnetic}>
       {
         children
       }

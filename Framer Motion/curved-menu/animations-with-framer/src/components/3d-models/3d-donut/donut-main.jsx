@@ -2,6 +2,7 @@ import React from 'react'
 import Scene from './Scene'
 import styles from './assets/css/style.module.scss'
 import { useNavigate } from 'react-router-dom';
+import Magnetic from '../../../animation-wrappers/magnetic.jsx'
 
 function DonutMain() {
   const navigate = useNavigate();
