@@ -1,12 +1,12 @@
-const timeline = gsap.timeline();
-const titles = gsap.utils.toArray("p");
+const timelineP = gsap.timeline();
+const titles = gsap.utils.toArray(".p-innerText");
 
 titles.forEach(title => {
   const text = new SplitType(title);
  
   
     if(text.lines[0].textContent != "Aathi Eswar S"){
-      timeline
+      timelineP
         .from(text.chars , {
           opacity : 1,
           // y : 80,

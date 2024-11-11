@@ -1,4 +1,4 @@
-p{
+.p-innerText{
 
     font-size: 5rem;
     text-align: center;
@@ -12,7 +12,7 @@ p{
     
 }
 
-.container{
+.container-innerText{
     background-color: rgb(224, 223, 223);
     height: 100vh;
     margin: 0;

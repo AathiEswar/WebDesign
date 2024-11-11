@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Scrolling</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="top-screen"></div>
+
+
+        <div class="scroll-wrapper">
+            <div class="panel-wrapper">
+                <div class="panel1 panel"></div>
+                <div class="panel2 panel"></div>
+                <div class="panel3 panel"> </div>
+                <div class="panel4 panel"></div>
+            </div>
+
+        </div>
+
+
+        <div class="bottom-screen"></div>
+    </div>
+
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+
+        const races = document.querySelector(".panel-wrapper");
+        console.log(races.offsetWidth)
+
+        function getScrollAmount() {
+            let racesWidth = races.scrollWidth;
+            return -(racesWidth - window.innerWidth);
+        }
+
+        const tween = gsap.to(races, {
+            x: getScrollAmount,
+            duration: 3,
+            ease: "none",
+        });
+
+
+        ScrollTrigger.create({
+            trigger: ".scroll-wrapper",
+            start: "top 20%",
+            end: () => `+=${getScrollAmount() * -1}`,
+            pin: true,
+            animation: tween,
+            scrub: 1,
+            invalidateOnRefresh: true,
+            markers: true
+        })
+
+    </script>
+</body>
+
+</html>
