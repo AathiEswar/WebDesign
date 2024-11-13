@@ -1,0 +1,45 @@
+@use "../../../styles.module.scss";
+@use "../../../../../index.css";
+
+.body {
+	height: 100dvh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.heading {
+		font-family: "Playwrite GB S", "cursive";
+		margin-top: 20%;
+		font-size: 15dvw;
+		font-weight: 800;
+		letter-spacing: -20px;
+		color: rgb(225, 225, 225);
+
+		@media (max-width: 1024px) {
+			letter-spacing: -15px;
+		}
+		@media (max-width: 768px) {
+			letter-spacing: -10px;
+      font-size: 13dvw;
+		}
+		@media (max-width: 425px) {
+			letter-spacing: -5px;
+      font-size: 14dvw;
+		}
+	}
+
+	.backButton {
+		font-family: "Playwrite GB S", "cursive";
+		position: absolute;
+		background-color: white;
+		border-radius: 50%;
+		z-index: 11;
+		padding: 20px;
+		top: 0;
+		left: 0;
+		margin: 20px;
+		font-size: 14px;
+		font-weight: 800;
+
+	}
+}

@@ -1,0 +1,42 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding : 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root{
+  --accent : rgb(96, 255, 96);
+}
+
+body{
+  min-height: 100dvh;
+}
+
+	.buttonBody {
+		display: flex;
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 20px;
+		gap: 12px;
+		flex-wrap: wrap;
+
+		.navButtons {
+			text-decoration: none;
+			background-color: var(--accent);
+			border: 2px solid black;
+			border-radius: 30px;
+			padding: 20px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: black;
+			font-weight: 500;
+		}
+	}

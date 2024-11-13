@@ -1,0 +1,27 @@
+@use '../../index.css';
+
+.body {
+	height: 100dvh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.magnetButton {
+		background-color: black;
+		height: 100px;
+		width: 100px;
+		color: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50%;
+		cursor: pointer;
+		z-index: 0;
+		overflow: hidden;
+
+		p {
+			z-index: 5;
+		}
+	}
+
+}
