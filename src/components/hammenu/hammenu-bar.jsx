@@ -3,76 +3,68 @@ import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion';
 import styled from 'styled-components';
 import { slide, menuSlide, footerLinkPop } from './anim';
-import CurveSvg from './curve';
-import { Button, StyledMenuContainer } from './styled-props';
+import CurveSvg from './hammenu-curve';
 import { useButtonContext } from "./hammenu-provider";
+
+const StyledMenuContainer = styled.div`
+  position: fixed;
+  width: 40%;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  color: white;
+  z-index: 1;
+
+  @media (max-width : 1023px) {
+    width: 100%;
+  }
+
+  .body{
+    overflow-y : scroll;
+    padding : 50px 80px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap : 12px;
+
+    @media (max-width : 768px) {
+      padding: 60px;
+    }
+
+    @media (max-width : 425px) {
+      padding: 40px;
+    }
+  }
+`
 
 const MotionDiv = motion.create(StyledMenuContainer);
 
-export const HamMenuBar = forwardRef(( props, ref ) => {
-  const { children , className , as , style , ...otherProps } = props ;
+export const HamMenuBar = forwardRef((props, ref) => {
+  const { children, className, as, style, ...otherProps } = props;
   const Component = as || 'div';
-  const { isActive , toggleActive } = useButtonContext();
-  
-  console.log(children)
+  const { isActive, toggleActive, backgroundColor, toggleBackgroundColor } = useButtonContext();
+
+  if (style) {
+    if (style.backgroundColor) {
+      toggleBackgroundColor(style.backgroundColor)
+    }
+  }
+
   return (
     <Component ref={ref}>
-       <AnimatePresence node="wait">
+      <AnimatePresence node="wait">
         {isActive &&
           <MotionDiv
             variants={menuSlide}
             animate="enter"
             exit="exit"
             initial="initial"
-            className={`menu`}
-            // style={menuStyles}
           >
-            <div className={`body`}>
-              <div className={`nav`}>
-                <div className={`header`}>
-                    {
-                      children[0]
-                    }
-                  <div>
-                    {
-                      otherProps.links.map((data, index) => {
-                        return (
-                          <motion.div
-                            key={index}
-                            custom={index}
-                            variants={slide}
-                            animate="enter"
-                            exit="exit"
-                            initial="initial">
-                            <a href={data.href}>
-                              {data.title}
-                            </a>
-                          </motion.div>
-                        )
-                      })
-                    }
-                  </div>
-                </div>
-              </div>
-              <motion.div
-                className={`footer`}>
-                {
-                  otherProps.subLinks.map((data, index) => {
-                    return (
-                      <motion.a
-                        variants={footerLinkPop}
-                        initial="initial"
-                        animate="enter"
-                        exit="exit"
-                        key={index}
-                        custom={index}
-                        href={data.href}>
-                        {data.title}
-                      </motion.a>
-                    )
-                  })
-                }
-              </motion.div>
+            <div className={`body`} style={{ backgroundColor: backgroundColor }}>
+              {
+                children
+              }
               <CurveSvg />
             </div>
           </MotionDiv>
@@ -81,3 +73,5 @@ export const HamMenuBar = forwardRef(( props, ref ) => {
     </Component>
   )
 })
+
+export default HamMenuBar;

@@ -2,17 +2,17 @@ import React, { forwardRef } from 'react'
 import styled from 'styled-components';
 import { ButtonProvider } from './hammenu-provider';
 
+const StyledHamMenu = styled.section`
+
+`
 
 const HamMenu = forwardRef((props, ref) => {
   const { children, as, className, style, ...otherProps } = props;
-
-  const StyledHamMenu = styled.section`
-  background-color : red;
-  `
+  const Tag = as || 'section';
 
   return (
     <ButtonProvider>
-      <StyledHamMenu className={`${className}`} ref={ref} {...otherProps} style={style} >
+      <StyledHamMenu as={Tag} className={`${className}`} ref={ref} {...otherProps} style={style} >
         {
           children
         }

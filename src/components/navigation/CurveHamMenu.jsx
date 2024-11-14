@@ -11,9 +11,6 @@ const MotionDiv = motion.create(StyledMenuContainer);
 function CurveHamMenu({ children, hamStyles, menuStyles, links, subLinks }) {
 
   const [isActive, setIsActive] = useState(false);
-  React.Children.toArray(children).forEach(child => {
-    console.log(child.type.displayName);
-  })
 
 
   return (

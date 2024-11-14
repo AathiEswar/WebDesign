@@ -2,85 +2,59 @@
 import './App.css'
 import styles from './assets/css/styles.module.scss'
 import { Link } from "react-router-dom";
-import HamMenu from './components/hammenu/hammenu.jsx';
-import HamMenuBurger from './components/hammenu/hammenu-burger.jsx';
-import { HamMenuBar } from './components/hammenu/hammenu-bar.jsx';
-import { HamMenuMainContents, HamMenuMainLink, HamMenuSubLink, HamMenuTitle } from './components/hammenu/index.jsx';
+import {
+  HamMenu,
+  HamMenuBurger,
+  HamMenuBar,
+  HamMenuMainContents,
+  HamMenuMainLink,
+  HamMenuSubContent,
+  HamMenuSubLink,
+  HamMenuTitle
+} from './components/hammenu/index.jsx';
 
 function App() {
-  const links = [
-    {
-      title: "Homesadfsdfsafasdfasfsadfsdf",
-      href: '/',
-    },
-    {
-      title: "Buttons",
-      href: "/work",
-    },
-    {
-      title: "3dModels",
-      href: "about",
-    },
-    {
-      title: "Contact",
-      href: "/contact",
-    },
-    {
-      title: "Home",
-      href: '/',
-    },
-    {
-      title: "Buttons",
-      href: "/work",
-    },
-    {
-      title: "3dModels",
-      href: "about",
-    },
-    {
-      title: "Contact",
-      href: "/contact",
-    },
-  ]
-
-  const subLinks = [
-    {
-      title: "Facebook",
-      href: '/',
-    },
-    {
-      title: "Dribble",
-      href: "/work",
-    },
-    {
-      title: "Awwards",
-      href: "about",
-    },
-    {
-      title: "Instagram",
-      href: "/contact",
-    },
-  ];
-
-
-
   return (
     <section className={styles.body}>
       <HamMenu>
 
         <HamMenuBurger />
 
-        <HamMenuBar links={links} subLinks={subLinks}>
+        <HamMenuBar 
+        // style={{backgroundColor : 'rgb(50,50,50)'}}
+        >
 
-          <HamMenuTitle as={"p"}>
+          <HamMenuTitle>
             Navigation
           </HamMenuTitle>
 
           <HamMenuMainContents>
-            <HamMenuMainLink style={{ color: 'black' }}>
-              This is main link
+            <HamMenuMainLink>
+              main link 1
             </HamMenuMainLink>
+            <HamMenuMainLink>
+              main link 2
+            </HamMenuMainLink>
+            <HamMenuMainLink>
+              main link 3
+            </HamMenuMainLink>
+            <HamMenuMainLink>
+              main link 4
+            </HamMenuMainLink>
+            <HamMenuMainLink>
+              main link 5
+            </HamMenuMainLink>
+
           </HamMenuMainContents>
+
+          <HamMenuSubContent>
+            <HamMenuSubLink href="https://awwards.com">
+              Awwards
+            </HamMenuSubLink>
+            <HamMenuSubLink href="https://facebook.com">
+              Facebook
+            </HamMenuSubLink>
+          </HamMenuSubContent>
 
         </HamMenuBar>
       </HamMenu>

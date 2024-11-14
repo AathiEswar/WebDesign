@@ -1,14 +1,26 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
+import styled from "styled-components";
 
+const Component = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    gap: 12px;
+`
 const HamMenuContents = forwardRef((props, ref) => {
   const { children, as, style, className, ...otherProps } = props;
-  const Component = as || 'div';
+  const Tag = as || 'div';
+
   return (
-    <Component ref={ref}>
+    <Component as={Tag} ref={ref}>
       {
-        children
+        React.Children.map(children, (child, index) => {
+          return (
+            child && React.cloneElement(child, { index })
+          );
+        })
       }
-    </Component>
+    </Component>  
   )
 })
 HamMenuContents.displayName = 'HamMenuContents'

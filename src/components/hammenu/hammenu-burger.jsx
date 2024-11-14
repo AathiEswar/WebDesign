@@ -56,16 +56,14 @@ const StyledHamMenu = styled.button`
 	}
 `
 const HamMenuBurger = forwardRef((props, ref) => {
-  const { children, as, className, style, ...otherProps } = props;
+	const { children, as, className, style, ...otherProps } = props;
+	const { isActive, toggleActive } = useButtonContext();
 
-
-		const {isActive , toggleActive } = useButtonContext();
-		
-  return (
-    <StyledHamMenu className={`${className}`} ref={ref} {...otherProps} style={style} onClick={toggleActive}>
-      <div className={`burger ${isActive ? 'burgerActive' : ''}`}></div>
-    </StyledHamMenu>
-  )
+	return (
+		<StyledHamMenu className={`${className}`} ref={ref} {...otherProps} style={style} onClick={toggleActive}>
+			<div className={`burger ${isActive ? 'burgerActive' : ''}`}></div>
+		</StyledHamMenu>
+	)
 })
 
 HamMenuBurger.displayName = 'HamMenuBurger'
