@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { forwardRef } from "react";
 import styled from "styled-components";
-import { slide } from "./anim";
+import { slide } from "./hammenu-anim";
 
 const Component = styled.a`
    font-size: 56px;
@@ -24,6 +24,7 @@ const HamMenuMainLink = forwardRef((props, ref) => {
     <MotionComponent as={Tag}
       ref={ref}
       style={style}
+      className={className}
       key={index}
       custom={index}
       variants={slide}

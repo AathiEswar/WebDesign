@@ -12,7 +12,12 @@ const HamMenuContents = forwardRef((props, ref) => {
   const Tag = as || 'div';
 
   return (
-    <Component as={Tag} ref={ref}>
+    <Component
+      as={Tag}
+      ref={ref}
+      className={className}
+      style={style}
+      {...otherProps}>
       {
         React.Children.map(children, (child, index) => {
           return (
@@ -20,7 +25,7 @@ const HamMenuContents = forwardRef((props, ref) => {
           );
         })
       }
-    </Component>  
+    </Component>
   )
 })
 HamMenuContents.displayName = 'HamMenuContents'

@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import styled from "styled-components";
-import { footerLinkPop } from "./anim";
+import { footerLinkPop } from "./hammenu-anim";
 import { motion } from "framer-motion";
 const Component = styled.a`
       font-size: 16px;

@@ -11,7 +11,7 @@ const HamMenuSubContent = forwardRef((props, ref) => {
   const { children, as, className, style, ...otherProps } = props;
   const Tag = as || 'div';
   return (
-    <Component as={Tag} ref={ref} style={style} >
+    <Component as={Tag} ref={ref} style={style} className={className} {...otherProps} >
       {
         React.Children.map(children, (child, index) => {
           return (

@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion';
 import styled from 'styled-components';
-import { slide, menuSlide, footerLinkPop } from './anim';
+import { slide, menuSlide, footerLinkPop } from './hammenu-anim';
 import CurveSvg from './hammenu-curve';
 import { useButtonContext } from "./hammenu-provider";
 
@@ -52,7 +52,7 @@ export const HamMenuBar = forwardRef((props, ref) => {
   }
 
   return (
-    <Component ref={ref}>
+    <Component ref={ref} style={style} className={className} {...otherProps}>
       <AnimatePresence node="wait">
         {isActive &&
           <MotionDiv

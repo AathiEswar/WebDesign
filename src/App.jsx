@@ -6,8 +6,8 @@ import {
   HamMenu,
   HamMenuBurger,
   HamMenuBar,
-  HamMenuMainContents,
-  HamMenuMainLink,
+  HamMenuContent,
+  HamMenuLink,
   HamMenuSubContent,
   HamMenuSubLink,
   HamMenuTitle
@@ -17,43 +17,22 @@ function App() {
   return (
     <section className={styles.body}>
       <HamMenu>
-
         <HamMenuBurger />
+        <HamMenuBar>
 
-        <HamMenuBar 
-        // style={{backgroundColor : 'rgb(50,50,50)'}}
-        >
+          <HamMenuTitle>Navigation</HamMenuTitle>
 
-          <HamMenuTitle>
-            Navigation
-          </HamMenuTitle>
-
-          <HamMenuMainContents>
-            <HamMenuMainLink>
-              main link 1
-            </HamMenuMainLink>
-            <HamMenuMainLink>
-              main link 2
-            </HamMenuMainLink>
-            <HamMenuMainLink>
-              main link 3
-            </HamMenuMainLink>
-            <HamMenuMainLink>
-              main link 4
-            </HamMenuMainLink>
-            <HamMenuMainLink>
-              main link 5
-            </HamMenuMainLink>
-
-          </HamMenuMainContents>
+          <HamMenuContent>
+            <HamMenuLink> main link 1 </HamMenuLink>
+            <HamMenuLink> main link 2 </HamMenuLink>
+            <HamMenuLink> main link 3 </HamMenuLink>
+            <HamMenuLink> main link 4 </HamMenuLink>
+            <HamMenuLink> main link 5 </HamMenuLink>
+          </HamMenuContent>
 
           <HamMenuSubContent>
-            <HamMenuSubLink href="https://awwards.com">
-              Awwards
-            </HamMenuSubLink>
-            <HamMenuSubLink href="https://facebook.com">
-              Facebook
-            </HamMenuSubLink>
+            <HamMenuSubLink href="https://awwards.com">  Awwards  </HamMenuSubLink>
+            <HamMenuSubLink href="https://facebook.com"> Facebook </HamMenuSubLink>
           </HamMenuSubContent>
 
         </HamMenuBar>
