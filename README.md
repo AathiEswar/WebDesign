@@ -1,8 +1,14 @@
-# React + Vite
+# PROGRESS : 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+14-11-2024: 
+  Finishing the modularized version of HamMenu
+  Refining the modules of the HamMenu
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+# IDEAS 
+
+* useBreakPoint() - a hook for working with breakpoints in much more simpler way 
+    []              : returns current width 
+    [{start , end}] : return boolean if the width is between the range 
