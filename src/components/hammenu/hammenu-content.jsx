@@ -8,8 +8,23 @@ const Component = styled.div`
     gap: 12px;
 `
 const HamMenuContents = forwardRef((props, ref) => {
-  const { children, as, style, className, ...otherProps } = props;
+  const { children, as, style, className, animateDelay, motionProp, ...otherProps } = props;
   const Tag = as || 'div';
+
+  const slide = ( motionProp || {
+    initial: {
+      x: "80px"
+    },
+    enter: (i) => ({
+      x: '0',
+      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: i * (animateDelay || 0.05) }
+    }),
+    exit: (i) => ({
+      x: '80px',
+      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: i * (-1 * (animateDelay || 0.05)) }
+    })
+  })
+
 
   return (
     <Component
@@ -21,8 +36,8 @@ const HamMenuContents = forwardRef((props, ref) => {
       {
         React.Children.map(children, (child, index) => {
           return (
-            child && React.cloneElement(child, { index })
-          );
+            child && React.cloneElement(child, { index, slide })
+          )
         })
       }
     </Component>

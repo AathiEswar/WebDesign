@@ -19,6 +19,7 @@ const StyledHamMenu = styled.button`
 	box-shadow: 0 0 5px 0 rgb(45, 45, 45);
 
 	@media (max-width: 768px) {
+		margin : 10px;
 		height: 50px;
 		width: 50px;
 	}

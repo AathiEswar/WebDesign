@@ -4,7 +4,9 @@
   Finishing the modularized version of HamMenu
   Refining the modules of the HamMenu
 
-
+15-11-2024:
+  Fixing styles
+  Testing compatability 
 
 
 # IDEAS 

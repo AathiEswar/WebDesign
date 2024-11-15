@@ -12,26 +12,32 @@ import {
   HamMenuSubLink,
   HamMenuTitle
 } from './components/hammenu/index.jsx';
+import { Magneto } from 'aventure';
 
 function App() {
   return (
     <section className={styles.body}>
       <HamMenu>
+      <Magneto style={{position:'sticky' , top:0 , left:0}}>
         <HamMenuBurger />
+      </Magneto>
         <HamMenuBar>
 
           <HamMenuTitle>Navigation</HamMenuTitle>
 
-          <HamMenuContent>
-            <HamMenuLink> main link 1 </HamMenuLink>
+          <HamMenuContent animateDelay='0.05'>
+            <HamMenuLink> main link 1sadfsdf </HamMenuLink>
             <HamMenuLink> main link 2 </HamMenuLink>
             <HamMenuLink> main link 3 </HamMenuLink>
             <HamMenuLink> main link 4 </HamMenuLink>
             <HamMenuLink> main link 5 </HamMenuLink>
           </HamMenuContent>
 
-          <HamMenuSubContent>
+          <HamMenuSubContent animateDelay='0.3'>
             <HamMenuSubLink href="https://awwards.com">  Awwards  </HamMenuSubLink>
+            <HamMenuSubLink href="https://facebook.com"> Facebook </HamMenuSubLink>
+            <HamMenuSubLink href="https://facebook.com"> Facebook </HamMenuSubLink>
+            <HamMenuSubLink href="https://facebook.com"> Facebook </HamMenuSubLink>
             <HamMenuSubLink href="https://facebook.com"> Facebook </HamMenuSubLink>
           </HamMenuSubContent>
 

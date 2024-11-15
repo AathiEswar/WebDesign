@@ -2,11 +2,10 @@ import { forwardRef } from "react";
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion';
 import styled from 'styled-components';
-import { slide, menuSlide, footerLinkPop } from './hammenu-anim';
 import CurveSvg from './hammenu-curve';
 import { useButtonContext } from "./hammenu-provider";
 
-const StyledMenuContainer = styled.div`
+const StyledMenuContainer = styled.section`
   position: fixed;
   width: 40%;
   top: 0;
@@ -21,7 +20,7 @@ const StyledMenuContainer = styled.div`
 
   .body{
     overflow-y : scroll;
-    padding : 50px 80px;
+    padding : 40px 80px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -41,9 +40,22 @@ const StyledMenuContainer = styled.div`
 const MotionDiv = motion.create(StyledMenuContainer);
 
 export const HamMenuBar = forwardRef((props, ref) => {
-  const { children, className, as, style, ...otherProps } = props;
-  const Component = as || 'div';
+  const { children, className, as, style, motionProp, ...otherProps } = props;
   const { isActive, toggleActive, backgroundColor, toggleBackgroundColor } = useButtonContext();
+  const Tag = as || 'section'
+  const menuSlide = (motionProp || {
+    initial: {
+      x: 'calc(100% + 100px)'
+    },
+    enter: {
+      x: '0',
+      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] }
+    },
+    exit: {
+      x: 'calc(100% + 100px)',
+      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] }
+    }
+  })
 
   if (style) {
     if (style.backgroundColor) {
@@ -52,14 +64,19 @@ export const HamMenuBar = forwardRef((props, ref) => {
   }
 
   return (
-    <Component ref={ref} style={style} className={className} {...otherProps}>
+    // <Component ref={ref} style={style} className={className} {...otherProps}>
       <AnimatePresence node="wait">
         {isActive &&
           <MotionDiv
+            as={Tag}
             variants={menuSlide}
             animate="enter"
             exit="exit"
             initial="initial"
+            ref={ref}
+            style={style}
+            className={className}
+            {...otherProps}
           >
             <div className={`body`} style={{ backgroundColor: backgroundColor }}>
               {
@@ -70,7 +87,7 @@ export const HamMenuBar = forwardRef((props, ref) => {
           </MotionDiv>
         }
       </AnimatePresence>
-    </Component>
+    // </Component>
   )
 })
 
