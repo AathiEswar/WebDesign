@@ -13,14 +13,13 @@ import {
   HamMenuTitle
 } from './components/hammenu/index.jsx';
 import { Magneto } from 'aventure';
+import MagneticContainer from './animation-wrappers/magnetic.jsx';
 
 function App() {
   return (
-    <section className={styles.body}>
+    <section className={`${styles.body} `}>
       <HamMenu>
-      <Magneto style={{position:'sticky' , top:0 , left:0}}>
         <HamMenuBurger />
-      </Magneto>
         <HamMenuBar>
 
           <HamMenuTitle>Navigation</HamMenuTitle>
@@ -50,11 +49,11 @@ function App() {
         <Link className={`${styles.navButtons} scrollAni`} to={`buttons`}>Scroll Animations</Link>
       </div>
 
-      <div amplitudex={3} amplitudey={3} periodx={0.1} periody={0.1} className={styles.magnetButton}>
+      <MagneticContainer amplitudex={3} amplitudey={3} periodx={0.1} periody={0.1} className="bg-red-300">
         <p>
           Hover Me!
         </p>
-      </div>
+      </MagneticContainer>
     </section>
   )
 }

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { ButtonProvider } from './hammenu-provider';
 
 const StyledHamMenu = styled.section`
-
+  font-family: Arial, Helvetica, sans-serif;
 `
 
 const HamMenu = forwardRef((props, ref) => {
