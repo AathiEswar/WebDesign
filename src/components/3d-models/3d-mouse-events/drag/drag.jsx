@@ -11,19 +11,17 @@ import styles from '../../styles.module.scss';
 // directional light is for shadows
 
 function Drag3D() {
-  const backgroundTexture = useLoader(TextureLoader, '/src/components/3d-models/textures/rock3.webp')
 
   return (
     <div className='h-screen '>
       <p className={`${styles.rockFont} font-["Cinzel"] top-[75%] left-[50%] z-10 `}>
         the rock
       </p>
-      <Canvas style={{backgroundColor:"#ffecc7"}}>
+      <Canvas style={{ backgroundColor: "#ffecc7" }}>
         <OrbitControls enablePan={false} enableZoom={false} />
         <ambientLight intensity={2} />\
         <directionalLight position={[1, 1, 10]} />
         <Cube />
-
       </Canvas>
     </div>
   )
@@ -34,8 +32,8 @@ function Cube() {
   useFrame((state, delta) => {
     cubeMesh.current.rotation.x += 0.005;
     cubeMesh.current.rotation.y += 0.005;
-  cubeMesh.current.rotation.z += 0.005;
-  })
+    cubeMesh.current.rotation.z += 0.005;
+  }, [])
 
   const texture1 = useLoader(TextureLoader, '/src/components/3d-models/textures/rock3.webp')
   return (

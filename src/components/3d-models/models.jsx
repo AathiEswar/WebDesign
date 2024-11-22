@@ -18,6 +18,10 @@ function MainModels() {
     },{
       to : 'scroll',
       text : 'Scroll Gesture'
+    },
+    {
+      to : 'waveshader',
+      text : 'Wave Shader'
     }
   ]
   return (

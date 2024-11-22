@@ -11,6 +11,7 @@ import DonutMain from './components/3d-models/3d-donut/donut-main.jsx';
 import Drag3D from './components/3d-models/3d-mouse-events/drag/drag.jsx';
 import MouseFollow from './components/3d-models/3d-mouse-events/mouse-follow/follow.jsx';
 import ScrollGesture from './components/3d-models/3d-mouse-events/scroll-gesture/scroll-gesture.jsx';
+import WaveShader from './components/wave-shader/waveShader.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path : '3dmodels/scroll',
     element : <ScrollGesture/>
+  },
+    {
+    path : '3dmodels/waveshader',
+    element : <WaveShader/>
   },
   {
     path : '/buttons',

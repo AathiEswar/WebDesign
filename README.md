@@ -37,6 +37,6 @@
         action : 'red'
       })
 
-* Tailwind tw conflict merge with optimizer using Tailwind variants 
+* Tailwind tw conflict merge with optimizer using Tailwind variants and clsx
 
 * Dark mode and light mode switch/theme
