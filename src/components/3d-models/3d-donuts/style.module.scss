@@ -1,0 +1,19 @@
+.heading {
+  font-family: "Playwrite GB S", "cursive";
+  font-size: 8dvw;
+  font-weight: 800;
+  letter-spacing: -18px;
+  color: rgb(225, 225, 225);
+
+  @media (max-width: 1024px) {
+    letter-spacing: -15px;
+  }
+  @media (max-width: 768px) {
+    letter-spacing: -10px;
+    font-size: 5dvw;
+  }
+  @media (max-width: 425px) {
+    letter-spacing: -5px;
+    font-size: 5dvw;
+  }
+}

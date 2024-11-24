@@ -12,6 +12,7 @@ import Drag3D from './components/3d-models/3d-mouse-events/drag/drag.jsx';
 import MouseFollow from './components/3d-models/3d-mouse-events/mouse-follow/follow.jsx';
 import ScrollGesture from './components/3d-models/3d-mouse-events/scroll-gesture/scroll-gesture.jsx';
 import WaveShader from './components/wave-shader/waveShader.jsx';
+import DonutsMain from './components/3d-models/3d-donuts/donuts.jsx';
 
 const router = createBrowserRouter([
   {
@@ -20,36 +21,40 @@ const router = createBrowserRouter([
   },
   {
     path: '/3dmodels',
-    element: <MainModels/>,
+    element: <MainModels />,
   },
   {
-    path : '/3dmodels/donut',
-    element: <DonutMain/>
+    path: '/3dmodels/donut',
+    element: <DonutMain />
   },
   {
-    path : '/3dmodels/drag',
-    element : <Drag3D/>
-  },
-    {
-    path : '/3dmodels/follow',
-    element : <MouseFollow/>
+    path: '/3dmodels/drag',
+    element: <Drag3D />
   },
   {
-    path : '3dmodels/scroll',
-    element : <ScrollGesture/>
-  },
-    {
-    path : '3dmodels/waveshader',
-    element : <WaveShader/>
+    path: '/3dmodels/follow',
+    element: <MouseFollow />
   },
   {
-    path : '/buttons',
+    path: '3dmodels/scroll',
+    element: <ScrollGesture />
+  },
+  {
+    path: '3dmodels/waveshader',
+    element: <WaveShader />
+  },
+  {
+    path: '3dmodels/donuts',
+    element: <DonutsMain />
+  },
+  {
+    path: '/buttons',
     element: <div>this is buttons</div>
   }
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </StrictMode>,
 )
