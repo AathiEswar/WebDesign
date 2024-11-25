@@ -13,6 +13,8 @@ import MouseFollow from './components/3d-models/3d-mouse-events/mouse-follow/fol
 import ScrollGesture from './components/3d-models/3d-mouse-events/scroll-gesture/scroll-gesture.jsx';
 import WaveShader from './components/wave-shader/waveShader.jsx';
 import DonutsMain from './components/3d-models/3d-donuts/donuts.jsx';
+import ScrollMain from './components/scroll-animations/scroll-main.jsx';
+import ZoomParallax from './components/scroll-animations/zoom-parallax/zoom-parallax.jsx';
 
 const router = createBrowserRouter([
   {
@@ -49,7 +51,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/buttons',
-    element: <div>this is buttons</div>
+    element: <ScrollMain />,
+  },
+  {
+    path: '/buttons/zoom-parallax',
+    element: <ZoomParallax />
   }
 ]);
 
