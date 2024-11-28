@@ -13,8 +13,6 @@ import {
   HamMenuTitle
 } from './components/hammenu/index.jsx';
 import { Magneto } from 'aventure';
-import MagneticContainer from './animation-wrappers/magnetic.jsx';
-import WaveShader from './components/wave-shader/waveShader.jsx';
 
 function App() {
   return (
@@ -47,7 +45,7 @@ function App() {
 
       <div className={styles.buttonBody}>
         <Link className={`${styles.navButtons} threejs `} to={`3dmodels`}>3d Animations</Link>
-        <Link className={`${styles.navButtons} scrollAni`} to={`buttons`}>Scroll Animations</Link>
+        <Link className={`${styles.navButtons} scrollAni`} to={`threejs`}>Three Js</Link>
       </div>
 
       <Magneto className={`${styles.magnetButton} absolute top-[50%] left-[50%]`} amplitudex={1} amplitudey={1} periodx={0.1} periody={0.1}>

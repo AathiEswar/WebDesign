@@ -15,6 +15,8 @@ import WaveShader from './components/wave-shader/waveShader.jsx';
 import DonutsMain from './components/3d-models/3d-donuts/donuts.jsx';
 import ScrollMain from './components/scroll-animations/scroll-main.jsx';
 import ZoomParallax from './components/scroll-animations/zoom-parallax/zoom-parallax.jsx';
+import ThreeMain from './components/threejs/TheeMain.jsx';
+import TheCube from './components/threejs/theCube/TheCube.jsx';
 
 const router = createBrowserRouter([
   {
@@ -56,6 +58,14 @@ const router = createBrowserRouter([
   {
     path: '/buttons/zoom-parallax',
     element: <ZoomParallax />
+  },
+  {
+    path: '/threejs',
+    element: <ThreeMain />
+  },
+  {
+    path: '/threejs/thecube',
+    element: <TheCube />
   }
 ]);
 
