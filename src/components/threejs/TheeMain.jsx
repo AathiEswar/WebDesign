@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styles from  '../../assets/css/styles.module.scss'
-import * as THREE from 'three';
+
 
 function ThreeMain() {
   const links = [
@@ -11,9 +11,7 @@ function ThreeMain() {
     },
   ]
 
-  useEffect(()=>{
-    console.log("THree object"+THREE);
-  },[])
+
   return (
     <div className={styles.buttonBody}>
       {
