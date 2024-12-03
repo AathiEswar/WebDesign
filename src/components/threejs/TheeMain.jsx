@@ -7,8 +7,12 @@ function ThreeMain() {
   const links = [
     {
       to: 'thecube',
-      text: 'Cube'
+      text: 'Basic Cubes'
     },
+    {
+      to : 'animatecube',
+      text : 'AnimateCube'
+    }
   ]
 
 

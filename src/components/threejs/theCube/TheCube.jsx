@@ -22,7 +22,13 @@ function TheCube() {
     const mesh2 = new THREE.Mesh(gemetry2,material2);
     mesh2.position.x = 2;
     mesh2.position.y = -2;
-    group.add(mesh , mesh2)
+
+    const mesh3 = new THREE.Mesh(
+      new THREE.BoxGeometry(1,1,1),
+      new THREE.MeshBasicMaterial({color:'blue'})
+    )
+    mesh3.position.y = -1.2
+    group.add(mesh , mesh2 , mesh3)
     scene.add(group)
 
     // create camera
@@ -41,7 +47,7 @@ function TheCube() {
     renderer.setSize(innerWidth, innerHeight);
     renderer.render(scene, camera);
 
-  }, [])
+  }, [])  
   return (
     <canvas className='canvas'>
 

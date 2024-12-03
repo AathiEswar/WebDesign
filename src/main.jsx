@@ -17,6 +17,7 @@ import ScrollMain from './components/scroll-animations/scroll-main.jsx';
 import ZoomParallax from './components/scroll-animations/zoom-parallax/zoom-parallax.jsx';
 import ThreeMain from './components/threejs/TheeMain.jsx';
 import TheCube from './components/threejs/theCube/TheCube.jsx';
+import AnimationCube from './components/threejs/theCube/AnimationCube.jsx';
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
   {
     path: '/threejs/thecube',
     element: <TheCube />
+  },
+  {
+    path : '/threejs/animatecube',
+    element : <AnimationCube/>
   }
 ]);
 
