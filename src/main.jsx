@@ -18,6 +18,9 @@ import ZoomParallax from './components/scroll-animations/zoom-parallax/zoom-para
 import ThreeMain from './components/threejs/TheeMain.jsx';
 import TheCube from './components/threejs/theCube/TheCube.jsx';
 import AnimationCube from './components/threejs/theCube/AnimationCube.jsx';
+import MouseMove from './components/threejs/theCube/MouseMove.jsx';
+import OrbitControls from './components/threejs/theCube/OrbitControls.jsx';
+import OrbitCtrl from './components/threejs/theCube/OrbitControls.jsx';
 
 const router = createBrowserRouter([
   {
@@ -71,6 +74,14 @@ const router = createBrowserRouter([
   {
     path : '/threejs/animatecube',
     element : <AnimationCube/>
+  },
+  {
+    path : '/threejs/mousecube',
+    element : <MouseMove />
+  },
+  {
+    path : '/threejs/orbit',
+    element : <OrbitCtrl/>
   }
 ]);
 

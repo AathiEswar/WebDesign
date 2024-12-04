@@ -12,6 +12,14 @@ function ThreeMain() {
     {
       to : 'animatecube',
       text : 'AnimateCube'
+    },
+    {
+      to : 'mousecube',
+      text : 'Mouse Move'
+    },
+    {
+      to : 'orbit',
+      text : 'Orbit Controls'
     }
   ]
 
