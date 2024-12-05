@@ -4,9 +4,16 @@ import * as THREE from 'three';
 import { OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
 export default function OrbitCtrl() {
-
+  
   useEffect(()=>{
     const { innerWidth , innerHeight} = window;
+  
+    const handleWindowSize = ()=> {
+      camera.aspect(window.innerWidth/window.innerHeight);
+      camera.updateProjectionMatrix();
+  
+      renderer.setSize(window.innerWidth , window.innerHeight)
+    }
     // Scene , camera , object , renderer
     const scene = new THREE.Scene()
 
@@ -29,16 +36,7 @@ export default function OrbitCtrl() {
 
     const renderer = new THREE.WebGLRenderer({ canvas});
     renderer.setSize(innerWidth , innerHeight);
-
-    const cursor = {
-      x : 0,
-      y : 0
-    }
-
-    window.addEventListener('mousemove' , (event)=>{
-      cursor.x = event.clientX / innerWidth - 0.5;
-      cursor.y = event.clientY / innerHeight - 0.5;
-    })
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio , 2))
 
     const animate = ()=>{
 
@@ -50,7 +48,24 @@ export default function OrbitCtrl() {
     }
     animate();
 
-  },[])
+    const handleDoubleClick = ()=>{
+      if(!document.fullscreenElement){
+        canvas.requestFullscreen();
+      }
+      else{
+        document.exitFullscreen();
+      }
+    }
+
+    window.addEventListener('dblclick' , handleDoubleClick);
+
+
+    return ()=>{
+      window.removeEventListener('dblclick',handleDoubleClick)
+    }
+
+  },[]);
+
   return (
     <canvas className='canvas'></canvas>
   )
