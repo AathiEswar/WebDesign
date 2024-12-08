@@ -6,20 +6,50 @@ import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 function FleetLogo() {
   useEffect(() => {
     const textColor = 0x419CCB;
-    // create Scene
     const scene = new Three.Scene();
     scene.background = new Three.Color(0xffffff);
-    // creating a group 
     const group = new Three.Group();
+
+    const cubeSize = 0.25;
+    const biggerCubeSize = 0.35;
+
+    const cubeGeometry = new Three.BoxGeometry(cubeSize, cubeSize, cubeSize);
+    const cubeMaterial = new Three.MeshStandardMaterial({ color: textColor });
+    const cube = new Three.Mesh(cubeGeometry, cubeMaterial);
+
+    const biggerCubeGeometry = new Three.BoxGeometry(biggerCubeSize, biggerCubeSize, biggerCubeSize);
+    const biggerCubeMaterial = new Three.MeshStandardMaterial({ color: textColor });
+    const biggerCube = new Three.Mesh(biggerCubeGeometry, biggerCubeMaterial);
+
+    const edgesGeometry = new Three.EdgesGeometry(cubeGeometry);
+    const edgesMaterial = new Three.LineBasicMaterial({ color: 0xffffff, linewidth: 2 })
+    const edges = new Three.LineSegments(edgesGeometry, edgesMaterial);
+
+    const biggerEdgesGeometry = new Three.EdgesGeometry(biggerCubeGeometry);
+    const biggerEdgesMaterial = new Three.LineBasicMaterial({ color: 0xffffff, linewidth: 2 });
+    const biggerEdges = new Three.LineSegments(biggerEdgesGeometry, biggerEdgesMaterial);
+
+    const spotLight = new Three.SpotLight(0xffffff, 1);
+    const spotLightBiggerCube = new Three.SpotLight(0xffffff, 1);
+
+    // Set up the scene
+    scene.add(group);
+
+    const planeGeometry = new Three.PlaneGeometry(1000, 1000);
+    const planeMaterial = new Three.ShadowMaterial({ opacity: 0.5 });
+    const plane = new Three.Mesh(planeGeometry, planeMaterial);
+    plane.rotation.x = -Math.PI / 2;
+    plane.position.y = -1; 
+    plane.receiveShadow = true;  
+    scene.add(plane);
 
     const loader = new FontLoader();
 
-    // const geometry = new Three.BoxGeometry(1, 1, 1)
-    // const material = new Three.MeshBasicMaterial({ color: textColor })
-    // // create the mesh 
-    // const mesh = new Three.Mesh(geometry, material);
+    let smallCubePosX;
+    let smallCubePosY;
+    let BigCubePosY;
+    let BigCubePosX;
 
-    // group.add(mesh)
 
     loader.load('/src/fonts/Raleway_Medium.json', function (font) {
       const geometry = new TextGeometry('Fleet Studio', {
@@ -43,132 +73,108 @@ function FleetLogo() {
       const textMesh1 = new Three.Mesh(geometry, materials);
       group.add(textMesh1);
 
-      const cubeSize = 0.2; // Size of the first cube
-      const biggerCubeSize = 0.25; // Size of the second (bigger) cube
+      const xPosition = (boundingBox.max.x + cubeSize / 2) - 0.3; 
+      const yPosition = (boundingBox.max.y + cubeSize / 2) - 0.1;  
 
-      // Create the first cube (small one)
-      const cubeGeometry = new Three.BoxGeometry(cubeSize, cubeSize+0.1, cubeSize);
-      const cubeMaterial = new Three.MeshStandardMaterial({ color: textColor }); // Red color (for better lighting/shadow effects)
-      const cube = new Three.Mesh(cubeGeometry, cubeMaterial);
-
-      // Position the first cube at the top-right corner of the text
-      const xPosition = boundingBox.max.x + cubeSize / 2;  // Right of the text
-      const yPosition = boundingBox.max.y + cubeSize / 2;  // Above the text
-
-      cube.position.set(xPosition, yPosition, 0);  // Set the cube's position
-      cube.castShadow = true;  // Make the cube cast shadows
-      cube.receiveShadow = true;  // Allow the cube to receive shadows
-      group.add(cube); // Add the cube to the group
-
-      // Create edges for the first cube
-      const edgesGeometry = new Three.EdgesGeometry(cubeGeometry);  // Create edges from the cube geometry
-      const edgesMaterial = new Three.LineBasicMaterial({ color: 0xffffff, linewidth: 2 });  // White color for the edges
-      const edges = new Three.LineSegments(edgesGeometry, edgesMaterial); // Create line segments for the edges
-
-      // Position the edges at the same location as the first cube
+      cube.position.set(xPosition, yPosition, 0);
       edges.position.set(xPosition, yPosition, 0);
-      cube.rotation.set(0.5, 0, 0.5);  // Cube rotation
-      edges.rotation.set(0.5, 0, 0.5); // Edge rotation
+      cube.castShadow = true;
+      cube.receiveShadow = true;
+      group.add(cube);
       group.add(edges);
 
-      // Create a spotlight to illuminate the first cube
-      const spotLight = new Three.SpotLight(0xffffff, 1);
-      spotLight.position.set(xPosition, yPosition + 5, 5);  // Position the spotlight above and slightly in front of the cube
-      spotLight.target = cube;  // Direct the spotlight to the first cube
-      spotLight.castShadow = true;  // Make the spotlight cast shadows
-      scene.add(spotLight);
-
-      // Optional: Add a helper to visualize the spotlight's position
-      const spotLightHelper = new Three.SpotLightHelper(spotLight);
-      scene.add(spotLightHelper);
-
-      // Add ambient light to provide general illumination
-      const ambientLight = new Three.AmbientLight(0x404040, 1);  // Low intensity light to soften shadows
-      scene.add(ambientLight);
-
-      // Create the ground or surface for shadows to be cast on
-      const planeGeometry = new Three.PlaneGeometry(1000, 1000);
-      const planeMaterial = new Three.ShadowMaterial({ opacity: 0.5 });
-      const plane = new Three.Mesh(planeGeometry, planeMaterial);
-      plane.rotation.x = -Math.PI / 2;
-      plane.position.y = -1;  // Place the plane just below the cubes
-      plane.receiveShadow = true;  // Let the plane receive the cubes' shadows
-      scene.add(plane);
-
-      // Create the second (bigger) cube
-      const biggerCubeGeometry = new Three.BoxGeometry(biggerCubeSize, biggerCubeSize+0.2, biggerCubeSize);
-      const biggerCubeMaterial = new Three.MeshStandardMaterial({ color: textColor });
-      const biggerCube = new Three.Mesh(biggerCubeGeometry, biggerCubeMaterial);
-
-      // Position the second cube below the first cube
-      const yPositionBiggerCube = yPosition - (cubeSize + biggerCubeSize) / 2;  // Below the first cube
-
-      biggerCube.position.set(xPosition + 0.3, yPositionBiggerCube - 0.3, 0);  // Set the position of the bigger cube
+      const yPositionBiggerCube = (yPosition - (cubeSize + biggerCubeSize) / 2) ;  // Below the first cube
+      const xPositionBiggerCueb = xPosition + 0.4;
+      biggerEdges.position.set(xPositionBiggerCueb, yPositionBiggerCube, 0);
+      biggerCube.position.set(xPositionBiggerCueb, yPositionBiggerCube, 0);
       biggerCube.castShadow = true;
       biggerCube.receiveShadow = true;
-      group.add(biggerCube); // Add the bigger cube to the group
-
-      // Create edges for the second cube
-      const biggerEdgesGeometry = new Three.EdgesGeometry(biggerCubeGeometry);
-      const biggerEdgesMaterial = new Three.LineBasicMaterial({ color: 0xffffff, linewidth: 2 });
-      const biggerEdges = new Three.LineSegments(biggerEdgesGeometry, biggerEdgesMaterial);
-
-      biggerEdges.position.set(xPosition + 0.3, yPositionBiggerCube - 0.3, 0);
-      biggerCube.rotation.set(0.5, 0, 0.5);
-      biggerEdges.rotation.set(0.5, 0, 0.5);
+      group.add(biggerCube);
       group.add(biggerEdges);
 
-      // Add a spotlight to illuminate the second cube (same position as the first cube's light)
-      const spotLightBiggerCube = new Three.SpotLight(0xffffff, 1);
-      spotLightBiggerCube.position.set(xPosition, yPositionBiggerCube + 5, 5);  // Adjust the position slightly above the bigger cube
+      spotLight.position.set(xPosition, yPosition + 5, 5);
+      spotLight.target = cube;
+      spotLight.castShadow = true;
+      scene.add(spotLight);
+
+      spotLightBiggerCube.position.set(xPosition, yPositionBiggerCube + 5, 5);
       spotLightBiggerCube.target = biggerCube;
       spotLightBiggerCube.castShadow = true;
       scene.add(spotLightBiggerCube);
 
-      // Optional: Add a helper to visualize the spotlight's position
-      const spotLightHelperBiggerCube = new Three.SpotLightHelper(spotLightBiggerCube);
-      scene.add(spotLightHelperBiggerCube);
-
-      // Create the ground or surface for shadows (same as before)
-      scene.add(plane); // Ensure the plane is still in the scene
-
+      smallCubePosX = xPosition;
+      smallCubePosY = yPosition;
+      BigCubePosY = yPositionBiggerCube;
+      BigCubePosX = xPositionBiggerCueb;
     });
 
     scene.add(group)
 
-    // create camera
     const { innerWidth, innerHeight } = window;
-    const camera = new Three.PerspectiveCamera(75, innerWidth / innerHeight, 1, 2000);
-    camera.position.z = 3;
+
+    const aspect = innerWidth / innerHeight;
+    const cameraWidth = 5; 
+    const cameraHeight = cameraWidth / aspect;
+
+    const camera = new Three.OrthographicCamera(
+      -cameraWidth,  
+      cameraWidth,    
+      cameraHeight,  
+      -cameraHeight,  
+      1,                 
+      2000              
+    );
+
+
+    camera.position.set(0, 0, 3); 
+    camera.lookAt(0, 0, 0);    
     scene.add(camera);
 
 
     // create canvas
     const canvas = document.querySelector('.canvas');
-    const ambientLight = new Three.AmbientLight(0xffffff, 2.5); // Soft white light
+    const ambientLight = new Three.AmbientLight(0xffffff, 2.5); 
     scene.add(ambientLight);
 
-    // Create a Directional Light (positioned to avoid shadows on the text)
     const directionalLight = new Three.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(10, 10, 10); // Position the light behind or above the text
-    directionalLight.castShadow = false; // No shadow casting from this light
+    directionalLight.position.set(10, 10, 10); 
+    directionalLight.castShadow = false; 
     scene.add(directionalLight);
 
-    // Optional: Add a helper to visualize the directional light position
     const lightHelper = new Three.DirectionalLightHelper(directionalLight, 5);
     scene.add(lightHelper);
 
     const renderer = new Three.WebGLRenderer({ canvas });
     renderer.setSize(innerWidth, innerHeight);
-    let x = 1;
-   
+    renderer.setPixelRatio(2)
+
     window.addEventListener('resize', () => {
       const { innerWidth, innerHeight } = window;
-      camera.aspect = innerWidth / innerHeight;  // Update aspect ratio
-      camera.updateProjectionMatrix();  // Recompute the projection matrix
-      renderer.setSize(innerWidth, innerHeight);  // Update the renderer size
+      camera.aspect = innerWidth / innerHeight;  
+      camera.updateProjectionMatrix();  
+      renderer.setSize(innerWidth, innerHeight);  
     });
+    let clock = new Three.Clock();
+
     function animate() {
+      let time = clock.getElapsedTime();
+
+      cube.position.y = smallCubePosY + Math.sin(time) * 0.1;
+      cube.rotation.x = 1
+      cube.rotation.y = 1
+      cube.rotation.z = 1
+      edges.position.y = smallCubePosY + Math.sin(time) * 0.1;
+      edges.rotation.x = 1;
+      edges.rotation.y = 1;
+      edges.rotation.z = 1
+      biggerCube.position.y = BigCubePosY + Math.cos(time) * 0.1;
+      biggerCube.rotation.z = 1;
+      biggerCube.rotation.y = 1;
+      biggerCube.rotation.x = 1;
+      biggerEdges.position.y = BigCubePosY + Math.cos(time) * 0.1
+      biggerEdges.rotation.x = 1;
+      biggerEdges.rotation.y = 1;
+      biggerEdges.rotation.z = 1;
       renderer.render(scene, camera);
       window.requestAnimationFrame(animate);
     }
