@@ -21,6 +21,8 @@ import AnimationCube from './components/threejs/theCube/AnimationCube.jsx';
 import MouseMove from './components/threejs/theCube/MouseMove.jsx';
 import OrbitControls from './components/threejs/theCube/OrbitControls.jsx';
 import OrbitCtrl from './components/threejs/theCube/OrbitControls.jsx';
+import R3F from './components/R3F/R3F.jsx';
+import BasicR3F from './components/R3F/BasicR3F.jsx';
 
 const router = createBrowserRouter([
   {
@@ -82,6 +84,14 @@ const router = createBrowserRouter([
   {
     path : '/threejs/orbit',
     element : <OrbitCtrl/>
+  },
+  {
+    path : '/r3f',
+    element : <R3F/>
+  },
+  {
+    path : '/r3f/basic',
+    element :<BasicR3F/>
   }
 ]);
 
