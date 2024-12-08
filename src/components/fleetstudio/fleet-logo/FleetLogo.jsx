@@ -2,12 +2,17 @@ import React, { useEffect } from 'react'
 import * as Three from 'three';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
+import gsap from 'gsap';
+import { EffectComposer, RenderPass, AfterimagePass, UnrealBloomPass } from 'three/examples/jsm/Addons'
+import { PointsMaterial } from 'three';
 
 function FleetLogo() {
   useEffect(() => {
     const textColor = 0x419CCB;
+    const bgColor = "black";
     const scene = new Three.Scene();
-    scene.background = new Three.Color(0xffffff);
+    scene.fog = new Three.FogExp2(textColor, 0.05)
+    scene.background = new Three.Color(bgColor);
     const group = new Three.Group();
 
     const cubeSize = 0.25;
@@ -22,25 +27,36 @@ function FleetLogo() {
     const biggerCube = new Three.Mesh(biggerCubeGeometry, biggerCubeMaterial);
 
     const edgesGeometry = new Three.EdgesGeometry(cubeGeometry);
-    const edgesMaterial = new Three.LineBasicMaterial({ color: 0xffffff, linewidth: 2 })
+    const edgesMaterial = new Three.LineBasicMaterial({ color:bgColor , linewidth: 2 })
     const edges = new Three.LineSegments(edgesGeometry, edgesMaterial);
 
     const biggerEdgesGeometry = new Three.EdgesGeometry(biggerCubeGeometry);
-    const biggerEdgesMaterial = new Three.LineBasicMaterial({ color: 0xffffff, linewidth: 2 });
+    const biggerEdgesMaterial = new Three.LineBasicMaterial({ color: bgColor, linewidth: 2 });
     const biggerEdges = new Three.LineSegments(biggerEdgesGeometry, biggerEdgesMaterial);
+
+    const sphereGeometry = new Three.SphereGeometry(0.002, 8, 8);
+    const sphereMaterial = new Three.MeshBasicMaterial({ color: 0xffffff })
+    const sphere = new Three.Mesh(sphereGeometry, sphereMaterial);
+    sphere.position.set(0, 0, 0);
+    scene.add(sphere);
+
+    const sphereGeometry2 = new Three.SphereGeometry(0.002, 8, 8);
+    const sphereMaterial2 = new Three.MeshBasicMaterial({ color: 0xffffff })
+    const sphere2 = new Three.Mesh(sphereGeometry2, sphereMaterial2);
+    sphere2.position.set(0, 0, 0);
+    scene.add(sphere2);
 
     const spotLight = new Three.SpotLight(0xffffff, 1);
     const spotLightBiggerCube = new Three.SpotLight(0xffffff, 1);
 
-    // Set up the scene
     scene.add(group);
 
     const planeGeometry = new Three.PlaneGeometry(1000, 1000);
     const planeMaterial = new Three.ShadowMaterial({ opacity: 0.5 });
     const plane = new Three.Mesh(planeGeometry, planeMaterial);
     plane.rotation.x = -Math.PI / 2;
-    plane.position.y = -1; 
-    plane.receiveShadow = true;  
+    plane.position.y = -1;
+    plane.receiveShadow = true;
     scene.add(plane);
 
     const loader = new FontLoader();
@@ -51,11 +67,13 @@ function FleetLogo() {
     let BigCubePosX;
 
 
+
+
     loader.load('/src/fonts/Raleway_Medium.json', function (font) {
       const geometry = new TextGeometry('Fleet Studio', {
         font: font,
         size: 1,
-        depth: 0.01,
+        depth: 1,
       });
 
       geometry.computeBoundingBox();
@@ -73,24 +91,24 @@ function FleetLogo() {
       const textMesh1 = new Three.Mesh(geometry, materials);
       group.add(textMesh1);
 
-      const xPosition = (boundingBox.max.x + cubeSize / 2) - 0.3; 
-      const yPosition = (boundingBox.max.y + cubeSize / 2) - 0.1;  
+      const xPosition = (boundingBox.max.x + cubeSize / 2) - 0.3;
+      const yPosition = (boundingBox.max.y + cubeSize / 2) - 0.1;
 
       cube.position.set(xPosition, yPosition, 0);
       edges.position.set(xPosition, yPosition, 0);
       cube.castShadow = true;
       cube.receiveShadow = true;
-      group.add(cube);
-      group.add(edges);
+      sphere.add(cube);
+      sphere.add(edges)
 
-      const yPositionBiggerCube = (yPosition - (cubeSize + biggerCubeSize) / 2) ;  // Below the first cube
+      const yPositionBiggerCube = (yPosition - (cubeSize + biggerCubeSize) / 2);
       const xPositionBiggerCueb = xPosition + 0.4;
       biggerEdges.position.set(xPositionBiggerCueb, yPositionBiggerCube, 0);
       biggerCube.position.set(xPositionBiggerCueb, yPositionBiggerCube, 0);
       biggerCube.castShadow = true;
       biggerCube.receiveShadow = true;
-      group.add(biggerCube);
-      group.add(biggerEdges);
+      sphere2.add(biggerCube);
+      sphere2.add(biggerEdges);
 
       spotLight.position.set(xPosition, yPosition + 5, 5);
       spotLight.target = cube;
@@ -106,6 +124,28 @@ function FleetLogo() {
       smallCubePosY = yPosition;
       BigCubePosY = yPositionBiggerCube;
       BigCubePosX = xPositionBiggerCueb;
+      console.log(smallCubePosX, smallCubePosY, BigCubePosX, BigCubePosY);
+
+      sphere.rotation.x = 1.3
+      sphere2.rotation.x = 1.3
+
+      const timeline = gsap.timeline({ repeat: -1, ease: "power2.inOut" });
+      timeline.from(sphere.rotation, {
+        z: 0,
+        delay: 3,
+      })
+        .to(sphere.rotation, {
+          z: Math.PI * 2,
+          duration: 4,
+        })
+        .from(sphere2.rotation, {
+          z: 0,
+          delay: 1,
+        })
+        .to(sphere2.rotation, {
+          z: Math.PI * 2,
+          duration: 4,
+        })
     });
 
     scene.add(group)
@@ -113,36 +153,31 @@ function FleetLogo() {
     const { innerWidth, innerHeight } = window;
 
     const aspect = innerWidth / innerHeight;
-    const cameraWidth = 5; 
+    const cameraWidth = 5;
     const cameraHeight = cameraWidth / aspect;
 
     const camera = new Three.OrthographicCamera(
-      -cameraWidth,  
-      cameraWidth,    
-      cameraHeight,  
-      -cameraHeight,  
-      1,                 
-      2000              
+      -cameraWidth,
+      cameraWidth,
+      cameraHeight,
+      -cameraHeight,
+      1,
+      4000
     );
 
 
-    camera.position.set(0, 0, 3); 
-    camera.lookAt(0, 0, 0);    
+    camera.position.set(0, 0, 6);
+    camera.lookAt(0, 0, 0);
     scene.add(camera);
 
-
-    // create canvas
     const canvas = document.querySelector('.canvas');
-    const ambientLight = new Three.AmbientLight(0xffffff, 2.5); 
+    const ambientLight = new Three.AmbientLight(0xffffff, 2.5);
     scene.add(ambientLight);
 
     const directionalLight = new Three.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(10, 10, 10); 
-    directionalLight.castShadow = false; 
+    directionalLight.position.set(10, 10, 10);
+    directionalLight.castShadow = false;
     scene.add(directionalLight);
-
-    const lightHelper = new Three.DirectionalLightHelper(directionalLight, 5);
-    scene.add(lightHelper);
 
     const renderer = new Three.WebGLRenderer({ canvas });
     renderer.setSize(innerWidth, innerHeight);
@@ -150,37 +185,48 @@ function FleetLogo() {
 
     window.addEventListener('resize', () => {
       const { innerWidth, innerHeight } = window;
-      camera.aspect = innerWidth / innerHeight;  
-      camera.updateProjectionMatrix();  
-      renderer.setSize(innerWidth, innerHeight);  
+      camera.aspect = innerWidth / innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(innerWidth, innerHeight);
     });
+
+    const renderScene = new RenderPass(scene, camera);
+    const bloomPass = new UnrealBloomPass(new Three.Vector2(innerWidth, innerHeight), 0.5, 0.1, 0.1); // Strength, radius, threshold
+    const afterPass = new AfterimagePass();
+    afterPass.uniforms['damp'].value = 0.7;
+
+    const composer = new EffectComposer(renderer);
+    composer.addPass(renderScene);
+    composer.addPass(bloomPass);
+    composer.addPass(afterPass);
+
     let clock = new Three.Clock();
 
     function animate() {
       let time = clock.getElapsedTime();
 
-      cube.position.y = smallCubePosY + Math.sin(time) * 0.1;
-      cube.rotation.x = 1
-      cube.rotation.y = 1
-      cube.rotation.z = 1
-      edges.position.y = smallCubePosY + Math.sin(time) * 0.1;
-      edges.rotation.x = 1;
-      edges.rotation.y = 1;
-      edges.rotation.z = 1
-      biggerCube.position.y = BigCubePosY + Math.cos(time) * 0.1;
-      biggerCube.rotation.z = 1;
-      biggerCube.rotation.y = 1;
-      biggerCube.rotation.x = 1;
-      biggerEdges.position.y = BigCubePosY + Math.cos(time) * 0.1
-      biggerEdges.rotation.x = 1;
-      biggerEdges.rotation.y = 1;
-      biggerEdges.rotation.z = 1;
-      renderer.render(scene, camera);
+      cube.position.y = smallCubePosY + 1.5 + Math.sin(time) * 0.3;
+      cube.rotation.x = 2.5
+      cube.rotation.y = 0.7
+      cube.rotation.z = 1.4
+      edges.position.y = cube.position.y
+      edges.rotation.x = cube.rotation.x
+      edges.rotation.y = cube.rotation.y
+      edges.rotation.z = cube.rotation.z
+      biggerCube.position.y = (BigCubePosY + 1 + Math.cos(time) );
+      biggerCube.rotation.x = 2.5;
+      biggerCube.rotation.y = 0.7;
+      biggerCube.rotation.z = 1.4;
+      biggerEdges.position.y = biggerCube.position.y
+      biggerEdges.rotation.x = biggerCube.rotation.x
+      biggerEdges.rotation.y = biggerCube.rotation.y
+      biggerEdges.rotation.z = biggerCube.rotation.z
+
+      composer.render(scene, camera);
+
       window.requestAnimationFrame(animate);
     }
-
     animate();
-
   }, [])
   return (
     <canvas className='canvas'></canvas>
