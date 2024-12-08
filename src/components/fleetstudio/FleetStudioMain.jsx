@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
 import styles from  '../../assets/css/styles.module.scss'
+import { Link } from 'react-router-dom'
 
-
-function ThreeMain() {
+function FleetStudioMain() {
   const links = [
     {
       to: 'thecube',
@@ -22,8 +21,8 @@ function ThreeMain() {
       text : 'Orbit Controls'
     },
     {
-      to : 'fleet',
-      text : 'Fleet Logo'
+      to : 'fleetlogo',
+      text : 'Fleet'
     }
   ]
 
@@ -39,4 +38,4 @@ function ThreeMain() {
   )
 }
 
-export default ThreeMain
+export default FleetStudioMain

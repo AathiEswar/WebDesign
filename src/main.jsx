@@ -23,6 +23,8 @@ import OrbitControls from './components/threejs/theCube/OrbitControls.jsx';
 import OrbitCtrl from './components/threejs/theCube/OrbitControls.jsx';
 import R3F from './components/R3F/R3F.jsx';
 import BasicR3F from './components/R3F/BasicR3F.jsx';
+import FleetStudioMain from './components/fleetstudio/FleetStudioMain.jsx';
+import FleetLogo from './components/fleetstudio/fleet-logo/FleetLogo.jsx';
 
 const router = createBrowserRouter([
   {
@@ -74,24 +76,32 @@ const router = createBrowserRouter([
     element: <TheCube />
   },
   {
-    path : '/threejs/animatecube',
-    element : <AnimationCube/>
+    path: '/threejs/animatecube',
+    element: <AnimationCube />
   },
   {
-    path : '/threejs/mousecube',
-    element : <MouseMove />
+    path: '/threejs/mousecube',
+    element: <MouseMove />
   },
   {
-    path : '/threejs/orbit',
-    element : <OrbitCtrl/>
+    path: '/threejs/orbit',
+    element: <OrbitCtrl />
   },
   {
-    path : '/r3f',
-    element : <R3F/>
+    path: '/threejs/fleet',
+    element: <FleetStudioMain />
   },
   {
-    path : '/r3f/basic',
-    element :<BasicR3F/>
+    path: '/threejs/fleet/fleetlogo',
+    element: <FleetLogo />
+  },
+  {
+    path: '/r3f',
+    element: <R3F />
+  },
+  {
+    path: '/r3f/basic',
+    element: <BasicR3F />
   }
 ]);
 
