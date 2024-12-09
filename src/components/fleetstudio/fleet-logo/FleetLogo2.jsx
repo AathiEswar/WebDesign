@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import { EffectComposer, RenderPass, AfterimagePass, UnrealBloomPass } from 'three/examples/jsm/Addons'
 import { PointsMaterial } from 'three';
 
-function FleetLogo() {
+function FleetLogo2() {
   useEffect(() => {
     const textColor = 0x419CCB;
     const bgColor = "black";

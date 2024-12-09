@@ -5,24 +5,12 @@ import { Link } from 'react-router-dom'
 function FleetStudioMain() {
   const links = [
     {
-      to: 'thecube',
-      text: 'Basic Cubes'
-    },
-    {
-      to : 'animatecube',
-      text : 'AnimateCube'
-    },
-    {
-      to : 'mousecube',
-      text : 'Mouse Move'
-    },
-    {
-      to : 'orbit',
-      text : 'Orbit Controls'
-    },
-    {
       to : 'fleetlogo',
-      text : 'Fleet'
+      text : 'Fleet Glow In Dark'
+    },
+    {
+      to : 'fleetlogo2',
+      text : "Fleet Logo"
     }
   ]
 
