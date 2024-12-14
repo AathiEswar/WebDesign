@@ -8,10 +8,6 @@ function FleetStudioMain() {
       to : 'fleetlogo',
       text : 'Fleet Glow In Dark'
     },
-    {
-      to : 'fleetlogo2',
-      text : "Fleet Logo"
-    }
   ]
 
 

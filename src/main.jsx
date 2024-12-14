@@ -25,7 +25,7 @@ import R3F from './components/R3F/R3F.jsx';
 import BasicR3F from './components/R3F/BasicR3F.jsx';
 import FleetStudioMain from './components/fleetstudio/FleetStudioMain.jsx';
 import FleetLogo from './components/fleetstudio/fleet-logo/FleetLogo.jsx';
-import FleetLogo2 from './components/fleetstudio/fleet-logo/FleetLogo2.jsx';
+import Random from './components/R3F/Random.jsx';
 
 const router = createBrowserRouter([
   {
@@ -91,11 +91,7 @@ const router = createBrowserRouter([
   {
     path: '/threejs/fleet',
     element: <FleetStudioMain />
-  },
-  {
-    path : '/threejs/fleet/fleetlogo2',
-    element : <FleetLogo2/>
-  },  
+  }, 
   {
     path: '/threejs/fleet/fleetlogo',
     element: <FleetLogo />
@@ -107,6 +103,10 @@ const router = createBrowserRouter([
   {
     path: '/r3f/basic',
     element: <BasicR3F />
+  },
+    {
+    path: '/r3f/random',
+    element: <Random />
   }
 ]);
 
