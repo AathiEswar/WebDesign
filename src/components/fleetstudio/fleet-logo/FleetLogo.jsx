@@ -9,10 +9,25 @@ import { PointsMaterial } from 'three';
 function FleetLogo() {
   useEffect(() => {
     const textColor = 0x419CCB;
-    const bgColor = "black";
+    const endColor = new Three.Color(0xFFFFFF); // White
+
     const scene = new Three.Scene();
-    scene.fog = new Three.FogExp2(textColor, 0.05)
-    scene.background = new Three.Color(bgColor);
+    scene.background = new Three.Color(0x000000); 
+    const targetColor = new Three.Color(0x419CCB);
+
+    const bgColor = { r: scene.background.r, g: scene.background.g, b: scene.background.b };
+
+    gsap.to(bgColor, {
+      r: targetColor.r,
+      g: targetColor.g,
+      b: targetColor.b,
+      duration: 2,
+      delay: 11,
+      onUpdate: () => {
+        scene.background.setRGB(bgColor.r, bgColor.g, bgColor.b);
+      },
+    });
+
     const group = new Three.Group();
 
     const cubeSize = 0.25;
@@ -27,7 +42,7 @@ function FleetLogo() {
     const biggerCube = new Three.Mesh(biggerCubeGeometry, biggerCubeMaterial);
 
     const edgesGeometry = new Three.EdgesGeometry(cubeGeometry);
-    const edgesMaterial = new Three.LineBasicMaterial({ color:bgColor , linewidth: 2 })
+    const edgesMaterial = new Three.LineBasicMaterial({ color: bgColor, linewidth: 2 })
     const edges = new Three.LineSegments(edgesGeometry, edgesMaterial);
 
     const biggerEdgesGeometry = new Three.EdgesGeometry(biggerCubeGeometry);
@@ -65,9 +80,6 @@ function FleetLogo() {
     let smallCubePosY;
     let BigCubePosY;
     let BigCubePosX;
-
-
-
 
     loader.load('/src/fonts/Raleway_Medium.json', function (font) {
       const geometry = new TextGeometry('Fleet Studio', {
@@ -146,6 +158,20 @@ function FleetLogo() {
           z: Math.PI * 2,
           duration: 4,
         })
+      gsap.to(textColor, {
+        r: endColor.r,
+        g: endColor.g, 
+        b: endColor.b,
+        duration: 3, 
+        delay: 2, 
+        onUpdate: () => {
+          const animatedColor = new Three.Color(textColor.r, textColor.g, textColor.b);
+          materials.forEach((material) => {
+            material.color.set(animatedColor);
+          });
+        },
+      });
+
     });
 
     scene.add(group)
@@ -171,13 +197,34 @@ function FleetLogo() {
     scene.add(camera);
 
     const canvas = document.querySelector('.canvas');
-    const ambientLight = new Three.AmbientLight(0xffffff, 2.5);
+    const ambientLight = new Three.AmbientLight(textColor, 1.5);
     scene.add(ambientLight);
 
-    const directionalLight = new Three.DirectionalLight(0xffffff, 1);
+    const directionalLight = new Three.DirectionalLight(textColor, 1);
     directionalLight.position.set(10, 10, 10);
-    directionalLight.castShadow = false;
+    directionalLight.castShadow = true;
     scene.add(directionalLight);
+
+    // text color animations
+    gsap.to(textColor, {
+      r: endColor.r,
+      g: endColor.g, 
+      b: endColor.b,
+      duration: 3, 
+      delay: 11,
+      onUpdate: () => {
+        // Update the color of all relevant materials and lights during animation
+        const animatedColor = new Three.Color(endColor.r, endColor.g, endColor.b);
+        ambientLight.color.set(animatedColor);
+        directionalLight.color.set(animatedColor);
+
+        // Update cube and edge colors if needed
+        cubeMaterial.color.set(animatedColor);
+        edgesMaterial.color.set(animatedColor);
+        biggerCubeMaterial.color.set(animatedColor);
+        biggerEdgesMaterial.color.set(animatedColor);
+      },
+    });
 
     const renderer = new Three.WebGLRenderer({ canvas });
     renderer.setSize(innerWidth, innerHeight);
@@ -197,15 +244,15 @@ function FleetLogo() {
 
     const composer = new EffectComposer(renderer);
     composer.addPass(renderScene);
-    composer.addPass(bloomPass);
-    composer.addPass(afterPass);
+    // composer.addPass(bloomPass);
+    // composer.addPass(afterPass);
 
     let clock = new Three.Clock();
 
     function animate() {
       let time = clock.getElapsedTime();
 
-    cube.position.y = smallCubePosY + 1.5 + Math.sin(time) * 0.7 ;
+      cube.position.y = smallCubePosY + 1.5 + Math.sin(time) * 0.7;
       cube.rotation.x = 2.5
       cube.rotation.y = 0.7
       cube.rotation.z = 1.4
@@ -213,7 +260,7 @@ function FleetLogo() {
       edges.rotation.x = cube.rotation.x
       edges.rotation.y = cube.rotation.y
       edges.rotation.z = cube.rotation.z
-      biggerCube.position.y = (BigCubePosY + 1 + Math.cos(time) );
+      biggerCube.position.y = (BigCubePosY + 1 + Math.cos(time));
       biggerCube.rotation.x = 2.5;
       biggerCube.rotation.y = 0.7;
       biggerCube.rotation.z = 1.4;
@@ -229,7 +276,7 @@ function FleetLogo() {
     animate();
   }, [])
   return (
-    <canvas className='canvas'></canvas>
+    <canvas className='canvas logo-canvas'></canvas>
   )
 }
 

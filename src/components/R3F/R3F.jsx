@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styles from  '../../assets/css/styles.module.scss'
+import styles from  '../../assets/css/styles.module.scss' 
 
 
 function R3F() {
@@ -12,6 +12,10 @@ function R3F() {
     {
       to : 'random',
       text : 'Random'
+    },
+    {
+      to : 'fleetcard',
+      text : 'Fleet Card'
     }
   ]
 
