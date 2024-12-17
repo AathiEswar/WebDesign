@@ -1,42 +1,48 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-*{
-  margin: 0;
-  padding : 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
-:root{
-  --accent : rgb(96, 255, 96);
+:root {
+	--accent: rgb(96, 255, 96);
 }
 
-body{
-  min-height: 100dvh;
+body {
+	min-height: 100dvh;
 }
 
-	.buttonBody {
+.buttonBody {
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 20px;
+	gap: 12px;
+	flex-wrap: wrap;
+
+	.navButtons {
+		text-decoration: none;
+		background-color: var(--accent);
+		border: 2px solid black;
+		border-radius: 30px;
+		padding: 20px;
 		display: flex;
-		position: absolute;
-		top: 0;
-		left: 0;
-		margin: 20px;
-		gap: 12px;
-		flex-wrap: wrap;
-
-		.navButtons {
-			text-decoration: none;
-			background-color: var(--accent);
-			border: 2px solid black;
-			border-radius: 30px;
-			padding: 20px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			color: black;
-			font-weight: 500;
-		}
+		justify-content: center;
+		align-items: center;
+		color: black;
+		font-weight: 500;
 	}
+}
+
+@font-face {
+	font-family: "Dancing"; /* Name you will use for this font */
+	src: url("../src/fonts/DancingScript-VariableFont_wght.ttf") format("truetype"); /* Path to the .ttf file */
+	font-weight: normal; /* Optional: specify the weight */
+	font-style: normal; /* Optional: specify the style */
+}
