@@ -4,6 +4,10 @@ import { Canvas } from '@react-three/fiber';
 import { Float, OrbitControls , Environment, ContactShadows } from '@react-three/drei';
 import CenterModel from './models/FleetCard1';
 import IntroFS from './components/Intro/IntroFS';
+import SnowGlobeModel from './components/snowglobe/SnowGlobe';
+import SnowMain from './components/snowglobe/SnowMain';
+import SnowGlobeJSX from './models/Snowglobe-transformed';
+import ScaledSnowGlobe from './models/Resized-snowglobe';
 function FleetCardMain() {
   const snowCount = 40;
   return (
@@ -15,7 +19,7 @@ function FleetCardMain() {
       ))}
 
       {/* Model 1 */}
-<IntroFS/>
+{/* <IntroFS/> */}
       <Canvas
         className='!h-screen w-screen'
         style={{
@@ -29,15 +33,18 @@ function FleetCardMain() {
       >
         <OrbitControls enableZoom={false} />
         <Environment preset='city' />
-        <directionalLight position={[3, 0, 0]} intensity={1} color={'red'} />
-        <directionalLight position={[0, 0, 3]} intensity={10} color={'purple'} />
-        <directionalLight position={[0, 3, 0]} intensity={1} color={'blue'} />
+        {/* <directionalLight position={[0, 0, 0]} intensity={1} color={'red'} />
+        <directionalLight position={[0, 0, 3]} intensity={1} color={'purple'} />
+        <directionalLight position={[0, 0, -3]} intensity={1} color={'blue'} /> */}
         <Float
           speed={5} 
           rotationIntensity={0} 
           floatIntensity={1}
           floatingRange={[-0.1, 0.1]} >
-          <CenterModel />
+          {/* <CenterModel />
+          <SnowMain /> */}
+          {/* <SnowGlobeJSX/> */}
+          <ScaledSnowGlobe/>
         </Float>
       </Canvas>
     </div>

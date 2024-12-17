@@ -1,12 +1,17 @@
 :root {
 	--accent: #419ccb;
 	--primarry-1: #0b090a;
-	--secoondary-1: #16181a;
+	--secoondary-1: #0b090a;
 
-	--primarry-2: #242423;
-	--secoondary-2: #333533;
+	// --primarry-2: #242423;
+	// --secoondary-2: #333533;
 
-	--primary-3: #131313;
+	--primarry-2: #0b090a;
+	 --secoondary-2: #0b090a;
+
+
+
+	--primary-3: #0b090a;
 }
 .intro-screen {
 	top: 0;
@@ -14,11 +19,11 @@
 	z-index: 1000;
 	height: 100vh;
 	width: 100vw;
-	background: linear-gradient(
-		to bottom,
-		var(--primarry-1),
-		var(--secoondary-2)
-	);
+	// background: linear-gradient(
+	// 	to bottom,
+	// 	var(--primarry-1),
+	// 	var(--secoondary-2)
+	// );
 }
 
 .intro-texts {
@@ -59,7 +64,7 @@
 }
 
 .intro-container {
-	background: linear-gradient(to bottom, var(--primarry-1), var(--primarry-2));
+	// background: linear-gradient(to bottom, var(--primarry-1), var(--primarry-2));
 	color: var(--as-white);
 	height: 100%;
 	width: 100%;
@@ -74,8 +79,8 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	background: var(--primary-3);
-
+	// background: var(--primary-3);
+	background-color: transparent;
 	height: 100%;
 	width: 100%;
 	display: flex;
@@ -95,8 +100,8 @@
 	/* fill-opacity: 0; */
 	stroke-width: 20px;
 	animation: draw 6s ease;
-	height: 400px;
-	width: 400px;
+	height: 500px;
+	width: 500px;
 	@media (max-width: 425px) {
 		height: 300px;
 		width: 300px;

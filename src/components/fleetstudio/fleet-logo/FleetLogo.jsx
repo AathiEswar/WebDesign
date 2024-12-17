@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import * as Three from 'three';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
@@ -12,7 +12,7 @@ function FleetLogo() {
     const endColor = new Three.Color(0xFFFFFF); // White
 
     const scene = new Three.Scene();
-    scene.background = new Three.Color(0x000000); 
+    scene.background = new Three.Color(0x0b090a);
     const targetColor = new Three.Color(0x419CCB);
 
     const bgColor = { r: scene.background.r, g: scene.background.g, b: scene.background.b };
@@ -22,7 +22,7 @@ function FleetLogo() {
       g: targetColor.g,
       b: targetColor.b,
       duration: 2,
-      delay: 11,
+      delay: 13,
       onUpdate: () => {
         scene.background.setRGB(bgColor.r, bgColor.g, bgColor.b);
       },
@@ -124,13 +124,13 @@ function FleetLogo() {
 
       spotLight.position.set(xPosition, yPosition + 5, 5);
       spotLight.target = cube;
-      spotLight.castShadow = true;
-      scene.add(spotLight);
+      // spotLight.castShadow = true;
+      // scene.add(spotLight);
 
       spotLightBiggerCube.position.set(xPosition, yPositionBiggerCube + 5, 5);
       spotLightBiggerCube.target = biggerCube;
       spotLightBiggerCube.castShadow = true;
-      scene.add(spotLightBiggerCube);
+      // scene.add(spotLightBiggerCube);
 
       smallCubePosX = xPosition;
       smallCubePosY = yPosition;
@@ -160,10 +160,10 @@ function FleetLogo() {
         })
       gsap.to(textColor, {
         r: endColor.r,
-        g: endColor.g, 
+        g: endColor.g,
         b: endColor.b,
-        duration: 3, 
-        delay: 2, 
+        duration: 3,
+        delay: 2,
         onUpdate: () => {
           const animatedColor = new Three.Color(textColor.r, textColor.g, textColor.b);
           materials.forEach((material) => {
@@ -197,21 +197,21 @@ function FleetLogo() {
     scene.add(camera);
 
     const canvas = document.querySelector('.canvas');
-    const ambientLight = new Three.AmbientLight(textColor, 1.5);
+    const ambientLight = new Three.AmbientLight(textColor, 1);
     scene.add(ambientLight);
 
-    const directionalLight = new Three.DirectionalLight(textColor, 1);
-    directionalLight.position.set(10, 10, 10);
+    const directionalLight = new Three.DirectionalLight(textColor, 5);
+    directionalLight.position.set(0,0, 10);
     directionalLight.castShadow = true;
     scene.add(directionalLight);
 
     // text color animations
     gsap.to(textColor, {
       r: endColor.r,
-      g: endColor.g, 
+      g: endColor.g,
       b: endColor.b,
-      duration: 3, 
-      delay: 11,
+      duration: 3,
+      delay: 13,
       onUpdate: () => {
         // Update the color of all relevant materials and lights during animation
         const animatedColor = new Three.Color(endColor.r, endColor.g, endColor.b);
@@ -238,7 +238,7 @@ function FleetLogo() {
     });
 
     const renderScene = new RenderPass(scene, camera);
-    const bloomPass = new UnrealBloomPass(new Three.Vector2(innerWidth, innerHeight), 0.5, 0.1, 0.1); // Strength, radius, threshold
+    const bloomPass = new UnrealBloomPass(new Three.Vector2(innerWidth, innerHeight), 0.1, 0.1, 0.1); // Strength, radius, threshold
     const afterPass = new AfterimagePass();
     afterPass.uniforms['damp'].value = 0.7;
 
@@ -275,8 +275,43 @@ function FleetLogo() {
     }
     animate();
   }, [])
+
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    gsap.fromTo(canvas, {
+      opacity : 0,
+    },{
+      opacity : 1,
+      delay : 4,
+      duration : 2,
+    })
+
+    // Initial styles for the canvas
+    gsap.set(canvas, {
+      width: window.innerWidth * 0.2,
+      height: window.innerHeight * 0.2,
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+    });
+
+    // Animate to fullscreen after 10 seconds
+    gsap.to(canvas, {
+      width: "100vw",
+      height: "100vh",
+      top: 0,
+      left: 0,
+      transform: "none", // Reset transform for fullscreen
+      duration: 1.5,
+      delay: 8, // Wait for 10 seconds
+      ease: "power3.inOut",
+    });
+  }, []);
   return (
-    <canvas className='canvas logo-canvas'></canvas>
+    <canvas className='canvas logo-canvas' ref={canvasRef}></canvas>
   )
 }
 
