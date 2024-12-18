@@ -11,10 +11,12 @@ import gsap from 'gsap'
 import { easing } from 'maath'
 // import FireWorks from '../components/snowglobe/Fireworks'
 import FireWorks from '../components/snowglobe/Fireworks'
+import { useInsideContext } from '../context/InsideContext'
 
 export default function ScaledSnowGlobe(props) {
   const { nodes, materials } = useGLTF('/src/glb/resized-snowglobe.gltf')
   const { viewport } = useThree();
+  const { inside , setInside } = useInsideContext();
 
   const footer = document.querySelector('.footer')
   const snowGlobeRef = useRef()
@@ -24,9 +26,9 @@ export default function ScaledSnowGlobe(props) {
   const [insideMesh, setInsideMesh] = useState(false)
 
   const groupRef = useRef()
-  const texture = useTexture('/src/assets/svg/christmasBg2.jpg');
-  texture.wrapS = THREE.RepeatWrapping; // Horizontal wrapping
-  texture.wrapT = THREE.ClampToEdgeWrapping; // No vertical wrapping
+  const texture = useTexture('/src/assets/svg/christmas3.jpg');
+  texture.wrapS = THREE.RepeatWrapping; 
+  texture.wrapT = THREE.ClampToEdgeWrapping; 
   texture.repeat.set(2, 1);
 
   const { camera } = useThree()
@@ -43,14 +45,13 @@ export default function ScaledSnowGlobe(props) {
 
   useLayoutEffect(() => {
     gsap.to(camera.position, {
-      z: props.inside ? 0 : 3,
-      x: props.inside ? 0 : 3,
+      z: inside ? 0.1 : 3,
+      x: inside ? 0 : 3,
       ease: 'power3.inOut',
-      duration: 1.8
+      duration: 1
     })
-
     return () => ctx.revert()
-  }, [props.inside])
+  }, [inside])
 
   useFrame((state, delta) => {
     checkIntersection(snowGlobeRef.current, delta)
@@ -66,7 +67,7 @@ export default function ScaledSnowGlobe(props) {
     } else {
       setInsideMesh(true)
     }
-    easing.dampC(internalWorldRef.current.material.color, intersections.length > 0 ? 'grey' : 'white', 0.25, delta)
+    easing.damp(internalWorldRef.current.material.color, intersections.length > 0 ? 'grey' : 'white', 0.25, delta)
     //  easing.damp(footer.style, 'opacity', intersections.length > 0 ? '0.1' : '1', 0.25, delta)
   }
 
@@ -113,33 +114,10 @@ export default function ScaledSnowGlobe(props) {
         <FireWorks ref={fireWorksRef} />
       </mesh>
       <mesh ref={snowGlobeRef2} geometry={nodes.build_scenebuild_sceneSnow_Scene_blinn1_0.geometry} material={materials.PaletteMaterial002} scale={0.08} >
-        <meshPhysicalMaterial metalness={0.2} roughness={0.2} color={'white'} envMapIntensity={2} />
+        <meshPhysicalMaterial metalness={0.2} roughness={0.2} color={'#f0f0f0'} envMapIntensity={2} />
       </mesh>
-      <Texts />
     </group>
   )
 }
 
 useGLTF.preload('/resized-snowglobe.gltf')
-
-function Texts() {
-  return (
-    <>
-      {/* <Text3D letterSpacing={0.06} size={0.3} font="/src/fonts/Druk_Regular.json" position={[-1, 0, 0]}>
-        Fleet Studio
-        <meshPhysicalMaterial metalness={0.2} roughness={0.2} color={'#a1a1a1'} />
-      </Text3D> */}
-      {/* <Billboard>
-        <Text3D font="/src/fonts/DancingScript-VariableFont_wght.ttf" maxWidth={3.5} textAlign="center" position={[0, 0, 0]} fontSize="0.35" lineHeight={0.85}>
-          Wishing you a restful holiday season. {'\n\n'}May your Christmas be blessed with lots of love, peace, and happiness.
-        </Text3D>
-        <Text3D maxWidth={2.5} textAlign="center" position={[0, 11.2, 0]} fillOpacity={0.6} fontSize="0.1">
-          I will be on vacation until January 8th. Thank you for all your support in 2023. Great things are coming in 2024. Please stay tunned.
-        </Text3D>
-        <Text3D maxWidth={1.5} textAlign="center" position={[0, 10.8, 0]} fontSize="0.08">
-          Anderson Mancini
-        </Text3D>
-      </Billboard> */}
-    </>
-  )
-}

@@ -21,8 +21,8 @@ function FleetLogo() {
       r: targetColor.r,
       g: targetColor.g,
       b: targetColor.b,
-      duration: 2,
-      delay: 13,
+      duration: 0.5,
+      delay: 9,
       onUpdate: () => {
         scene.background.setRGB(bgColor.r, bgColor.g, bgColor.b);
       },
@@ -211,7 +211,7 @@ function FleetLogo() {
       g: endColor.g,
       b: endColor.b,
       duration: 3,
-      delay: 13,
+      delay: 9,
       onUpdate: () => {
         // Update the color of all relevant materials and lights during animation
         const animatedColor = new Three.Color(endColor.r, endColor.g, endColor.b);
@@ -228,7 +228,7 @@ function FleetLogo() {
 
     const renderer = new Three.WebGLRenderer({ canvas });
     renderer.setSize(innerWidth, innerHeight);
-    renderer.setPixelRatio(2)
+    renderer.setPixelRatio(Math.min(2 , window.devicePixelRatio))
 
     window.addEventListener('resize', () => {
       const { innerWidth, innerHeight } = window;
@@ -269,7 +269,8 @@ function FleetLogo() {
       biggerEdges.rotation.y = biggerCube.rotation.y
       biggerEdges.rotation.z = biggerCube.rotation.z
 
-      composer.render(scene, camera);
+      // composer.render(scene, camera);
+      renderer.render(scene , camera)
 
       window.requestAnimationFrame(animate);
     }
@@ -284,14 +285,14 @@ function FleetLogo() {
       opacity : 0,
     },{
       opacity : 1,
-      delay : 4,
+      delay : 2,
       duration : 2,
     })
 
     // Initial styles for the canvas
     gsap.set(canvas, {
-      width: window.innerWidth * 0.2,
-      height: window.innerHeight * 0.2,
+      width: window.innerWidth *( window.innerWidth <= 625 ? 0.5 : 0.2),
+      height: window.innerHeight * ( window.innerWidth <= 625 ? 0.5 : 0.2),
       position: "absolute",
       top: "50%",
       left: "50%",
@@ -306,7 +307,7 @@ function FleetLogo() {
       left: 0,
       transform: "none", // Reset transform for fullscreen
       duration: 1.5,
-      delay: 8, // Wait for 10 seconds
+      delay: 6, // Wait for 10 seconds
       ease: "power3.inOut",
     });
   }, []);

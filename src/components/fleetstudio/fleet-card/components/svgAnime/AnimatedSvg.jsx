@@ -43,23 +43,17 @@ const AnimatedSVG = () => {
 
   useEffect(() => {
     const timeline = gsap.timeline({ defaults: { ease: "power3.inOut" } });
-
-    // Animate in: Draw paths with stagger
+    gsap.set("#svg path", {
+      opacity: 0,
+      x: -500, 
+    });
     timeline
-      .fromTo(
+      .to(
         "#svg path",
         {
-          strokeDasharray: "700",
-          strokeDashoffset: "1000",
-          opacity: 0,
-          x: -500,
-        },
-        {
-          strokeDashoffset: "0",
-          strokeDasharray: "3000",
           opacity: 1,
-          x: 0,
-          stagger: 0.1,
+          x: 10,
+          stagger: 0.05,
           duration: 1,
         }
       )
@@ -69,11 +63,13 @@ const AnimatedSVG = () => {
           x: (index) => directions[index % directions.length].x,
           y: (index) => directions[index % directions.length].y,
           opacity: 0,
-          stagger: 0.1,
+          stagger: 0.05,
           duration: 0.8,
         },
-        "+=0.5" 
+        "+=0.5"
       );
+
+    return () => timeline.kill();
   }, []);
 
   return (
@@ -83,15 +79,13 @@ const AnimatedSVG = () => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 450.000000 350.000000"
       preserveAspectRatio="xMidYMid meet"
-  
     >
-      <g transform="translate(0.000000,343.000000) scale(0.100000,-0.100000)">
+      <g transform="translate(25.000000,343.000000) scale(0.100000,-0.100000)">
         {paths.map((d, index) => (
           <path
             key={index}
             d={d}
             stroke="#419ccb"
-            strokeWidth="20"
             fill="var(--primary-1)"
           />
         ))}

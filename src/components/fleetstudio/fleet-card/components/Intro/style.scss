@@ -99,7 +99,7 @@
 	/* fill: var(--accent); */
 	/* fill-opacity: 0; */
 	stroke-width: 20px;
-	animation: draw 6s ease;
+	// animation: draw 6s ease;
 	height: 500px;
 	width: 500px;
 	@media (max-width: 425px) {
@@ -108,19 +108,19 @@
 	}
 }
 
-@keyframes draw {
-	0% {
-		stroke-dashoffset: 4500;
-		fill: var(--secoondary-2);
-		stroke-dasharray: 700;
-	}
-	100% {
-		stroke-dashoffset: 0;
+// @keyframes draw {
+// 	0% {
+// 		stroke-dashoffset: 4500;
+// 		fill: var(--secoondary-2);
+// 		stroke-dasharray: 700;
+// 	}
+// 	100% {
+// 		stroke-dashoffset: 0;
 
-		fill: var(--primarry-1);
-		stroke-dasharray: 3000;
-	}
-}
+// 		fill: var(--primarry-1);
+// 		stroke-dasharray: 3000;
+// 	}
+// }
 
 .name-container {
 	height: 40px;
