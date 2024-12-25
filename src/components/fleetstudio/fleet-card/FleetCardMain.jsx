@@ -1,27 +1,23 @@
-import React, { useState } from 'react'
+import React, { lazy, Suspense } from 'react'
 import './style.scss'
 import { Canvas } from '@react-three/fiber';
 import { Float, OrbitControls, Environment, ContactShadows } from '@react-three/drei';
-import CenterModel from './models/FleetCard1';
 import IntroFS from './components/Intro/IntroFS';
-import SnowGlobeModel from './components/snowglobe/SnowGlobe';
-import SnowMain from './components/snowglobe/SnowMain';
-import SnowGlobeJSX from './models/Snowglobe-transformed';
-import ScaledSnowGlobe from './models/Resized-snowglobe';
-import { EffectComposer, Bloom, HueSaturation, Vignette, SMAA, TiltShift2 } from '@react-three/postprocessing'
 import GreetingCard from './components/greetingsCard/GreetingCard';
-import InsideContext, { useInsideContext } from './context/InsideContext';
+import { useInsideContext } from './context/InsideContext';
+const ScaledSnowGlobe = lazy(() => import('./models/Resized-snowglobe'))
 
 function FleetCardMain() {
   const snowCount = 40;
-  const {inside , setInside } = useInsideContext();
+  const { inside, setInside } = useInsideContext();
   return (
 
-      <div className={`canvasContainer`} style={{ position: 'relative', height: '100vh', width: '100vw' }}>
-        {Array.from({ length: snowCount }).map((_, index) => (
-          <div key={index} className="snowflake"></div>
-        ))}
-        <IntroFS />
+    <div className={`canvasContainer`} style={{ position: 'relative', height: '100vh', width: '100vw' }}>
+      {Array.from({ length: snowCount }).map((_, index) => (
+        <div key={index} className="snowflake"></div>
+      ))}
+      <IntroFS />
+      <Suspense fallback={<div>Fleet Studio</div>}>
         <Canvas
           className='!h-screen w-screen'
           style={{
@@ -32,10 +28,10 @@ function FleetCardMain() {
           }}
           // camera={{  position: [0, 0, 10] }}
           camera={{
-            fov: 75,         
-            position: [0, 0, 5], 
-            near: 0.1,       
-            far: 1000     
+            fov: 75,
+            position: [0, 0, 5],
+            near: 0.1,
+            far: 1000
           }}
         >
           <OrbitControls enableZoom={false}
@@ -43,7 +39,7 @@ function FleetCardMain() {
             minPolarAngle={Math.PI / 2}
           />
           <Environment preset='studio' />
-         <Float
+          <Float
             speed={5}
             rotationIntensity={0}
             floatIntensity={1}
@@ -51,16 +47,17 @@ function FleetCardMain() {
             <ScaledSnowGlobe />
           </Float>
         </Canvas>
-        <div className='w-full absolute bottom-0 flex justify-center'>
-          <button onClick={() => {
-            setInside(!inside);
-          }} className="button" type="button">
-            { inside ? "Click to Move Out"  : "Click Me for a Suprise"}
-            <img className="button-hat" src="https://assets.codepen.io/4175254/santa-hat-test-9.png" alt="" />
-          </button>
-        </div>
-        <GreetingCard />
+      </Suspense>
+      <div className='w-full absolute bottom-0 flex justify-center'>
+        <button onClick={() => {
+          setInside(!inside);
+        }} className="button" type="button">
+          {inside ? "Click to Move Out" : "Click Me for a Suprise"}
+          <img className="button-hat" src="https://assets.codepen.io/4175254/santa-hat-test-9.png" alt="" />
+        </button>
       </div>
+      <GreetingCard />
+    </div>
   )
 }
 

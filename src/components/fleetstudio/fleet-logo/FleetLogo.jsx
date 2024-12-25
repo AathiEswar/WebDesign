@@ -3,8 +3,6 @@ import * as Three from 'three';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import gsap from 'gsap';
-import { EffectComposer, RenderPass, AfterimagePass, UnrealBloomPass } from 'three/examples/jsm/Addons'
-import { PointsMaterial } from 'three';
 
 function FleetLogo() {
   useEffect(() => {
@@ -66,13 +64,13 @@ function FleetLogo() {
 
     scene.add(group);
 
-    const planeGeometry = new Three.PlaneGeometry(1000, 1000);
-    const planeMaterial = new Three.ShadowMaterial({ opacity: 0.5 });
-    const plane = new Three.Mesh(planeGeometry, planeMaterial);
-    plane.rotation.x = -Math.PI / 2;
-    plane.position.y = -1;
-    plane.receiveShadow = true;
-    scene.add(plane);
+    // const planeGeometry = new Three.PlaneGeometry(1000, 1000);
+    // const planeMaterial = new Three.ShadowMaterial({ opacity: 0.5 });
+    // const plane = new Three.Mesh(planeGeometry, planeMaterial);
+    // plane.rotation.x = -Math.PI / 2;
+    // plane.position.y = -1;
+    // plane.receiveShadow = true;
+    // scene.add(plane);
 
     const loader = new FontLoader();
 
@@ -108,8 +106,8 @@ function FleetLogo() {
 
       cube.position.set(xPosition, yPosition, 0);
       edges.position.set(xPosition, yPosition, 0);
-      cube.castShadow = true;
-      cube.receiveShadow = true;
+      // cube.castShadow = true;
+      // cube.receiveShadow = true;
       sphere.add(cube);
       sphere.add(edges)
 
@@ -117,8 +115,8 @@ function FleetLogo() {
       const xPositionBiggerCueb = xPosition + 0.4;
       biggerEdges.position.set(xPositionBiggerCueb, yPositionBiggerCube, 0);
       biggerCube.position.set(xPositionBiggerCueb, yPositionBiggerCube, 0);
-      biggerCube.castShadow = true;
-      biggerCube.receiveShadow = true;
+      // biggerCube.castShadow = true;
+      // biggerCube.receiveShadow = true;
       sphere2.add(biggerCube);
       sphere2.add(biggerEdges);
 
@@ -191,7 +189,6 @@ function FleetLogo() {
       4000
     );
 
-
     camera.position.set(0, 0, 6);
     camera.lookAt(0, 0, 0);
     scene.add(camera);
@@ -201,7 +198,7 @@ function FleetLogo() {
     scene.add(ambientLight);
 
     const directionalLight = new Three.DirectionalLight(textColor, 5);
-    directionalLight.position.set(0,0, 10);
+    directionalLight.position.set(0, 0, 10);
     directionalLight.castShadow = true;
     scene.add(directionalLight);
 
@@ -213,12 +210,11 @@ function FleetLogo() {
       duration: 3,
       delay: 9,
       onUpdate: () => {
-        // Update the color of all relevant materials and lights during animation
+
         const animatedColor = new Three.Color(endColor.r, endColor.g, endColor.b);
         ambientLight.color.set(animatedColor);
         directionalLight.color.set(animatedColor);
 
-        // Update cube and edge colors if needed
         cubeMaterial.color.set(animatedColor);
         edgesMaterial.color.set(animatedColor);
         biggerCubeMaterial.color.set(animatedColor);
@@ -228,7 +224,7 @@ function FleetLogo() {
 
     const renderer = new Three.WebGLRenderer({ canvas });
     renderer.setSize(innerWidth, innerHeight);
-    renderer.setPixelRatio(Math.min(2 , window.devicePixelRatio))
+    renderer.setPixelRatio(Math.min(2, window.devicePixelRatio))
 
     window.addEventListener('resize', () => {
       const { innerWidth, innerHeight } = window;
@@ -237,16 +233,7 @@ function FleetLogo() {
       renderer.setSize(innerWidth, innerHeight);
     });
 
-    const renderScene = new RenderPass(scene, camera);
-    const bloomPass = new UnrealBloomPass(new Three.Vector2(innerWidth, innerHeight), 0.1, 0.1, 0.1); // Strength, radius, threshold
-    const afterPass = new AfterimagePass();
-    afterPass.uniforms['damp'].value = 0.7;
-
-    const composer = new EffectComposer(renderer);
-    composer.addPass(renderScene);
-    // composer.addPass(bloomPass);
-    // composer.addPass(afterPass);
-
+    // const renderScene = new RenderPass(scene, camera);
     let clock = new Three.Clock();
 
     function animate() {
@@ -268,10 +255,7 @@ function FleetLogo() {
       biggerEdges.rotation.x = biggerCube.rotation.x
       biggerEdges.rotation.y = biggerCube.rotation.y
       biggerEdges.rotation.z = biggerCube.rotation.z
-
-      // composer.render(scene, camera);
-      renderer.render(scene , camera)
-
+      renderer.render(scene, camera)
       window.requestAnimationFrame(animate);
     }
     animate();
@@ -280,36 +264,70 @@ function FleetLogo() {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    gsap.fromTo(canvas, {
-      opacity : 0,
-    },{
-      opacity : 1,
-      delay : 2,
-      duration : 2,
-    })
+    // const canvas = canvasRef.current;
+    // gsap.fromTo(canvas, {
+    //   opacity : 0,
+    // },{
+    //   opacity : 1,
+    //   delay : 2,
+    //   duration : 2,
+    // })
 
-    // Initial styles for the canvas
-    gsap.set(canvas, {
-      width: window.innerWidth *( window.innerWidth <= 625 ? 0.5 : 0.2),
-      height: window.innerHeight * ( window.innerWidth <= 625 ? 0.5 : 0.2),
-      position: "absolute",
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-    });
+    // gsap.set(canvas, {
+    //   width: window.innerWidth *( window.innerWidth <= 625 ? 0.5 : 0.2),
+    //   height: window.innerHeight * ( window.innerWidth <= 625 ? 0.5 : 0.2),
+    //   position: "absolute",
+    //   top: "50%",
+    //   left: "50%",
+    //   transform: "translate(-50%, -50%)",
+    // });
 
-    // Animate to fullscreen after 10 seconds
-    gsap.to(canvas, {
-      width: "100vw",
-      height: "100vh",
-      top: 0,
-      left: 0,
-      transform: "none", // Reset transform for fullscreen
-      duration: 1.5,
-      delay: 6, // Wait for 10 seconds
-      ease: "power3.inOut",
-    });
+    // gsap.to(canvas, {
+    //   width: "100vw",
+    //   height: "100vh",
+    //   top: 0,
+    //   left: 0,
+    //   transform: "none",
+    //   duration: 1.5,
+    //   delay: 5, 
+    //   ease: "power3.inOut",
+    // });
+    const ctx = gsap.context(() => {
+      const canvas = canvasRef.current;
+
+      gsap.fromTo(
+        canvas,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          delay: 2,
+          duration: 2,
+        }
+      );
+
+      gsap.set(canvas, {
+        width: window.innerWidth * (window.innerWidth <= 625 ? 0.5 : 0.2),
+        height: window.innerHeight * (window.innerWidth <= 625 ? 0.5 : 0.2),
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+      });
+
+      // Animate canvas to full screen
+      gsap.to(canvas, {
+        width: "100vw",
+        height: "100vh",
+        top: 0,
+        left: 0,
+        transform: "none",
+        duration: 1.5,
+        delay: 5,
+        ease: "power3.inOut",
+      });
+    }, canvasRef);
+
+    return () => ctx.revert();
   }, []);
   return (
     <canvas className='canvas logo-canvas' ref={canvasRef}></canvas>

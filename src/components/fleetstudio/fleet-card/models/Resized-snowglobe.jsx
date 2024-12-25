@@ -4,28 +4,27 @@ Command: npx gltfjsx@6.5.3 .\src\glb\resized-snowglobe.gltf
 */
 
 import React, { useRef, useState, useMemo, useLayoutEffect, useEffect } from 'react'
-import { Billboard, MeshTransmissionMaterial, Text3D, useGLTF, useTexture, Text } from '@react-three/drei'
+import { MeshTransmissionMaterial, useGLTF, useTexture } from '@react-three/drei'
 import { useThree, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import gsap from 'gsap'
 import { easing } from 'maath'
-// import FireWorks from '../components/snowglobe/Fireworks'
 import FireWorks from '../components/snowglobe/Fireworks'
 import { useInsideContext } from '../context/InsideContext'
+import { useGSAP } from '@gsap/react'
+gsap.registerPlugin(useGSAP)
 
 export default function ScaledSnowGlobe(props) {
   const { nodes, materials } = useGLTF('/src/glb/resized-snowglobe.gltf')
-  const { viewport } = useThree();
-  const { inside , setInside } = useInsideContext();
-
-  const footer = document.querySelector('.footer')
+  // const { viewport } = useThree();
+  const { inside  } = useInsideContext();
   const snowGlobeRef = useRef()
   const snowGlobeRef2 = useRef()
   const internalWorldRef = useRef()
-  const fireWorksRef = useRef()
+  //const fireWorksRef = useRef()
   const [insideMesh, setInsideMesh] = useState(false)
 
-  const groupRef = useRef()
+  // const groupRef = useRef()
   const texture = useTexture('/src/assets/svg/christmas3.jpg');
   texture.wrapS = THREE.RepeatWrapping; 
   texture.wrapT = THREE.ClampToEdgeWrapping; 
@@ -43,7 +42,7 @@ export default function ScaledSnowGlobe(props) {
 
   const ctx = useGsapContext(snowGlobeRef)
 
-  useLayoutEffect(() => {
+  useGSAP(() => {
     gsap.to(camera.position, {
       z: inside ? 0.1 : 3,
       x: inside ? 0 : 3,
@@ -75,7 +74,7 @@ export default function ScaledSnowGlobe(props) {
     if (!insideMesh) {
       snowGlobeRef2.current.visible = false
       snowGlobeRef.current.visible = false
-      fireWorksRef.current.visible = true
+      //fireWorksRef.current.visible = true
       internalWorldRef.current.visible = true
       camera.fov = 95
       camera.updateProjectionMatrix()
@@ -84,7 +83,7 @@ export default function ScaledSnowGlobe(props) {
       camera.updateProjectionMatrix()
       snowGlobeRef2.current.visible = true
       snowGlobeRef.current.visible = true
-      fireWorksRef.current.visible = false
+      // fireWorksRef.current.visible = false
       internalWorldRef.current.visible = false
     }
   }, [insideMesh])
@@ -111,10 +110,12 @@ export default function ScaledSnowGlobe(props) {
       <mesh ref={internalWorldRef} position={[0, 0, 0]}>
         <sphereGeometry args={[12.5, 24, 24]} />
         <meshStandardMaterial map={texture} side={THREE.BackSide} />
-        <FireWorks ref={fireWorksRef} />
+        <FireWorks 
+        // ref={fireWorksRef} 
+        />
       </mesh>
       <mesh ref={snowGlobeRef2} geometry={nodes.build_scenebuild_sceneSnow_Scene_blinn1_0.geometry} material={materials.PaletteMaterial002} scale={0.08} >
-        <meshPhysicalMaterial metalness={0.2} roughness={0.2} color={'#f0f0f0'} envMapIntensity={2} />
+        <meshPhysicalMaterial metalness={0.2} roughness={0.2} color={'white'} envMapIntensity={2} />
       </mesh>
     </group>
   )

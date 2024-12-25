@@ -17,7 +17,7 @@ function GreetingCard(props) {
 	}, [inside]);
 	return (
 		<div ref={cardRef}  style={{ pointerEvents: "none" }}
-			className={`absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-white 
+			className={`absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-white opacity-0
 			text-[60px] sm:text-[100px] md:text-[120px]	lg:text-[150px] font-bold text-center font-["Dancing"] christmas-text`}>
 			HAPPY HOLIDAYS
 		</div>

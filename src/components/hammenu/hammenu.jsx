@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react'
 import styled from 'styled-components';
 import { ButtonProvider } from './hammenu-provider';
+import useRenderEnv from '../../hooks/responsive/SSR/useIsSsr';
 
 const StyledHamMenu = styled.section`
   font-family: Arial, Helvetica, sans-serif;

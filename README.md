@@ -23,6 +23,9 @@
    Integrated Tailwind Styling to Magneto with less bundling and module scanner 
    Updated Readme of Magneto to tailwind css integration 
 
+19-12-2024:
+    Researching about Breakpoints and other packages for breakpoints with ssr configurations
+
 # IDEAS 
 
 * useBreakPoint() - a hook for working with breakpoints in much more simpler way 

@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import '../Intro/style.scss'
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(useGSAP);
+
 const AnimatedSVG = () => {
   const paths = [
     "M1885 2958 l-200 -100 195 -99 c107 -54 202 -98 210 -98 16 -1 400 191 400 200 0 5 -391 199 -400 198 -3 0 -95 -45 -205 -101z",
@@ -39,9 +41,9 @@ const AnimatedSVG = () => {
     { x: 0, y: -500 },
   ];
 
-  const svgRef = useRef(null);
+  // const svgRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     const timeline = gsap.timeline({ defaults: { ease: "power3.inOut" } });
     gsap.set("#svg path", {
       opacity: 0,
@@ -70,12 +72,12 @@ const AnimatedSVG = () => {
       );
 
     return () => timeline.kill();
-  }, []);
+  });
 
   return (
     <svg
       id="svg"
-      ref={svgRef}
+      // ref={svgRef}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 450.000000 350.000000"
       preserveAspectRatio="xMidYMid meet"

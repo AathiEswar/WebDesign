@@ -5,19 +5,9 @@ export const useInsideContext = () => useContext(insideContext)
 
 function InsideContext({ children }) {
   const [inside, setInside] = useState(false);
-
-  const setInsideToFalse = () => {
-    setInside(false);
-  }
-  const setInsideToTrue = () => {
-    setInside(true);
-  }
-
   const value = {
     inside,
     setInside,
-    setInsideToFalse,
-    setInsideToTrue,
   }
   return (
     <insideContext.Provider value={value}>
