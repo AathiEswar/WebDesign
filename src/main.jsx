@@ -28,6 +28,7 @@ import FleetLogo from './components/fleetstudio/fleet-logo/FleetLogo.jsx';
 import Random from './components/R3F/Random.jsx';
 import FleetCardMain from './components/fleetstudio/fleet-card/FleetCardMain.jsx';
 import InsideContext from './components/fleetstudio/fleet-card/context/InsideContext.jsx';
+import Textures from './components/threejs/Textures.jsx';
 
 const router = createBrowserRouter([
   {
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
   {
     path: '/threejs/fleet',
     element: <FleetStudioMain />
+  },
+   {
+    path: '/threejs/textures',
+    element: <Textures />
   },
   {
     path: '/threejs/fleet/fleetlogo',

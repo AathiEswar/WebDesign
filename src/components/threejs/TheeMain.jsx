@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import styles from  '../../assets/css/styles.module.scss'
+import styles from '../../assets/css/styles.module.scss'
 
 
 function ThreeMain() {
@@ -10,20 +10,24 @@ function ThreeMain() {
       text: 'Basic Cubes'
     },
     {
-      to : 'animatecube',
-      text : 'AnimateCube'
+      to: 'animatecube',
+      text: 'AnimateCube'
     },
     {
-      to : 'mousecube',
-      text : 'Mouse Move'
+      to: 'mousecube',
+      text: 'Mouse Move'
     },
     {
-      to : 'orbit',
-      text : 'Orbit Controls'
+      to: 'orbit',
+      text: 'Orbit Controls'
     },
     {
-      to : 'fleet',
-      text : 'Fleet Logo'
+      to: 'fleet',
+      text: 'Fleet Logo'
+    },
+    {
+      to: 'textures',
+      text: 'Textures'
     }
   ]
 

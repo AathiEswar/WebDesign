@@ -1,20 +1,25 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 
 function useRenderEnv() {
+  const isServer = (typeof window === 'undefined');
+  const isClient = (typeof window !== 'undefined');
+
   const [ssr, setIsSsr] = useState({
-    isServer: (typeof window === undefined),
-    isClient: (typeof window !== undefined),
-    isLoading : true,
+    isServer: isServer,
+    isClient: isClient,
+    isLoading: true,
   });
 
   useEffect(() => {
-      setIsSsr({
-        isServer: false,
-        isClient: true,
-        isLoading : false,
-      });
-  }, [])
+    setIsSsr({
+      isServer: false,
+      isClient: true,
+      isLoading: false,
+    });
+  }, []);
 
-  return ssr
+  return ssr;
 }
+
+
 export default useRenderEnv

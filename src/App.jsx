@@ -12,16 +12,13 @@ import {
   HamMenuSubLink,
   HamMenuTitle
 } from './components/hammenu/index.jsx';
-import { Magneto } from 'aventure';
+
 import useMediaQuery from './hooks/responsive/useMediaQuery/useMediaQuery.js';
-import useIsSsr from './hooks/responsive/SSR/useIsSsr.js';
-import useRenderEnv from './hooks/responsive/SSR/useIsSsr.js';
+
+
 
 function App() {
-  const query = useMediaQuery({queryProp : "hello"})
-  const {isLoading , isClient , isServer} = useRenderEnv();
-
-  console.log("isLoadingn : "+isLoading);
+  const query = useMediaQuery({ queryProp: "hello" })
 
   return (
     <section className={`${styles.body} `}>
@@ -56,11 +53,11 @@ function App() {
         <Link className={`${styles.navButtons} scrollAni`} to={`r3f`}>R3F</Link>
       </div>
 
-      <Magneto className={`${styles.magnetButton} absolute top-[50%] left-[50%]`} amplitudex={1} amplitudey={1} periodx={0.1} periody={0.1}>
+      {/* <Magneto className={`${styles.magnetButton} absolute top-[50%] left-[50%]`} amplitudex={1} amplitudey={1} periodx={0.1} periody={0.1}>
         <p>
-         { isLoading ? "Loading":"Hover Me!"}
+          {"Hover Me!"}
         </p>
-      </Magneto>
+      </Magneto> */}
     </section>
   )
 }
