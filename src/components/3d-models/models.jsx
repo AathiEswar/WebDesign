@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import styles from './styles.module.scss'
+import SimpleTransition from '../transitions/Simple/SimpleTransition'
 
 function MainModels() {
   const links = [
