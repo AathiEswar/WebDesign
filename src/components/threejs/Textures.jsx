@@ -26,7 +26,7 @@ function Textures() {
     loadingTexture.onError = () => { console.log("Texture Error"); }
 
     const TextureLoader = new THREE.TextureLoader(loadingTexture)
-    const colorTexture = TextureLoader.load('/textures/door/color.jpg');
+    const colorTexture = TextureLoader.load('/textures/aot.jpg');
     const alphaTexture = TextureLoader.load('/textures/door/alpha.jpg');
     const heightTexture = TextureLoader.load('/textures/door/height.jpg');
     const metalTexture = TextureLoader.load('/textures/door/metalness.jpg');
@@ -35,6 +35,25 @@ function Textures() {
     const normalTexture = TextureLoader.load('/textures/door/normal.jpg');
 
     colorTexture.colorSpace = THREE.SRGBColorSpace
+    colorTexture.minFilter = THREE.NearestFilter
+    colorTexture.generateMipmaps = false;
+    colorTexture.magFilter = THREE.NearestFilter
+    // Transformations of Texture :
+    /* 
+      Offset 
+      rotations 
+      center
+      mirror 
+      repeat ( wrapS and wrapT )
+
+    */
+
+    /*
+      Texture Properties : 
+        Size 
+        Weight
+        Data
+    */
 
     // Create geometry and material
     const geometry = new THREE.BoxGeometry(1, 1, 1);

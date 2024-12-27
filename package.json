@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "git-update": "git add . && git commit -m \"$npm_config_msg\" && git push"
   },
   "dependencies": {
     "@avent-ui/use-render-env": "^1.0.1",
