@@ -9,14 +9,16 @@ import SimpleTransition from "../Simple/SimpleTransition";
 import { AnimatePresence } from "framer-motion";
 
 function DynamicTransitionContext({ children }) {
-  const [Transition, setTransition] = useState(()=> SimpleTransition);
-
+  const [Transition, setTransition] = useState(() => SimpleTransition);
+  const [activeButton, setActiveButton] = useState(0)
   const setTransitionType = (wrapper) => setTransition(() => wrapper)
 
   return (
     <WrapperContext.Provider value={{
       Transition,
-      setTransitionType
+      setTransitionType,
+      activeButton, 
+      setActiveButton
     }}>
       <AnimatePresence mode="wait">
         {children}
