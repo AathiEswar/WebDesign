@@ -43,21 +43,16 @@ function RouterApp() {
           <Route path="/3dmodels/follow" element={<MouseFollow />} />
           <Route path="/3dmodels/scroll" element={<ScrollGesture />} />
           <Route path="/3dmodels/waveshader" element={<WaveShader />} />
+
           <Route path="/3dmodels/donuts" element={<DonutsMain />} />
-          {/* <Route path="/page-transitions" element={<DynamicTransitionContext><PageTransitionMain /></DynamicTransitionContext>} />
-
-          <Route path='/page-transitions/:transition' element={<DynamicTransitionContext><DynamicMain /></DynamicTransitionContext>} key={location.pathname}></Route>
-          <Route path="/page-transitions/:transition/page/1" element={<DynamicTransitionContext> <DynamicPage /> </DynamicTransitionContext>} />
-          <Route path="/page-transitions/:transition/page/2" element={<DynamicTransitionContext> <DynamicPage2 /> </DynamicTransitionContext>} /> */}
-
           <Route path="/page-transitions" element={<PageTransitionMain />} />
-
           <Route path='/page-transitions/:transition' element={<DynamicMain />} key={location.pathname}></Route>
           <Route path="/page-transitions/:transition/page/1" element={<DynamicPage />} />
           <Route path="/page-transitions/:transition/page/2" element={<DynamicPage2 />} />
 
           <Route path="/buttons" element={<ScrollMain />} />
           <Route path="/buttons/zoom-parallax" element={<ZoomParallax />} />
+
           <Route path="/threejs" element={<ThreeMain />} />
           <Route path="/threejs/thecube" element={<TheCube />} />
           <Route path="/threejs/animatecube" element={<AnimationCube />} />
@@ -66,6 +61,7 @@ function RouterApp() {
           <Route path="/threejs/fleet" element={<FleetStudioMain />} />
           <Route path="/threejs/textures" element={<Textures />} />
           <Route path="/threejs/fleet/fleetlogo" element={<FleetLogo />} />
+          
           <Route path="/r3f" element={<R3F />} />
           <Route path="/r3f/basic" element={<BasicR3F />} />
           <Route path="/r3f/random" element={<Random />} />

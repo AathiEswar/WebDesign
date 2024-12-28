@@ -6,9 +6,8 @@ import SimpleTransition from './Simple/SimpleTransition'
 import SimpleTransitionLR from './Simple-left-right/SimpleTransitionLR'
 
 function PageTransitionMain() {
-  const { setTransitionType } = useWrapper()
+  const { setTransitionType, Transition } = useWrapper()
 
-  console.log("Main Page : " , SimpleTransition);
   const links = [
     {
       to: 'simple-transition',
@@ -16,15 +15,17 @@ function PageTransitionMain() {
     },
   ]
   return (
-    <div className={styles.buttonBody}>
-      {
-        links.map((link, index) => {
-          return (<Link key={index} className={`${styles.navButtons}`} to={link.to}>{link.text}</Link>)
-        })
-      }
-      <button className={`${styles.navButtons}`} onClick={() => setTransitionType(SimpleTransition)}>Simple Transition</button>
-      <button className={`${styles.navButtons}`} onClick={() => setTransitionType(SimpleTransitionLR)}>Simple Transition LR</button>
-    </div>
+    <Transition>
+      <div className={styles.buttonBody}>
+        {
+          links.map((link, index) => {
+            return (<Link key={index} className={`${styles.navButtons}`} to={link.to}>{link.text}</Link>)
+          })
+        }
+        <button className={`${styles.navButtons}`} onClick={() => setTransitionType(SimpleTransition)}>Simple Transition (Default)</button>
+        <button className={`${styles.navButtons}`} onClick={() => setTransitionType(SimpleTransitionLR)}>Simple Transition LR</button>
+      </div>
+    </Transition>
   )
 }
 export default PageTransitionMain
