@@ -6,6 +6,7 @@ import {
   BrowserRouter,
   createBrowserRouter,
   Route,
+  Router,
   RouterProvider,
   Routes,
 } from "react-router-dom";
@@ -33,33 +34,13 @@ import FleetCardMain from './components/fleetstudio/fleet-card/FleetCardMain.jsx
 import InsideContext from './components/fleetstudio/fleet-card/context/InsideContext.jsx';
 import Textures from './components/threejs/Textures.jsx';
 import { AnimatePresence } from 'framer-motion';
+import RouterApp from './Router.jsx';
 
 const AppRouter = () => (
   <BrowserRouter>
     <AnimatePresence mode='wait'>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/3dmodels" element={<MainModels />} />
-        <Route path="/3dmodels/donut" element={<DonutMain />} />
-        <Route path="/3dmodels/drag" element={<Drag3D />} />
-        <Route path="/3dmodels/follow" element={<MouseFollow />} />
-        <Route path="/3dmodels/scroll" element={<ScrollGesture />} />
-        <Route path="/3dmodels/waveshader" element={<WaveShader />} />
-        <Route path="/3dmodels/donuts" element={<DonutsMain />} />
-        <Route path="/buttons" element={<ScrollMain />} />
-        <Route path="/buttons/zoom-parallax" element={<ZoomParallax />} />
-        <Route path="/threejs" element={<ThreeMain />} />
-        <Route path="/threejs/thecube" element={<TheCube />} />
-        <Route path="/threejs/animatecube" element={<AnimationCube />} />
-        <Route path="/threejs/mousecube" element={<MouseMove />} />
-        <Route path="/threejs/orbit" element={<OrbitCtrl />} />
-        <Route path="/threejs/fleet" element={<FleetStudioMain />} />
-        <Route path="/threejs/textures" element={<Textures />} />
-        <Route path="/threejs/fleet/fleetlogo" element={<FleetLogo />} />
-        <Route path="/r3f" element={<R3F />} />
-        <Route path="/r3f/basic" element={<BasicR3F />} />
-        <Route path="/r3f/random" element={<Random />} />
-        <Route path="/r3f/fleetcard" element={<InsideContext><FleetCardMain /></InsideContext>} />
+        <Route path="/*" element={<RouterApp />} /> 
       </Routes>
     </AnimatePresence>
   </BrowserRouter>

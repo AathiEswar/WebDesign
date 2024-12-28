@@ -31,7 +31,6 @@ function MainModels() {
   ]
   return (
     <SimpleTransition>
-
       <div className={styles.buttonBody}>
         {
           links.map(link => {
