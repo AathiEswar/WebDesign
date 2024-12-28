@@ -4,6 +4,7 @@ import styles from './styles.module.scss'
 import { useWrapper } from './transition-dynamic-template/DynamicTransitionContext'
 import SimpleTransition from './Simple/SimpleTransition'
 import SimpleTransitionLR from './Simple-left-right/SimpleTransitionLR'
+import StaggerBlockTransition from './StaggerDiv/StaggerBlockTransition'
 
 function PageTransitionMain() {
   const { setTransitionType, Transition , activeButton , setActiveButton } = useWrapper()
@@ -24,6 +25,10 @@ function PageTransitionMain() {
       onClickProp: SimpleTransitionLR,
       text: "Left To Right"
     },
+    {
+      onClickProp : StaggerBlockTransition,
+      text : 'Stagger Div'
+    }
   ]
   return (
     <Transition>
