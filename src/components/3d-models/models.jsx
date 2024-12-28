@@ -30,15 +30,13 @@ function MainModels() {
     }
   ]
   return (
-    <SimpleTransition>
-      <div className={styles.buttonBody}>
-        {
-          links.map(link => {
-            return (<Link className={`${styles.navButtons}`} to={link.to}>{link.text}</Link>)
-          })
-        }
-      </div>
-    </SimpleTransition>
+    <div className={styles.buttonBody}>
+      {
+        links.map(link => {
+          return (<Link className={`${styles.navButtons}`} to={link.to}>{link.text}</Link>)
+        })
+      }
+    </div>
   )
 }
 
