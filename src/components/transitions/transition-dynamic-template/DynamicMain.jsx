@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import SimpleTransition from '../Simple/SimpleTransition'
+import { useWrapper } from './DynamicTransitionContext'
 
 function DynamicMain() {
   const params = useParams()
   const baseUrl = "page-transitions/" + params.transition
+  const { SimpleTransition } = useWrapper()
+  console.log("Dynamic Main : ", SimpleTransition);
   return (
     <SimpleTransition>
       <div className='flex flex-wrap gap-4'>

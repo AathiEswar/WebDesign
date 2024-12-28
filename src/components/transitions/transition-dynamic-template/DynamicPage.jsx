@@ -4,6 +4,7 @@ import { useWrapper } from './DynamicTransitionContext';
 
 function DynamicPage() {
   const { SimpleTransition } = useWrapper();
+  console.log("Page 1 "+SimpleTransition);
   const { baseUrl } = useLocation().state;
   return (
     <SimpleTransition>
