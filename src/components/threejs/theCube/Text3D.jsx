@@ -7,33 +7,68 @@ import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 
 function Text3D() {
   useEffect(() => {
+
+    /**
+    * Textures
+    */
+    const textureLoader = new THREE.TextureLoader()
+    const matcapTexture = textureLoader.load("/textures/matcaps/8.png");
+    matcapTexture.colorSpace = THREE.SRGBColorSpace
+
     // Font Loader
     const fontLoader = new FontLoader();
-
+    // Debug
+    const gui = new GUI()
+    
     fontLoader.load("/fonts/helvetiker_bold.typeface.json", (font) => {
       const textGeometry = new TextGeometry('THREE.JS', {
+        // font typeface 
         font: font,
+        // size 
         size: 0.5,
+        // the thickness of the font 
         depth: 0.2,
-        curveSegments: 12,
+        // no of triangles to form that letter
+        curveSegments: 5,
+        // curves on the fonts 
         bevelEnabled: true,
         bevelOffset: 0,
-        bevelSegments: 5,
+        // no of segments to create that bevel
+        bevelSegments: 4,
+        // x and y thickness
         bevelSize: 0.02,
+        // z thickness
         bevelThickness: 0.03,
       });
+      // this or bounding for centering ( def is sphere )
       textGeometry.center()
 
-      const textMaterial = new THREE.MeshBasicMaterial()
-      const text = new THREE.Mesh(textGeometry , textMaterial);
+      const matMaterial = new THREE.MeshMatcapMaterial({ matcap: matcapTexture })
+      const text = new THREE.Mesh(textGeometry, matMaterial);
       scene.add(text)
+
+      // for optimization
+      const torusGeometry = new THREE.TorusGeometry(0.3, 0.2, 20, 45);
+
+      for (let i = 0; i < 100; i++) {
+        const torus = new THREE.Mesh(torusGeometry, matMaterial);
+
+        torus.position.x = (Math.random() - 0.5) * 10
+        torus.position.y = (Math.random() - 0.5) * 10
+        torus.position.z = (Math.random() - 0.5) * 10
+
+        torus.rotation.x = Math.random() * Math.PI;
+        torus.rotation.y = Math.random() * Math.PI;
+
+        const randomScale = Math.random() * 2;
+        torus.scale.set(randomScale, randomScale, randomScale)
+        scene.add(torus)
+      }
     })
 
     /**
  * Base
  */
-    // Debug
-    const gui = new GUI()
 
     // Canvas
     const canvas = document.querySelector('.canvas')
@@ -41,10 +76,7 @@ function Text3D() {
     // Scene
     const scene = new THREE.Scene()
 
-    /**
-     * Textures
-     */
-    const textureLoader = new THREE.TextureLoader()
+
 
     /**
      * Object
