@@ -32,6 +32,10 @@ function ThreeMain() {
     {
       to: 'materials',
       text: 'Materials'
+    },
+    {
+      to : 'text3d',
+      text : '3D Text'
     }
   ]
 

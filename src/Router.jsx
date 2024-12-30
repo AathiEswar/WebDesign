@@ -31,6 +31,7 @@ import DynamicMain from './components/transitions/transition-dynamic-template/Dy
 import DynamicPage2 from './components/transitions/transition-dynamic-template/DynamicPage2.jsx';
 import DynamicTransitionContext from './components/transitions/transition-dynamic-template/DynamicTransitionContext.jsx';
 import Materials from './components/threejs/Materials.jsx';
+import Text3D from './components/threejs/theCube/Text3D.jsx';
 
 function RouterApp() {
   const location = useLocation();
@@ -62,6 +63,7 @@ function RouterApp() {
           <Route path="/threejs/fleet" element={<FleetStudioMain />} />
           <Route path="/threejs/textures" element={<Textures />} />
           <Route path="/threejs/materials" element={<Materials/>} />
+          <Route path="/threejs/text3d" element={<Text3D/>} />
           <Route path="/threejs/fleet/fleetlogo" element={<FleetLogo />} />
           
           <Route path="/r3f" element={<R3F />} />

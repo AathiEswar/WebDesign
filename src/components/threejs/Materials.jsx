@@ -63,12 +63,34 @@ function Materials() {
     // gradientTexture.magFilter = THREE.NearestFilter;
     // material.gradientMap = gradientTexture;
 
-    // MESH STANDARD MATERIAL ( Uses PBR and the standard with all props enabled )
-    const material = new THREE.MeshStandardMaterial();
+    // // MESH STANDARD MATERIAL ( Uses PBR and the standard with all props enabled )
+    // const material = new THREE.MeshStandardMaterial();
+    // material.metalness = 1;
+    // material.roughness = 1;
+    // // texture 
+    // material.map = colorTexture
+    // // light ambient places
+    // material.aoMap = ambientTexture
+    // // displacement
+    // material.displacementMap = heightTexture
+    // material.displacementScale = 0.1
+    // // metalness
+    // material.metalnessMap = metalTexture;
+    // // roughness
+    // material.roughnessMap = roughTexture;
+    // // normal ( fake shadows and depth )
+    // material.normalMap = normalTexture
+    // // alpha and transparent
+    // material.transparent = true;
+    // material.alphaMap = alphaTexture
+
+
+    // MESH PHYSICAL MATERIAL ( Uses PBR and the standard with all props enabled )
+    const material = new THREE.MeshPhysicalMaterial();
     material.metalness = 1;
     material.roughness = 1;
     // texture 
-    material.map = colorTexture
+    // material.map = colorTexture
     // light ambient places
     material.aoMap = ambientTexture
     // displacement
@@ -82,7 +104,15 @@ function Materials() {
     material.normalMap = normalTexture
     // alpha and transparent
     material.transparent = true;
-    material.alphaMap = alphaTexture
+    // material.alphaMap = alphaTexture
+
+    // iridescene , sheer 
+    // Transmission
+
+    material.transmission = 1 ;
+    material.ior = 1.5; // index of refraction
+    material.thickness  = 0.5 
+
 
     gui.add(material, "metalness")
       .min(0)
