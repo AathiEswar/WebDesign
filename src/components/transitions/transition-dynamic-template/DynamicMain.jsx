@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
-import SimpleTransition from '../Simple/SimpleTransition'
 import { useWrapper } from './DynamicTransitionContext'
 
 function DynamicMain() {

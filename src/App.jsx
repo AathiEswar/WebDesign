@@ -15,7 +15,6 @@ import {
 } from './components/hammenu/index.jsx';
 
 import useMediaQuery from './hooks/responsive/useMediaQuery/useMediaQuery.js';
-import SimpleTransition from './components/transitions/Simple/SimpleTransition.jsx';
 
 function App() {
   const query = useMediaQuery({ queryProp: "hello" })

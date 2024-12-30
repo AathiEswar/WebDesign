@@ -5,6 +5,7 @@ import { useWrapper } from './transition-dynamic-template/DynamicTransitionConte
 import SimpleTransition from './Simple/SimpleTransition'
 import SimpleTransitionLR from './Simple-left-right/SimpleTransitionLR'
 import StaggerBlockTransition from './StaggerDiv/StaggerBlockTransition'
+import StackOverLap from './Stack/StackOverLap'
 
 function PageTransitionMain() {
   const { setTransitionType, Transition , activeButton , setActiveButton } = useWrapper()
@@ -28,6 +29,10 @@ function PageTransitionMain() {
     {
       onClickProp : StaggerBlockTransition,
       text : 'Stagger Div'
+    },
+    {
+      onClickProp : StackOverLap,
+      text : "Stack OverLap"
     }
   ]
   return (

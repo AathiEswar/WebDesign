@@ -87,14 +87,13 @@ function Textures() {
     };
 
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true; // Smooth transitions
-    controls.dampingFactor = 0.1; // Friction-like effect
-    controls.rotateSpeed = 0.7; // Rotation speed
-    controls.zoomSpeed = 0.8; // Zoom speed
+    controls.enableDamping = true; 
+    controls.dampingFactor = 0.1; 
+    controls.rotateSpeed = 0.7; 
+    controls.zoomSpeed = 0.8; 
 
-    // Animation loop
     const animate = () => {
-      controls.update(); // Required for damping effect
+      controls.update();
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     };
