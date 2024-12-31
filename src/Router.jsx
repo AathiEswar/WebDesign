@@ -32,6 +32,7 @@ import DynamicPage2 from './components/transitions/transition-dynamic-template/D
 import DynamicTransitionContext from './components/transitions/transition-dynamic-template/DynamicTransitionContext.jsx';
 import Materials from './components/threejs/Materials.jsx';
 import Text3D from './components/threejs/theCube/Text3D.jsx';
+import BasicR3FJourney from './components/R3F/BasicR3FJourney.jsx';
 
 function RouterApp() {
   const location = useLocation();
@@ -70,6 +71,7 @@ function RouterApp() {
           <Route path="/r3f/basic" element={<BasicR3F />} />
           <Route path="/r3f/random" element={<Random />} />
           <Route path="/r3f/fleetcard" element={<InsideContext><FleetCardMain /></InsideContext>} />
+          <Route path="/r3f/basicr3f" element={<BasicR3FJourney/>} />
         </Routes>
       </DynamicTransitionContext>
   )

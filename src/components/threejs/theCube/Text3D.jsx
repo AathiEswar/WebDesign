@@ -8,17 +8,17 @@ import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 function Text3D() {
   useEffect(() => {
 
+    const gui = new GUI();
     /**
     * Textures
     */
     const textureLoader = new THREE.TextureLoader()
-    const matcapTexture = textureLoader.load("/textures/matcaps/8.png");
+    const matcapTexture = textureLoader.load(`/textures/matcaps/${fontPngNum.num}.png`);
     matcapTexture.colorSpace = THREE.SRGBColorSpace
 
     // Font Loader
     const fontLoader = new FontLoader();
     // Debug
-    const gui = new GUI()
     
     fontLoader.load("/fonts/helvetiker_bold.typeface.json", (font) => {
       const textGeometry = new TextGeometry('THREE.JS', {
