@@ -20,6 +20,10 @@ function R3F() {
     {
       to: 'basicr3f',
       text: 'Basic R3F'
+    },
+    {
+      to: 'r3drei',
+      text: 'Drei'
     }
   ]
 
