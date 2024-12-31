@@ -2,7 +2,9 @@ import { Canvas, extend, useFrame, useThree } from '@react-three/fiber'
 import React, { useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import {
+  Html,
   OrbitControls,
+  Text,
   // used to enable transform props in the canvas itself ( eg blender )
   TransformControls
 } from '@react-three/drei'
@@ -35,6 +37,7 @@ function ReactThreeDrei() {
 // Some hooks of r3f only works inside Canvas
 function Model() {
   const cubeRef = useRef();
+  const sphereRef = useRef();
 
   return (
     <>
@@ -53,9 +56,18 @@ function Model() {
           {/* <OrbitControls enableZoom={false} /> */}
         </mesh>
         <TransformControls object={cubeRef} />
-        <mesh position={[-2, 0, 0]}>
+        <mesh ref={sphereRef} position={[-2, 0, 0]}>
           <sphereGeometry />
           <meshPhysicalMaterial color={"green"} />
+          <Html
+            position={[1, 1, 1]}
+            wrapperClass='text-red-300 bg-black p-10 rounded-[20%]'
+            center
+            distanceFactor={10}
+            occlude={[cubeRef, sphereRef]}
+          >
+            2D Text
+          </Html>
         </mesh>
         <mesh scale={10} rotation-x={-Math.PI * 0.5} position={[0, -1, 0]}>
           <planeGeometry />
@@ -64,6 +76,7 @@ function Model() {
           />
         </mesh>
       </group>
+        <Text fontSize={1}>This is Great <meshNormalMaterial/></Text>
     </>
   )
 }
