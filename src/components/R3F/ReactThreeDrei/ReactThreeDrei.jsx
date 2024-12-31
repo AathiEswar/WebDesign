@@ -2,12 +2,15 @@ import { Canvas, extend, useFrame, useThree } from '@react-three/fiber'
 import React, { useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import {
+  Float,
   Html,
+  MeshReflectorMaterial,
   OrbitControls,
   Text,
   // used to enable transform props in the canvas itself ( eg blender )
   TransformControls
 } from '@react-three/drei'
+import { Perf } from 'r3f-perf'
 
 function ReactThreeDrei() {
   const cameraSettings = {
@@ -17,7 +20,7 @@ function ReactThreeDrei() {
     position: [0, 1, 5]
   }
   return (
-    <div className='h-screen w-screen'>
+    <div className='h-screen w-screen bg-yellow-100'>
       <Canvas
         // device pixel ratio
         dpr={[1, 2]}
@@ -41,6 +44,8 @@ function Model() {
 
   return (
     <>
+      <Perf position='top-left'/>
+
       {/* make default let other helpers access it and stop it when needed */}
       <OrbitControls makeDefault />
       <directionalLight position={[1, 1, 1]} intensity={10} />
@@ -71,12 +76,28 @@ function Model() {
         </mesh>
         <mesh scale={10} rotation-x={-Math.PI * 0.5} position={[0, -1, 0]}>
           <planeGeometry />
-          <meshPhysicalMaterial color={"blue"}
-          // side={THREE.DoubleSide}
-          />
+          {/* makes a plane more reflecting  */}
+          <MeshReflectorMaterial mirror={1} resolution={1024}/>
         </mesh>
       </group>
-        <Text fontSize={1}>This is Great <meshNormalMaterial/></Text>
+
+      <Float 
+        speed={10}
+        floatIntensity={5}
+      >
+        <Text
+          position={[0, 3, 0]}
+          fontSize={1}
+          maxWidth={4}
+          textAlign='center'
+        >
+          THREE.JS IS BEST
+          <meshStandardMaterial
+            color={"green"}
+          />
+
+        </Text>
+      </Float>
     </>
   )
 }
