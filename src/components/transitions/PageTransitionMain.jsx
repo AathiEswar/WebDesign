@@ -46,7 +46,7 @@ function PageTransitionMain() {
         <h1>
           TYPES OF PAGE TRANSITIONS 
         </h1>
-        <div className='flex flex-wrap'>
+        <div className='flex flex-wrap gap-4  '>
           {
             buttonProps.map((buttonProp, index) => (
               <button

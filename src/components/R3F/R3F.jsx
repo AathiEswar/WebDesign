@@ -24,6 +24,10 @@ function R3F() {
     {
       to: 'r3drei',
       text: 'Drei'
+    },
+     {
+      to: 'mouseCanvas',
+      text: 'Mouse Follow'
     }
   ]
 
