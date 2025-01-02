@@ -28,6 +28,10 @@ function R3F() {
      {
       to: 'mouseCanvas',
       text: 'Mouse Follow'
+    },
+    {
+      to : 'envandstag',
+      text : "Environment and Stagging"
     }
   ]
 
