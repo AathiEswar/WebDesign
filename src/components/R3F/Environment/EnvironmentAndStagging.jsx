@@ -8,6 +8,9 @@ import * as THREE from 'three'
 // We should mention which object should caste and receive shadow
 // Enable shadows in canvas
 
+//Acumulative Shadows 
+// Contact Shadows
+
 function EnvironmentAndStagging() {
 
   function onCreate(state) {

@@ -6,6 +6,7 @@ import SimpleTransition from './Simple/SimpleTransition'
 import SimpleTransitionLR from './Simple-left-right/SimpleTransitionLR'
 import StaggerBlockTransition from './StaggerDiv/StaggerBlockTransition'
 import StackOverLap from './Stack/StackOverLap'
+import DennisPortfolio from './DennisPortfolio/DennisPortfolio'
 
 function PageTransitionMain() {
   const { setTransitionType, Transition , activeButton , setActiveButton } = useWrapper()
@@ -33,6 +34,10 @@ function PageTransitionMain() {
     {
       onClickProp : StackOverLap,
       text : "Stack OverLap"
+    },
+    {
+      onClickProp : DennisPortfolio,
+      text : "Dennis Portfolio"
     }
   ]
   return (
