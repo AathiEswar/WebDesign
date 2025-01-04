@@ -8,7 +8,6 @@ const anim = (variants) => ({
   variants
 })
 
-
 function DennisPortfolio({ children }) {
 
   const opacity = {
@@ -42,7 +41,6 @@ const SVGMask = () => {
                        C${innerWidth},${innerHeight + 300} ${innerWidth / 2},${innerHeight + 600} 0,${innerHeight + 300}
                        Z
                        `
-
   const finalPath = `M0 300 C0,300 ${innerWidth / 2},300 ${innerWidth},300 
                        L${innerWidth},${innerHeight} 
                        C${innerWidth},${innerHeight} ${innerWidth / 2},${innerHeight} 0,${innerHeight}
@@ -90,8 +88,7 @@ const SVGMask = () => {
   return (
     <motion.svg {...anim(slide)}
       className='w-screen fixed  left-0 pointer-events-none'
-      style={{ height: "calc(100vh + 600px)" }}
-    >
+      style={{ height: "calc(100vh + 600px)" }}>
       <motion.path {...anim(curve)} ></motion.path>
     </motion.svg>
   )

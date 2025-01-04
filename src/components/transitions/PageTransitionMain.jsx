@@ -7,9 +7,10 @@ import SimpleTransitionLR from './Simple-left-right/SimpleTransitionLR'
 import StaggerBlockTransition from './StaggerDiv/StaggerBlockTransition'
 import StackOverLap from './Stack/StackOverLap'
 import DennisPortfolio from './DennisPortfolio/DennisPortfolio'
+import Elementis from './Elementis/Elementis'
 
 function PageTransitionMain() {
-  const { setTransitionType, Transition , activeButton , setActiveButton } = useWrapper()
+  const { setTransitionType, Transition, activeButton, setActiveButton } = useWrapper()
 
   const links = [
     {
@@ -28,16 +29,20 @@ function PageTransitionMain() {
       text: "Left To Right"
     },
     {
-      onClickProp : StaggerBlockTransition,
-      text : 'Stagger Div'
+      onClickProp: StaggerBlockTransition,
+      text: 'Stagger Div'
     },
     {
-      onClickProp : StackOverLap,
-      text : "Stack OverLap"
+      onClickProp: StackOverLap,
+      text: "Stack OverLap"
     },
     {
-      onClickProp : DennisPortfolio,
-      text : "Dennis Portfolio"
+      onClickProp: DennisPortfolio,
+      text: "Dennis Portfolio"
+    },
+    {
+      onClickProp: Elementis,
+      text: "Elementis"
     }
   ]
   return (
@@ -49,7 +54,7 @@ function PageTransitionMain() {
           })
         }
         <h1>
-          TYPES OF PAGE TRANSITIONS 
+          TYPES OF PAGE TRANSITIONS
         </h1>
         <div className='flex flex-wrap gap-4  '>
           {
