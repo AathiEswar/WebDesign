@@ -38,8 +38,8 @@ function Elementis({ children }) {
     }),
   }
   return (
-    <div className='h-screen w-screen'>
-      <div className='h-full w-full flex flex-col fixed top-0 left-0 pointer-events-none z-50'>
+    <>
+      <div className='h-screen w-full flex flex-col fixed top-0 left-0 pointer-events-none z-50'>
         {
           Array.from({ length: divCount }).map((_, index) => {
             return (
@@ -56,7 +56,7 @@ function Elementis({ children }) {
         }
       </div>
       {children}
-    </div>
+    </>
   )
 }
 

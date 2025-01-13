@@ -1,5 +1,5 @@
-import { BakeShadows, OrbitControls, SoftShadows, useHelper } from '@react-three/drei';
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Environment, BakeShadows, OrbitControls, Sky, SoftShadows, useHelper, Lightformer } from '@react-three/drei';
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Perf } from 'r3f-perf';
 import React, { useRef } from 'react'
 import { MeshStandardMaterial } from 'three';
@@ -10,6 +10,14 @@ import * as THREE from 'three'
 
 //Acumulative Shadows 
 // Contact Shadows
+
+// SKY - Real sky with real physics , use Sphere co-ordinates for sun and change to vector 3
+
+// Environment : 
+// [] -> 6 sides texture for light and background
+// HDRI -> one image for accurate texture light and background
+// mesh -> adds a mesh that adds as light and texture 
+// ground -> adds the depth to the background with prespective
 
 function EnvironmentAndStagging() {
 
@@ -48,14 +56,33 @@ function Model() {
   useFrame((state, delta) => {
     cubeRef.current.rotation.y += delta * Math.PI * 0.3
   })
+
+  // const scene = useThree((state) => state.scene)
+
+  // scene.environmentIntensity = 10;
   return (
     <>
       <Perf position='top-left' />
       {/* tells the renderer to calculate shadows only once and use it for every frame in matcap */}
       <BakeShadows />
       <SoftShadows samples={25} size={5} focus={0} />
+      {/* <Sky/> */}
 
-      <directionalLight
+      <Environment background>
+        <color args={["#000000"]} attach='background' />
+        {/* <mesh scale={10} position={[0, 0, -5]}>
+          <planeGeometry />
+          <meshBasicMaterial color={ [100,0,0] } />
+        </mesh> */}
+        <Lightformer 
+          position={[0,0,-3]}
+          scale={10}
+          color={"red"}
+          intensity={10}
+        />
+      </Environment>
+
+      {/* <directionalLight
         // access properties of native object with props and '-'
         shadow-mapSize={[1024, 1024]}
         shadow-camera-top={1}
@@ -67,7 +94,7 @@ function Model() {
         castShadow position={[0, 1, 1]}
         intensity={4.5}
         ref={lightRef} />
-      <ambientLight intensity={3.5} />
+      <ambientLight intensity={3.5} /> */}
 
       <OrbitControls />
 

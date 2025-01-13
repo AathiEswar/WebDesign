@@ -36,50 +36,56 @@ import BasicR3FJourney from './components/R3F/BasicR3FJourney.jsx';
 import ReactThreeDrei from './components/R3F/ReactThreeDrei/ReactThreeDrei.jsx';
 import MouseFollowCanvas from './components/R3F/experimental/MouseFollowCanvas.jsx';
 import EnvironmentAndStagging from './components/R3F/Environment/EnvironmentAndStagging.jsx';
+import DennisPortfolio from './components/transitions/DennisPortfolio/DennisPortfolio.jsx';
+import PageTransition from './avent-ui/page-transition/PageTransitionWrapper.jsx';
+import StaggerBlockTransition from './components/transitions/StaggerDiv/StaggerBlockTransition.jsx';
 
 function RouterApp() {
   const location = useLocation();
   return (
-      <DynamicTransitionContext>
-        <Routes location={location} key={location.pathname}>
-          <Route index element={<App />} />
-          <Route path="/3dmodels" element={<MainModels />} />
-          <Route path="/3dmodels/donut" element={<DonutMain />} />
-          <Route path="/3dmodels/drag" element={<Drag3D />} />
-          <Route path="/3dmodels/follow" element={<MouseFollow />} />
-          <Route path="/3dmodels/scroll" element={<ScrollGesture />} />
-          <Route path="/3dmodels/waveshader" element={<WaveShader />} />
+    // <DynamicTransitionContext>
+    <PageTransition TransitionProp={StaggerBlockTransition}>
 
-          <Route path="/3dmodels/donuts" element={<DonutsMain />} />
-          <Route path="/page-transitions" element={<PageTransitionMain />} />
-          <Route path='/page-transitions/:transition' element={<DynamicMain />} key={location.pathname}></Route>
-          <Route path="/page-transitions/:transition/page/1" element={<DynamicPage />} />
-          <Route path="/page-transitions/:transition/page/2" element={<DynamicPage2 />} />
+      <Routes location={location} key={location.pathname}>
+        <Route index element={<App />} />
+        <Route path="/3dmodels" element={<MainModels />} />
+        <Route path="/3dmodels/donut" element={<DonutMain />} />
+        <Route path="/3dmodels/drag" element={<Drag3D />} />
+        <Route path="/3dmodels/follow" element={<MouseFollow />} />
+        <Route path="/3dmodels/scroll" element={<ScrollGesture />} />
+        <Route path="/3dmodels/waveshader" element={<WaveShader />} />
 
-          <Route path="/buttons" element={<ScrollMain />} />
-          <Route path="/buttons/zoom-parallax" element={<ZoomParallax />} />
+        <Route path="/3dmodels/donuts" element={<DonutsMain />} />
+        <Route path="/page-transitions" element={<PageTransitionMain />} />
+        <Route path='/page-transitions/:transition' element={<DynamicMain />} key={location.pathname}></Route>
+        <Route path="/page-transitions/:transition/page/1" element={<DynamicPage />} />
+        <Route path="/page-transitions/:transition/page/2" element={<DynamicPage2 />} />
 
-          <Route path="/threejs" element={<ThreeMain />} />
-          <Route path="/threejs/thecube" element={<TheCube />} />
-          <Route path="/threejs/animatecube" element={<AnimationCube />} />
-          <Route path="/threejs/mousecube" element={<MouseMove />} />
-          <Route path="/threejs/orbit" element={<OrbitCtrl />} />
-          <Route path="/threejs/fleet" element={<FleetStudioMain />} />
-          <Route path="/threejs/textures" element={<Textures />} />
-          <Route path="/threejs/materials" element={<Materials/>} />
-          <Route path="/threejs/text3d" element={<Text3D/>} />
-          <Route path="/threejs/fleet/fleetlogo" element={<FleetLogo />} />
-          
-          <Route path="/r3f" element={<R3F />} />
-          <Route path="/r3f/basic" element={<BasicR3F />} />
-          <Route path="/r3f/random" element={<Random />} />
-          <Route path="/r3f/fleetcard" element={<InsideContext><FleetCardMain /></InsideContext>} />
-          <Route path="/r3f/basicr3f" element={<BasicR3FJourney/>} />
-          <Route path="/r3f/r3drei" element={<ReactThreeDrei/>} />
-          <Route path="/r3f/mouseCanvas" element={<MouseFollowCanvas/>} />
-          <Route path="/r3f/envandstag" element={<EnvironmentAndStagging/>} />
-        </Routes>
-      </DynamicTransitionContext>
+        <Route path="/buttons" element={<ScrollMain />} />
+        <Route path="/buttons/zoom-parallax" element={<ZoomParallax />} />
+
+        <Route path="/threejs" element={<ThreeMain />} />
+        <Route path="/threejs/thecube" element={<TheCube />} />
+        <Route path="/threejs/animatecube" element={<AnimationCube />} />
+        <Route path="/threejs/mousecube" element={<MouseMove />} />
+        <Route path="/threejs/orbit" element={<OrbitCtrl />} />
+        <Route path="/threejs/fleet" element={<FleetStudioMain />} />
+        <Route path="/threejs/textures" element={<Textures />} />
+        <Route path="/threejs/materials" element={<Materials />} />
+        <Route path="/threejs/text3d" element={<Text3D />} />
+        <Route path="/threejs/fleet/fleetlogo" element={<FleetLogo />} />
+
+        <Route path="/r3f" element={<R3F />} />
+        <Route path="/r3f/basic" element={<BasicR3F />} />
+        <Route path="/r3f/random" element={<Random />} />
+        <Route path="/r3f/fleetcard" element={<InsideContext><FleetCardMain /></InsideContext>} />
+        <Route path="/r3f/basicr3f" element={<BasicR3FJourney />} />
+        <Route path="/r3f/r3drei" element={<ReactThreeDrei />} />
+        <Route path="/r3f/mouseCanvas" element={<MouseFollowCanvas />} />
+        <Route path="/r3f/envandstag" element={<EnvironmentAndStagging />} />
+      </Routes>
+    </PageTransition>
+    // </DynamicTransitionContext>
   )
 }
 

@@ -13,15 +13,19 @@ function DynamicTransitionContext({ children }) {
   const [activeButton, setActiveButton] = useState(0)
   const setTransitionType = (wrapper) => setTransition(() => wrapper)
 
+  console.log(children)
+
   return (
     <WrapperContext.Provider value={{
       Transition,
       setTransitionType,
-      activeButton, 
+      activeButton,
       setActiveButton
     }}>
       <AnimatePresence mode="wait">
-        {children}
+        {React.Children.map(children, (child) => (
+          <Transition>{child}</Transition>
+        ))}
       </AnimatePresence>
     </WrapperContext.Provider>
   )

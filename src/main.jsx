@@ -38,11 +38,9 @@ import RouterApp from './Router.jsx';
 
 const AppRouter = () => (
   <BrowserRouter>
-    <AnimatePresence mode='wait'>
-      <Routes>
-        <Route path="/*" element={<RouterApp />} /> 
-      </Routes>
-    </AnimatePresence>
+    <Routes>
+      <Route path="/*" element={<RouterApp />} />
+    </Routes>
   </BrowserRouter>
 );
 

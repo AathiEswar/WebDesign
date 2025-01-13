@@ -43,3 +43,6 @@
 * Tailwind tw conflict merge with optimizer using Tailwind variants and clsx
 
 * Dark mode and light mode switch/theme
+
+* Page Transition -> Pass Page transition composite component to context and add Transition to the pages that needs them ?
+  - Only pass context and all page auto have transition from router ?
