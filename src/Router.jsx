@@ -39,13 +39,13 @@ import EnvironmentAndStagging from './components/R3F/Environment/EnvironmentAndS
 import DennisPortfolio from './components/transitions/DennisPortfolio/DennisPortfolio.jsx';
 import PageTransition from './avent-ui/page-transition/PageTransitionWrapper.jsx';
 import StaggerBlockTransition from './components/transitions/StaggerDiv/StaggerBlockTransition.jsx';
+import LoadModles from './components/R3F/newModels/LoadModles.jsx';
 
 function RouterApp() {
   const location = useLocation();
   return (
-    // <DynamicTransitionContext>
-    <PageTransition TransitionProp={StaggerBlockTransition}>
-
+    <DynamicTransitionContext>
+    {/* <PageTransition TransitionProp={StaggerBlockTransition}> */}
       <Routes location={location} key={location.pathname}>
         <Route index element={<App />} />
         <Route path="/3dmodels" element={<MainModels />} />
@@ -83,9 +83,10 @@ function RouterApp() {
         <Route path="/r3f/r3drei" element={<ReactThreeDrei />} />
         <Route path="/r3f/mouseCanvas" element={<MouseFollowCanvas />} />
         <Route path="/r3f/envandstag" element={<EnvironmentAndStagging />} />
+        <Route path="/r3f/load-models" element={<LoadModles />} />
       </Routes>
-    </PageTransition>
-    // </DynamicTransitionContext>
+    {/* </PageTransition> */}
+    </DynamicTransitionContext>
   )
 }
 

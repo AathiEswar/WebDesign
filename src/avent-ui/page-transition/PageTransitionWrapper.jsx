@@ -6,6 +6,7 @@ const PageTransitionContext = createContext();
 const usePageTransitionContext = () => useContext(PageTransitionContext);
 
 const PageTransition = ({ children, TransitionProp }) => {
+  console.log(TransitionProp);
   return (
     <PageTransitionContext.Provider value={{}}>
       <AnimatePresence mode="wait">

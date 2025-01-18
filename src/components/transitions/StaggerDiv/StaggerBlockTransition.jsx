@@ -5,8 +5,7 @@ function StaggerBlockTransition({ children }) {
   const staggerDivCount = 10
   const ease = [0.22, 1, 0.36, 1]
   return (
-    <>
-      {children}
+    <> 
       <div className='flex'>
         {
           Array.from({ length: staggerDivCount }).map((_, index) => (
@@ -23,6 +22,7 @@ function StaggerBlockTransition({ children }) {
           ))
         }
       </div>
+      {children}
       <div className='flex'>
         {
           Array.from({ length: staggerDivCount }).map((_, index) => (

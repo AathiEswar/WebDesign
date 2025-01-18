@@ -32,6 +32,10 @@ function R3F() {
     {
       to : 'envandstag',
       text : "Environment and Stagging"
+    },
+     {
+      to : 'load-models',
+      text : "Model Loading"
     }
   ]
 
