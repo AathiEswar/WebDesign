@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import { Clone, OrbitControls, useAnimations, useGLTF } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
 import { Canvas } from '@react-three/fiber'
@@ -6,6 +6,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 import { useLoader } from '@react-three/fiber'
 import PlaceHolder from '../PlaceHolder'
+import { useControls } from 'leva'
 /* 
  Loaders : 
     1. UseLoader - helper from react three drei
@@ -23,7 +24,10 @@ import PlaceHolder from '../PlaceHolder'
 
 
     Animations : 
-    1. useAnimations - to manipulate animations of the 3d models
+    1. useAnimations - to manipulate animations of the 3d models ( use it to get the animation object , get the action from it , use the controls)
+    2. crossFadeFrom - transition from one action to another in smooth manner
+    3. fadeIn/fadeOut - to move into / move out of an animation 
+    # Every animation has different instance , so we need to clean them up seperately  # 
 */
 
 function LoadModles() {
@@ -71,7 +75,29 @@ function Model() {
 
 function FoxModel() {
   const model = useGLTF("/models/Fox/glTF/Fox.gltf")
-  const foxAnim = useAnimations(model.animations , model.scene)
+  const foxAnim = useAnimations(model.animations, model.scene)
+  console.log(foxAnim);
+  const { animationFox } = useControls({
+    animationFox: { options: foxAnim.names }
+  })
+
+  useEffect(() => {
+
+    const foxAction = foxAnim.actions[animationFox];
+    foxAction.reset().fadeIn(0.5).play()
+
+    // const crossFadeTimeOut = window.setTimeout(()=>{
+    //   foxAnim.actions.Walk.play();
+    //   foxAnim.actions.Walk.crossFadeFrom(foxAnim.actions.Run , 2)
+    // } , 5000)
+
+    // return () => {
+    //   clearTimeout(crossFadeTimeOut)
+    // }
+    return () => {
+      foxAction.fadeOut(0.5)
+    }
+  }, [animationFox])
   return (
     <>
       <primitive object={model.scene} scale={0.03} position={[0, 0, 3]} />
