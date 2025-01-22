@@ -40,6 +40,7 @@ import DennisPortfolio from './components/transitions/DennisPortfolio/DennisPort
 import PageTransition from './avent-ui/page-transition/PageTransitionWrapper.jsx';
 import StaggerBlockTransition from './components/transitions/StaggerDiv/StaggerBlockTransition.jsx';
 import LoadModles from './components/R3F/newModels/LoadModles.jsx';
+import ThreeDText from './components/R3F/3dText/ThreeDText.jsx';
 
 function RouterApp() {
   const location = useLocation();
@@ -84,6 +85,7 @@ function RouterApp() {
         <Route path="/r3f/mouseCanvas" element={<MouseFollowCanvas />} />
         <Route path="/r3f/envandstag" element={<EnvironmentAndStagging />} />
         <Route path="/r3f/load-models" element={<LoadModles />} />
+        <Route path="/r3f/three-d-text" element={<ThreeDText/>} />
       </Routes>
     {/* </PageTransition> */}
     </DynamicTransitionContext>

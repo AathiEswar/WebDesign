@@ -36,6 +36,10 @@ function R3F() {
      {
       to : 'load-models',
       text : "Model Loading"
+    },
+    {
+      to : 'three-d-text',
+      text : "3D Text"
     }
   ]
 
