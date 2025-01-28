@@ -7,6 +7,7 @@ const StyledHamMenu = styled.button`
 	right: 0;
 	top: 0; 
 	margin: 20px;
+	margin-top : 100px; 
 	height: 80px;
 	width: 80px;
 	border-radius: 50%;

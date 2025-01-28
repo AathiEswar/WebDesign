@@ -16,30 +16,16 @@ import {
 } from './components/hammenu/index.jsx';
 
 import useMediaQuery from './hooks/responsive/useMediaQuery/useMediaQuery.js';
+import ExpandMenu from './components/awards-expand-menu/ExpandMenu.jsx';
 
 function App() {
   const query = useMediaQuery({ queryProp: "hello" })
-
-  const handleLoad = (spline) => {
-    // Ensure the spline scene is properly loaded
-    console.log("spline:" , spline);
-    try {
-      const controls = spline.scene.getControl(); // Get camera controls
-      if (controls) {
-        controls.enableZoom = false; // Disable zoom
-      } else {
-        console.error("Controls object is unavailable.");
-      }
-    } catch (error) {
-      console.error("Error accessing scene controls:", error);
-    }
-  };
 
   return (
     <>
       <section className={`${styles.body} `}>
         <HamMenu>
-          <HamMenuBurger />
+          <HamMenuBurger className="right-[150px]"/>
           <HamMenuBar>
 
             <HamMenuTitle>Navigation</HamMenuTitle>
@@ -76,14 +62,15 @@ function App() {
         </p>
       </Magneto> */}
 
-        <main>
+        {/* <main className='w-screen h-screen'>
           <Spline
-            scene="https://prod.spline.design/3bqFNwedkW6Pq86w/scene.splinecode"
+            scene="https://prod.spline.design/Z9eKZC4KAvXGNoXn/scene.splinecode"
 
           />
+        </main> */}
           <div className='bg-white absolute bottom-[-10px] right-4 w-60 h-20'></div>
-        </main>
 
+        <ExpandMenu/>
 
       </section>
     </>

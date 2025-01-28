@@ -4,7 +4,7 @@ import { Perf } from 'r3f-perf'
 import React, { useEffect, useRef, useState } from 'react'
 import * as THREE from 'three';
 
-const geometry = new THREE.TorusGeometry(1,0.6,16,32)
+const geometry = new THREE.TorusGeometry(1, 0.6, 16, 32)
 const material = new THREE.MeshMatcapMaterial()
 
 function ThreeDText() {
@@ -28,13 +28,13 @@ function Model() {
 
   const donutRef = useRef([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     material.matcap = matcapTexture;
     material.needsUpdate = true;
-  },[])
+  }, [])
 
-  useFrame((state , delta) =>{
-    for(const donut of donutRef.current){
+  useFrame((state, delta) => {
+    for (const donut of donutRef.current) {
       donut.rotation.y += delta * 0.3
     }
   })
@@ -69,7 +69,7 @@ function Model() {
             (Math.random() - 0.5) * 10
           ]}
 
-            ref={(donut)=> donutRef.current[index] = donut}
+            ref={(donut) => donutRef.current[index] = donut}
 
             rotation={[
               Math.random() * Math.PI,
