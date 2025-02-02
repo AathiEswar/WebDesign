@@ -1,7 +1,7 @@
-import React, { Suspense, useEffect } from 'react'
-import { Clone, OrbitControls, useAnimations, useGLTF } from '@react-three/drei'
+import React, { Suspense, useEffect, useRef } from 'react'
+import { Clone, Environment, OrbitControls, useAnimations, useGLTF } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 import { useLoader } from '@react-three/fiber'
@@ -38,7 +38,7 @@ function LoadModles() {
           position: [0, 3, 6]
         }}
       >
-        <color args={["ivory"]} attach={"background"} />
+        <color args={["black"]} attach={"background"} />
         <Model />
       </Canvas>
     </div>
@@ -51,23 +51,31 @@ function Model() {
   return (
     <>
 
-      <Perf position="top-left" />
+      {/* <Perf position="top-left" /> */}
 
-      <OrbitControls makeDefault />
+      <OrbitControls
+        enableZoom={false} // Keep zoom enabled if needed
+        enablePan={false} // Disable panning if not required
+        minPolarAngle={Math.PI / 2} // Lock vertical movement
+        maxPolarAngle={Math.PI / 2} // Lock vertical movement
+      />
+      <Environment preset="forest" /> {/* Adds realistic reflections */}
 
-      <directionalLight castShadow position={[1, 1, 3]} intensity={4.5} />
+
+      <directionalLight castShadow position={[0, 0, 3]} intensity={7} color="green" />
       <ambientLight intensity={1.5} />
 
       <Suspense fallback={<PlaceHolder scale={[2, 3, 2]} position={[0, 2, 0]} />}>
-        <HelmetModel />
-        <FoxModel />
+        {/* <HelmetModel />
+        <FoxModel /> */}
+        <Logo />
       </Suspense>
 
 
-      <mesh receiveShadow position-y={0} rotation-x={- Math.PI * 0.5} scale={10}>
+      {/* <mesh receiveShadow position-y={0} rotation-x={- Math.PI * 0.5} scale={10}>
         <planeGeometry />
         <meshPhysicalMaterial color="greenyellow" />
-      </mesh>
+      </mesh> */}
 
     </>
   )
@@ -128,3 +136,41 @@ function HelmetModel() {
 useGLTF.preload('/models/FlightHelmet/glTF/FlightHelmet.gltf');
 
 export default LoadModles
+
+
+export function Logo(props) {
+  const { nodes, materials } = useGLTF('/models/model.gltf')
+  const meshRef = useRef();
+
+  useFrame(({ pointer }) => {
+    if (meshRef.current) {
+      // Rotate based on mouse movement
+      // meshRef.current.rotation.x = pointer.y * -0.5; // Adjust tilt up/down
+      meshRef.current.rotation.y = pointer.x * 0.5; // Adjust tilt left/right
+    }
+  });
+
+  return (
+    <group {...props} dispose={null} position={[0, 0, 0]} scale={5} rotation-y={Math.PI * 0.5} 
+    // rotation-x={Math.PI * -0.1}
+    >
+      <mesh
+        ref={meshRef}
+        receiveShadow
+        geometry={nodes['tripo_node_110ac5ce-d42b-4bc0-8254-40f1258a77a1'].geometry}
+      // material={materials['tripo_mat_110ac5ce-d42b-4bc0-8254-40f1258a77a1']}
+      >
+        {/* <meshStandardMaterial metalness={1} roughness={0.2} color="silver" /> */}
+        <meshPhysicalMaterial
+          metalness={0.9}
+          roughness={0}
+          color="silver"
+          clearcoat={1} // Adds a glossy layer
+          reflectivity={1} // Maximizes reflectivity
+        />
+      </mesh>
+    </group>
+  )
+}
+
+useGLTF.preload('/models/model.gltf')

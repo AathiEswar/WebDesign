@@ -25,7 +25,7 @@ function App() {
     <>
       <section className={`${styles.body} `}>
         <HamMenu>
-          <HamMenuBurger className="right-[150px]"/>
+          <HamMenuBurger/>
           <HamMenuBar>
 
             <HamMenuTitle>Navigation</HamMenuTitle>
