@@ -54,6 +54,7 @@ function App() {
           <Link className={`${styles.navButtons} page-transitions`} to={`page-transitions`}>Page Transitions</Link>
           <Link className={`${styles.navButtons} scrollAni`} to={`threejs`}>Three Js</Link>
           <Link className={`${styles.navButtons} scrollAni`} to={`r3f`}>R3F</Link>
+          <Link className={`${styles.navButtons} scrollAni`} to={`scroll`}>Scroll</Link>
         </div>
 
         {/* <Magneto className={`${styles.magnetButton} absolute top-[50%] left-[50%]`} amplitudex={1} amplitudey={1} periodx={0.1} periody={0.1}>

@@ -1,0 +1,80 @@
+.hg-body {
+	::-webkit-scrollbar{
+		display: none;
+	}
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	.hg-slider {
+		width: 100%;
+		height: 100vh;
+		overflow: hidden;
+		.hg-slider-wrapper {
+			position: absolute;
+			display: flex;
+			top: 0;
+			width: 6000px;
+			width: max-content; // Ensures it stretches with dynamic content
+
+			// padding: 0 100px;
+			height: 100vh;
+			align-items: center;
+			gap: 100px;
+			overflow: hidden;
+			white-space: nowrap; // Prevents wrapping
+
+			.hg-slide {
+				flex-shrink: 0; // Ensures slides don’t shrink
+
+				width: 400px;
+				height: 500px;
+				background: #f7f7f7;
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					pointer-events: none; // Prevents accidental drag scrolling
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.hg-body {
+		.hg-slider {
+			.hg-slider-wrapper {
+				.hg-slide {
+					img {
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.hg-body {
+		.hg-slider {
+			.hg-slider-wrapper {
+				.hg-slide {
+					img {
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 425px) {
+	.hg-body {
+		.hg-slider {
+			.hg-slider-wrapper {
+				.hg-slide {
+					img {
+					}
+				}
+			}
+		}
+	}
+}

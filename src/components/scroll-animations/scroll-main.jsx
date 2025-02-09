@@ -6,6 +6,10 @@ function ScrollMain() {
     {
       to: 'zoom-parallax',
       text: 'Zoom Parallax'
+    },
+    {
+      to : "horizontal-gallery",
+      text : "Horizontal Gallery"
     }
   ]
   return (
@@ -15,6 +19,7 @@ function ScrollMain() {
           return (<Link className={`${styles.navButtons}`} to={link.to}>{link.text}</Link>)
         })
       }
+      <Outlet/>
     </div>
   )
 }

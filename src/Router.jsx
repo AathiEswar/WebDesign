@@ -41,12 +41,13 @@ import PageTransition from './avent-ui/page-transition/PageTransitionWrapper.jsx
 import StaggerBlockTransition from './components/transitions/StaggerDiv/StaggerBlockTransition.jsx';
 import LoadModles from './components/R3F/newModels/LoadModles.jsx';
 import ThreeDText from './components/R3F/3dText/ThreeDText.jsx';
+import HorizontalGallery from './components/scroll-animations/horizontal-gallery/HorizontalGallery.jsx';
 
 function RouterApp() {
   const location = useLocation();
   return (
     <DynamicTransitionContext>
-    {/* <PageTransition TransitionProp={StaggerBlockTransition}> */}
+      {/* <PageTransition TransitionProp={StaggerBlockTransition}> */}
       <Routes location={location} key={location.pathname}>
         <Route index element={<App />} />
         <Route path="/3dmodels" element={<MainModels />} />
@@ -62,8 +63,9 @@ function RouterApp() {
         <Route path="/page-transitions/:transition/page/1" element={<DynamicPage />} />
         <Route path="/page-transitions/:transition/page/2" element={<DynamicPage2 />} />
 
-        <Route path="/buttons" element={<ScrollMain />} />
-        <Route path="/buttons/zoom-parallax" element={<ZoomParallax />} />
+        <Route path="/scroll" element={<ScrollMain />}/>
+          <Route index path="/scroll/zoom-parallax" element={<ZoomParallax />} />
+          <Route path="/scroll/horizontal-gallery" element={<HorizontalGallery />} />
 
         <Route path="/threejs" element={<ThreeMain />} />
         <Route path="/threejs/thecube" element={<TheCube />} />
@@ -85,9 +87,10 @@ function RouterApp() {
         <Route path="/r3f/mouseCanvas" element={<MouseFollowCanvas />} />
         <Route path="/r3f/envandstag" element={<EnvironmentAndStagging />} />
         <Route path="/r3f/load-models" element={<LoadModles />} />
-        <Route path="/r3f/three-d-text" element={<ThreeDText/>} />
+        <Route path="/r3f/three-d-text" element={<ThreeDText />} />
+
       </Routes>
-    {/* </PageTransition> */}
+      {/* </PageTransition> */}
     </DynamicTransitionContext>
   )
 }
